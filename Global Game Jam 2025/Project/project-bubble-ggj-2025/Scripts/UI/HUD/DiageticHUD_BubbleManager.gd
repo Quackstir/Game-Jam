@@ -34,15 +34,15 @@ var currentJumps = 3:
 
 func _ready() -> void:
 	BubbleIndicator_1 = PREFAB_DIAGETIC_HUD_BUBBLE_JUMP_INDICATOR.instantiate()
-	Player.add_child(BubbleIndicator_1)
+	add_child(BubbleIndicator_1)
 	BubbleIndicator_1.PositionMoveTowards = Vector2(-125,0)
 	
 	BubbleIndicator_2 = PREFAB_DIAGETIC_HUD_BUBBLE_JUMP_INDICATOR.instantiate()
-	Player.add_child(BubbleIndicator_2)
+	add_child(BubbleIndicator_2)
 	BubbleIndicator_2.PositionMoveTowards = Vector2(-200,0)
 	
 	BubbleIndicator_3 = PREFAB_DIAGETIC_HUD_BUBBLE_JUMP_INDICATOR.instantiate()
-	Player.add_child(BubbleIndicator_3)
+	add_child(BubbleIndicator_3)
 	BubbleIndicator_3.PositionMoveTowards = Vector2(-275,0)
 	
 	await get_tree().create_timer(3).timeout
