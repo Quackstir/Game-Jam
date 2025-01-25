@@ -27,3 +27,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, get_gravity().y * GRAVITY_SCALE, FRICTION * delta)
 	
 	move_and_slide()
+
+
+func _on_hazard_detector_area_entered(area: Area2D) -> void:
+	print("OUCH!")
