@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxc5nomuic724"]
+[gd_scene load_steps=6 format=3 uid="uid://cxc5nomuic724"]
 
-[ext_resource type="Script" path="res://Objects/bubble_character.gd" id="1_ajysd"]
+[ext_resource type="Script" path="res://Scripts/Character/bubble_character.gd" id="1_ajysd"]
 [ext_resource type="Texture2D" uid="uid://cdrtvidtmpo6v" path="res://Art/Sprites/bubble.png" id="1_kqvtk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bcttm"]
@@ -17,7 +17,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gn3kd"]
 radius = 14.4
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xpodn"]
+radius = 64.0
+
 [node name="BubbleCharacter" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_ajysd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -28,6 +32,18 @@ sprite_frames = SubResource("SpriteFrames_bcttm")
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_gn3kd")
 
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
+
+[node name="HazardDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="HurtBox" type="CollisionShape2D" parent="HazardDetector"]
+shape = SubResource("CircleShape2D_xpodn")
+debug_color = Color(0.825595, 0, 0.128512, 0.42)
+
+[connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
+
