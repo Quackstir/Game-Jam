@@ -25,6 +25,12 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Project Bubble GGJ 2025"
 
+[layer_names]
+
+2d_render/layer_1="World"
+2d_render/layer_2="Player"
+2d_render/layer_3="Hazards"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
