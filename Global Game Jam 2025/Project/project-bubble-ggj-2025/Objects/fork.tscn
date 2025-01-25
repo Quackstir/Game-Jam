@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1syhdx6v5kuo"]
+
+[ext_resource type="Script" path="res://Objects/fork.gd" id="1_4dhab"]
+
+[node name="Fork" type="StaticBody2D"]
+position = Vector2(-16, 0)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_4dhab")
+
+[node name="ForkCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1.27156e-06, 0)
+scale = Vector2(0.641042, 1.12435)
+polygon = PackedVector2Array(33.2793, 109.1, 24.9595, 109.1, 24.9595, -66.4085, 16.6396, -80.6389, 49.9187, -118.587, 33.2792, -90.1258, 24.9594, -75.8954, 33.2792, -61.665)
+
+[node name="ForkPolygon2D" type="Polygon2D" parent="ForkCollisionPolygon2D"]
+color = Color(0.830388, 0.857398, 0.954071, 1)

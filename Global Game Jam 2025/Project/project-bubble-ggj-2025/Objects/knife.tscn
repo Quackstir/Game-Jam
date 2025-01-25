@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx2brpkej33vx"]
+
+[ext_resource type="Script" path="res://Objects/knife.gd" id="1_lo0hw"]
+
+[node name="knife" type="StaticBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_lo0hw")
+
+[node name="KnifeCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-3.94185e-05, 0)
+scale = Vector2(0.641042, 1.12435)
+polygon = PackedVector2Array(16.6395, 109.1, 41.5989, 109.1, 33.2791, 23.7173, 41.5989, 18.9738, 58.2385, 14.2304, 58.2384, -23.7173, 49.9186, -80.6389, 41.5989, -128.074, 24.9593, -147.047, 8.3197, -156.534, 8.31976, 14.2304, 16.6396, 23.7173)
+
+[node name="KnifePolygon2D" type="Polygon2D" parent="KnifeCollisionPolygon2D"]
+position = Vector2(1.03995, 0)
+color = Color(0.977521, 0.916599, 0.978132, 1)
