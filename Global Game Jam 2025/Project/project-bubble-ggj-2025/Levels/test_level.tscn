@@ -1,20 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://0yuynnimp8pu"]
+[gd_scene load_steps=4 format=3 uid="uid://0yuynnimp8pu"]
 
+[ext_resource type="Script" path="res://Scripts/Level/testfloor.gd" id="1_k7y0b"]
 [ext_resource type="PackedScene" uid="uid://cxc5nomuic724" path="res://Objects/bubble_character.tscn" id="2_3dg6i"]
 [ext_resource type="PackedScene" uid="uid://datw8a47xo6w0" path="res://Objects/test_hazard.tscn" id="3_mkqcx"]
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="Floor" type="StaticBody2D" parent="."]
-collision_mask = 0
-
 [node name="CounterTop" type="StaticBody2D" parent="."]
-position = Vector2(-1344, -24)
+position = Vector2(-1320, 544)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CounterTop"]
 position = Vector2(3.8147e-06, 0)
 scale = Vector2(0.641042, 1.12435)
 polygon = PackedVector2Array(0, 0, 1896.91, 0, 3294.63, 0, 4991.87, 0, 9384.72, 0, 11082, 0, 11082, 64.0368, 0, 64.0368)
+
+[node name="Polygon2D" type="Polygon2D" parent="CounterTop/CollisionPolygon2D"]
+script = ExtResource("1_k7y0b")
 
 [node name="BubbleCharacter" parent="." instance=ExtResource("2_3dg6i")]
 position = Vector2(568, 288)
