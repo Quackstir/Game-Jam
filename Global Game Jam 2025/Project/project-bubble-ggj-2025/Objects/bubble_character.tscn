@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxc5nomuic724"]
 
-[ext_resource type="Script" path="res://Objects/bubble_character.gd" id="1_ajysd"]
+[ext_resource type="Script" path="res://Scripts/Character/bubble_character.gd" id="1_ajysd"]
 [ext_resource type="Texture2D" uid="uid://cdrtvidtmpo6v" path="res://Art/Sprites/bubble.png" id="1_kqvtk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bcttm"]
