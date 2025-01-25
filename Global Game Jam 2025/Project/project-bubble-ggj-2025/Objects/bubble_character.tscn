@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxc5nomuic724"]
+
+[ext_resource type="Script" path="res://Objects/bubble_character.gd" id="1_ajysd"]
+[ext_resource type="Texture2D" uid="uid://cdrtvidtmpo6v" path="res://Art/Sprites/bubble.png" id="1_kqvtk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bcttm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kqvtk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gn3kd"]
+radius = 14.4
+
+[node name="BubbleCharacter" type="CharacterBody2D"]
+script = ExtResource("1_ajysd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_bcttm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_gn3kd")
