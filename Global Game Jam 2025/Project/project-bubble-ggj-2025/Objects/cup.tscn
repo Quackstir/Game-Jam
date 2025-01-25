@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ahxdgu8oonf"]
+
+[ext_resource type="Script" path="res://Objects/cup.gd" id="1_8n7ao"]
+
+[node name="Cup" type="StaticBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_8n7ao")
+
+[node name="CupCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-8.01086e-05, 0)
+scale = Vector2(0.641042, 1.12435)
+polygon = PackedVector2Array(-207.995, 61.665, 24.9594, 61.665, 41.5989, -52.1781, 49.9187, -246.66, -232.954, -246.66, -224.634, -52.1781)
+
+[node name="CupPolygon2D" type="Polygon2D" parent="CupCollisionPolygon2D"]
+color = Color(0.604955, 0.872058, 0.902005, 1)
