@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
-func _on_hazard_detector_area_entered(area: Area2D) -> void:
-	print("OUCH!")
+func _on_hazard_detector_area_entered(_area: Area2D) -> void:
+	#TODO popping animation
+	#TODO send signal for game over when player pops
+	queue_free()
