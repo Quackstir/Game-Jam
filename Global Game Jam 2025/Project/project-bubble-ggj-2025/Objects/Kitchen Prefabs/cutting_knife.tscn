@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://beadpx3hcbl6r"]
+
+[ext_resource type="PackedScene" uid="uid://dx2brpkej33vx" path="res://Objects/Kitchen Prefabs/knife.tscn" id="1_8ewjn"]
+[ext_resource type="Script" path="res://Scripts/Level/moving_hazard.gd" id="1_kufkf"]
+
+[sub_resource type="Curve2D" id="Curve2D_470i5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, -124.679, 1.25311, 124.679, -1.25311, 192, -192, 0, 0, 0, 0, 384, 0)
+}
+point_count = 3
+
+[node name="Cutting_Knife" type="Node2D"]
+position = Vector2(104, 88)
+script = ExtResource("1_kufkf")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_470i5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotation = -0.785398
+
+[node name="knife" parent="Path2D/PathFollow2D" instance=ExtResource("1_8ewjn")]
+position = Vector2(-8, 8)

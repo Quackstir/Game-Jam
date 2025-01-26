@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1ahxdgu8oonf"]
 
-[ext_resource type="Script" path="res://Objects/cup.gd" id="1_8n7ao"]
+[ext_resource type="Script" path="res://Scripts/Kitchen Prefabs/cup.gd" id="1_8n7ao"]
 
 [node name="Cup" type="StaticBody2D"]
 scale = Vector2(1.5, 1.5)

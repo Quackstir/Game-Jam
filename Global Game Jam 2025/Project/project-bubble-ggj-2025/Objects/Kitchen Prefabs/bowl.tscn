@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://gv7xfg2ehl0a"]
 
-[ext_resource type="Script" path="res://Levels/bowl.gd" id="1_cyrsg"]
+[ext_resource type="Script" path="res://Scripts/Kitchen Prefabs/bowl.gd" id="1_08av2"]
 
 [node name="Bowl" type="StaticBody2D"]
 scale = Vector2(1.5, 1.5)
-script = ExtResource("1_cyrsg")
+script = ExtResource("1_08av2")
 
 [node name="BowlCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(32, 5.33333)
