@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctoetkcuerujf"
+path="res://.godot/imported/Victory_PartyPoppers_V2 Master.mp3-6edc7600a027f7a44b4c68bce1735fc1.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Victory/Victory_PartyPoppers_V2 Master.mp3"
+dest_files=["res://.godot/imported/Victory_PartyPoppers_V2 Master.mp3-6edc7600a027f7a44b4c68bce1735fc1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
