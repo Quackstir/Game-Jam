@@ -182,6 +182,8 @@ volume_db = 1.0
 stream = ExtResource("5_cc4gn")
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_button_down"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_focus_entered"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_mouse_entered"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer2/quit" to="." method="_on_quit_button_down"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/HBoxContainer2/quit" to="." method="_on_quit_focus_entered"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer2/quit" to="." method="_on_quit_mouse_entered"]
