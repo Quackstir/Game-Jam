@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Resource_Bubble_StageContainer" load_steps=9 format=3 uid="uid://b6sqeab2ith4x"]
+
+[ext_resource type="Texture2D" uid="uid://je3iv33sjnkv" path="res://Art/Sprites/Player_Bubble/Stages/Bubble_st2/stage2_bub0006.png" id="1_um7u8"]
+[ext_resource type="Texture2D" uid="uid://dshmhvpayeywx" path="res://Art/Sprites/Player_Bubble/Stages/Bubble_st2/stage2_bub0007.png" id="2_t16a1"]
+[ext_resource type="Texture2D" uid="uid://bid7w8sg51abx" path="res://Art/Sprites/Player_Bubble/Stages/Bubble_st2/stage2_bub0008.png" id="3_7y435"]
+[ext_resource type="Texture2D" uid="uid://dtv8m4hnoyt6w" path="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubble_blink.png" id="4_aofmi"]
+[ext_resource type="Texture2D" uid="uid://cpqxr7wm7xqj6" path="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubble_glasses.png" id="5_y6iac"]
+[ext_resource type="Texture2D" uid="uid://8wqa1868tshw" path="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubble_mouth_frown.png" id="6_hs6nb"]
+[ext_resource type="Texture2D" uid="uid://e7lhjd463lnn" path="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubble_mouth_smile.png" id="7_f6udu"]
+[ext_resource type="Script" path="res://Scripts/Character/Reactions/R_BubbleCharacter_StageContainer.gd" id="8_2awho"]
+
+[resource]
+script = ExtResource("8_2awho")
+Body = Array[Texture2D]([ExtResource("1_um7u8"), ExtResource("2_t16a1"), ExtResource("3_7y435")])
+Mouth_Frown = ExtResource("6_hs6nb")
+Mouth_Smile = ExtResource("7_f6udu")
+Glasses = ExtResource("5_y6iac")
+Eyes_Blink = ExtResource("4_aofmi")

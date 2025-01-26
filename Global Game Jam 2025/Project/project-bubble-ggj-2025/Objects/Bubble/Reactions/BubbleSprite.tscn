@@ -1,22 +1,59 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxfi6tbbbi0k8"]
+[gd_scene load_steps=10 format=3 uid="uid://dxfi6tbbbi0k8"]
 
 [ext_resource type="Script" path="res://Scripts/Character/Reactions/BubbleCharacter_Reactions.gd" id="1_v745e"]
-[ext_resource type="Texture2D" uid="uid://w6mfmtcc6e0g" path="res://Art/Sprites/Player_Bubble/Bubble_st2/st2_bub0006.png" id="2_helk6"]
-[ext_resource type="Texture2D" uid="uid://mfmrphym47j2" path="res://Art/Sprites/Player_Bubble/Bubble/bubl0001.png" id="2_xuf1f"]
-[ext_resource type="Texture2D" uid="uid://deb54pnyh7v6v" path="res://Art/Sprites/Player_Bubble/Bubble/bubl0002.png" id="3_8j8he"]
-[ext_resource type="Texture2D" uid="uid://xj8ekcvxg6w7" path="res://Art/Sprites/Player_Bubble/Bubble_st2/face0006.png" id="3_mk2ua"]
-[ext_resource type="Texture2D" uid="uid://ccvu7mjcpwmux" path="res://Art/Sprites/Player_Bubble/Bubble/bubl0003.png" id="4_jip10"]
-[ext_resource type="Texture2D" uid="uid://ctjoxyocsyuie" path="res://Art/Sprites/Player_Bubble/Bubble_st2/st2_bub0007.png" id="6_xqeno"]
-[ext_resource type="Texture2D" uid="uid://cvrtpow0ipxub" path="res://Art/Sprites/Player_Bubble/Bubble_st2/st2_bub0008.png" id="7_ghni7"]
+[ext_resource type="Texture2D" uid="uid://c2mny3nx40jg8" path="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubl0001.png" id="2_l512t"]
+[ext_resource type="Texture2D" uid="uid://cuptqd21he0lb" path="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubl0002.png" id="3_608fi"]
+[ext_resource type="Texture2D" uid="uid://fd82ohqm1q3g" path="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubl0003.png" id="4_b63en"]
+[ext_resource type="Texture2D" uid="uid://e7lhjd463lnn" path="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubble_mouth_smile.png" id="6_a6p5c"]
+[ext_resource type="Texture2D" uid="uid://cnyvsdu6k16gh" path="res://Art/Sprites/Player_Bubble/Stages/stageall__bubble_pupil.png" id="8_1jeg0"]
+[ext_resource type="Texture2D" uid="uid://8wqa1868tshw" path="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubble_mouth_frown.png" id="11_aa1ni"]
+[ext_resource type="Texture2D" uid="uid://cpqxr7wm7xqj6" path="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubble_glasses.png" id="12_rkvpj"]
+[ext_resource type="Texture2D" uid="uid://dtv8m4hnoyt6w" path="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubble_blink.png" id="13_tcms5"]
 
 [node name="BubbleSprite" type="Node2D"]
 script = ExtResource("1_v745e")
-BodyStage_1 = Array[Texture2D]([ExtResource("2_xuf1f"), ExtResource("3_8j8he"), ExtResource("4_jip10")])
-BodyStage_2 = Array[Texture2D]([ExtResource("2_helk6"), ExtResource("6_xqeno"), ExtResource("7_ghni7")])
+T2D_Body = Array[Texture2D]([ExtResource("2_l512t"), ExtResource("3_608fi"), ExtResource("4_b63en")])
+Mouth_Frown = ExtResource("11_aa1ni")
+Mouth_Smile = ExtResource("6_a6p5c")
+Glasses = ExtResource("12_rkvpj")
+Eyes_Pupil = ExtResource("8_1jeg0")
+Eyes_Blink = ExtResource("13_tcms5")
 
-[node name="St2Bub0006" type="Sprite2D" parent="."]
-texture = ExtResource("2_helk6")
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("2_l512t")
 
-[node name="Face0006" type="Sprite2D" parent="."]
-position = Vector2(78, -1)
-texture = ExtResource("3_mk2ua")
+[node name="Mouth" type="Sprite2D" parent="."]
+position = Vector2(73, 56)
+texture = ExtResource("11_aa1ni")
+
+[node name="Glasses" type="Sprite2D" parent="."]
+position = Vector2(54, -38)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("12_rkvpj")
+
+[node name="left Pupil Anchor" type="Node2D" parent="."]
+position = Vector2(24, -29)
+scale = Vector2(0.77, 0.77)
+
+[node name="Eyes Pupil Left" type="Sprite2D" parent="left Pupil Anchor"]
+position = Vector2(6.785, 0)
+scale = Vector2(1, 1)
+texture = ExtResource("8_1jeg0")
+
+[node name="right Pupil Anchor" type="Node2D" parent="."]
+position = Vector2(130, -40)
+scale = Vector2(0.5929, 0.5929)
+
+[node name="Eyes Pupil Right" type="Sprite2D" parent="right Pupil Anchor"]
+texture = ExtResource("8_1jeg0")
+
+[node name="Eyes Blink" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(76, -41)
+scale = Vector2(0.740458, 0.740458)
+texture = ExtResource("13_tcms5")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
