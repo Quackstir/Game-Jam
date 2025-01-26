@@ -1,19 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxc5nomuic724"]
+[gd_scene load_steps=7 format=3 uid="uid://cxc5nomuic724"]
 
 [ext_resource type="Script" path="res://Scripts/Character/bubble_character.gd" id="1_ajysd"]
-[ext_resource type="Texture2D" uid="uid://cdrtvidtmpo6v" path="res://Art/Sprites/bubble.png" id="1_kqvtk"]
+[ext_resource type="PackedScene" uid="uid://dxfi6tbbbi0k8" path="res://Objects/Bubble/Reactions/BubbleSprite.tscn" id="3_7krfi"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD/DiageticHUD_BubbleManager.gd" id="3_ykrj2"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bcttm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_kqvtk")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gn3kd"]
 radius = 14.4
@@ -27,10 +16,6 @@ radius = 64.0
 [node name="BubbleCharacter" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_ajysd")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_bcttm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
@@ -63,6 +48,10 @@ debug_color = Color(0.92549, 0.886275, 0, 0.419608)
 
 [node name="DiageticHUD_BubbleManager" type="Node2D" parent="."]
 script = ExtResource("3_ykrj2")
+
+[node name="BubbleSprite" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("3_7krfi")]
+scale = Vector2(0.425, 0.425)
+Player = NodePath("..")
 
 [connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
 [connection signal="area_entered" from="GrowthDetector" to="." method="_on_growth_detector_area_entered"]
