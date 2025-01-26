@@ -3,7 +3,7 @@ extends Node2D
 
 const PREFAB_DIAGETIC_HUD_BUBBLE_JUMP_INDICATOR = preload("res://Objects/HUD/Prefab_DiageticHUD_BubbleJumpIndicator.tscn")
 
-@onready var bubble_character: bubble_character = $".."
+@onready var Player: bubble_character = $".."
 
 var BubbleIndicator_1:DiageticHUD_BubbleIndicator
 var BubbleIndicator_2:DiageticHUD_BubbleIndicator
