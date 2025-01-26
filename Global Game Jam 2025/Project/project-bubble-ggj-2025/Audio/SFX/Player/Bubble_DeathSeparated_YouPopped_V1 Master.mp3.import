@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://duvh4jrn4hl4t"
+path="res://.godot/imported/Bubble_DeathSeparated_YouPopped_V1 Master.mp3-6d0267f2d81ed3881947ec7caae217d1.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Player/Bubble_DeathSeparated_YouPopped_V1 Master.mp3"
+dest_files=["res://.godot/imported/Bubble_DeathSeparated_YouPopped_V1 Master.mp3-6d0267f2d81ed3881947ec7caae217d1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -47,9 +47,10 @@ func _on_growth_detector_area_entered(area: Area2D) -> void:
 
 func transition_to_game_over():
 	#get_tree().paused = true
-	LevelTransition.fade_to_black()
-	death_sound.play()
-	await death_sound.finished
+	DeathSound.play()
+	await LevelTransition.fade_to_black()
+	#death_sound.play()
+	#await death_sound.finished
 	#get_tree().paused = false
 	get_tree().change_scene_to_file("res://Levels/game_over_scene.tscn")
 	LevelTransition.fade_from_black()

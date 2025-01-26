@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dnbdafbebslbk" path="res://Objects/Bubble/Sound Manager/Prefab_Bubble_SoundManager.tscn" id="4_7iy61"]
 [ext_resource type="Script" path="res://Scripts/Level/level_Victory.gd" id="5_uxml0"]
 [ext_resource type="PackedScene" uid="uid://b5ph8v0rbabsd" path="res://Objects/HUD/PreFab_VictoryScreen.tscn" id="6_8m2lw"]
-[ext_resource type="AudioStream" uid="uid://dyunlq63copxm" path="res://Audio/SFX/Player/Bubble_Death_V1 Master.mp3" id="7_w1wtd"]
+[ext_resource type="PackedScene" uid="uid://8dy7xgtwuynd" path="res://Objects/Audio/death_sound.tscn" id="7_vt0wl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gn3kd"]
 radius = 14.4
@@ -77,8 +77,7 @@ JumpRestoreSFX = null
 script = ExtResource("5_uxml0")
 UI_VictoryScreen = ExtResource("6_8m2lw")
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_w1wtd")
+[node name="DeathSound" parent="." instance=ExtResource("7_vt0wl")]
 
 [connection signal="area_entered" from="FearDetector" to="BubbleSprite" method="_on_fear_detector_area_entered"]
 [connection signal="area_entered" from="FearDetector" to="PrefabBubbleSoundManager" method="_on_fear_detector_area_entered"]
