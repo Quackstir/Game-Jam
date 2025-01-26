@@ -1,0 +1,22 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxfi6tbbbi0k8"]
+
+[ext_resource type="Script" path="res://Scripts/Character/Reactions/BubbleCharacter_Reactions.gd" id="1_v745e"]
+[ext_resource type="Texture2D" uid="uid://w6mfmtcc6e0g" path="res://Art/Sprites/Player_Bubble/Bubble_st2/st2_bub0006.png" id="2_helk6"]
+[ext_resource type="Texture2D" uid="uid://mfmrphym47j2" path="res://Art/Sprites/Player_Bubble/Bubble/bubl0001.png" id="2_xuf1f"]
+[ext_resource type="Texture2D" uid="uid://deb54pnyh7v6v" path="res://Art/Sprites/Player_Bubble/Bubble/bubl0002.png" id="3_8j8he"]
+[ext_resource type="Texture2D" uid="uid://xj8ekcvxg6w7" path="res://Art/Sprites/Player_Bubble/Bubble_st2/face0006.png" id="3_mk2ua"]
+[ext_resource type="Texture2D" uid="uid://ccvu7mjcpwmux" path="res://Art/Sprites/Player_Bubble/Bubble/bubl0003.png" id="4_jip10"]
+[ext_resource type="Texture2D" uid="uid://ctjoxyocsyuie" path="res://Art/Sprites/Player_Bubble/Bubble_st2/st2_bub0007.png" id="6_xqeno"]
+[ext_resource type="Texture2D" uid="uid://cvrtpow0ipxub" path="res://Art/Sprites/Player_Bubble/Bubble_st2/st2_bub0008.png" id="7_ghni7"]
+
+[node name="BubbleSprite" type="Node2D"]
+script = ExtResource("1_v745e")
+BodyStage_1 = Array[Texture2D]([ExtResource("2_xuf1f"), ExtResource("3_8j8he"), ExtResource("4_jip10")])
+BodyStage_2 = Array[Texture2D]([ExtResource("2_helk6"), ExtResource("6_xqeno"), ExtResource("7_ghni7")])
+
+[node name="St2Bub0006" type="Sprite2D" parent="."]
+texture = ExtResource("2_helk6")
+
+[node name="Face0006" type="Sprite2D" parent="."]
+position = Vector2(78, -1)
+texture = ExtResource("3_mk2ua")
