@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvnc6sp5iw0ro"]
+
+[ext_resource type="Script" path="res://Scripts/Kitchen Prefabs/Enemy Characters/EC_KnifeGuy.gd" id="1_31gce"]
+[ext_resource type="Texture2D" uid="uid://bcrg6wx1rg42d" path="res://Art/knifeguy0001.png" id="1_hhurb"]
+[ext_resource type="PackedScene" uid="uid://bi7ckyrkolbj0" path="res://Objects/hazard_area.tscn" id="2_eftcb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy6bp"]
+size = Vector2(115.934, 25.9553)
+
+[node name="Prefab_Ec_KnifeGuy" type="Node2D"]
+script = ExtResource("1_31gce")
+
+[node name="Person Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_hhurb")
+region_enabled = true
+region_rect = Rect2(71.8592, 33.3755, 325.141, 661.636)
+
+[node name="Knife Anchor" type="Node2D" parent="."]
+position = Vector2(15, -136)
+rotation = 2.00189
+
+[node name="Knife Arm" type="Sprite2D" parent="Knife Anchor"]
+position = Vector2(220, -38)
+rotation = 1.07163
+scale = Vector2(0.919145, 0.919145)
+texture = ExtResource("1_hhurb")
+region_enabled = true
+region_rect = Rect2(441.961, 80.52, 231.11, 549.341)
+
+[node name="HazardArea" parent="Knife Anchor/Knife Arm" instance=ExtResource("2_eftcb")]
+position = Vector2(22.4783, -57.1378)
+rotation = -1.07163
+scale = Vector2(1.08797, 1.08797)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Knife Anchor/Knife Arm/HazardArea"]
+position = Vector2(93.6654, -19.1271)
+rotation = -0.357792
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fy6bp")
+debug_color = Color(0.992157, 0, 0, 0.419608)
