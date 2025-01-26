@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnfrey82ujior"
+path="res://.godot/imported/Extra_Stretch_V1 Master.mp3-c31deea665cf42722e4995e7fa6999ed.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Player/Extra_Stretch_V1 Master.mp3"
+dest_files=["res://.godot/imported/Extra_Stretch_V1 Master.mp3-c31deea665cf42722e4995e7fa6999ed.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

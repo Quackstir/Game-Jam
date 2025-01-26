@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bilxuap27tswa"
+path="res://.godot/imported/Extra_PopSound_V1 Master.mp3-ee833504f8f5b7502b176635c554004a.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Player/Extra_PopSound_V1 Master.mp3"
+dest_files=["res://.godot/imported/Extra_PopSound_V1 Master.mp3-ee833504f8f5b7502b176635c554004a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

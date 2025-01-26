@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bf26jviokkivh"
+path="res://.godot/imported/Bubble_Relief_Var4_V1 Master.mp3-6a3116d933c3d21a4b599e6b7aee4b7f.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Player/Bubble_Relief_Var4_V1 Master.mp3"
+dest_files=["res://.godot/imported/Bubble_Relief_Var4_V1 Master.mp3-6a3116d933c3d21a4b599e6b7aee4b7f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

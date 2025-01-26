@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://boceaegwgytx3"
+path="res://.godot/imported/Bubble_Stick_Var3_V1 Master.mp3-a729e2db40cff56a8eb84fd462be7939.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Player/Bubble_Stick_Var3_V1 Master.mp3"
+dest_files=["res://.godot/imported/Bubble_Stick_Var3_V1 Master.mp3-a729e2db40cff56a8eb84fd462be7939.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

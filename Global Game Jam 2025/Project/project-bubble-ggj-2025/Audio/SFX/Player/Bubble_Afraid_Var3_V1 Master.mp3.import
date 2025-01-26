@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dr21rbo7qfejc"
+path="res://.godot/imported/Bubble_Afraid_Var3_V1 Master.mp3-d4571c8065c0a375a7de8828ff77afa0.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Player/Bubble_Afraid_Var3_V1 Master.mp3"
+dest_files=["res://.godot/imported/Bubble_Afraid_Var3_V1 Master.mp3-d4571c8065c0a375a7de8828ff77afa0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

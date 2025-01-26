@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2sl3yel6jwg5"
+path="res://.godot/imported/Bubble_Expand_V1 Master.mp3-78ac5d5326c60b25c7b726aca351a3dc.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Player/Bubble_Expand_V1 Master.mp3"
+dest_files=["res://.godot/imported/Bubble_Expand_V1 Master.mp3-78ac5d5326c60b25c7b726aca351a3dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://da5nkasn0dfcf"
+path="res://.godot/imported/Bubble_BubbleRegen_V1 Master.mp3-63943500441a428bad0b0cecad6eb496.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Player/Bubble_BubbleRegen_V1 Master.mp3"
+dest_files=["res://.godot/imported/Bubble_BubbleRegen_V1 Master.mp3-63943500441a428bad0b0cecad6eb496.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

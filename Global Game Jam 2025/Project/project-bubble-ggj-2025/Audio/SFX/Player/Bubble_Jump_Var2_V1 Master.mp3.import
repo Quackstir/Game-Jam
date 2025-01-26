@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ca2n2fm6toevh"
+path="res://.godot/imported/Bubble_Jump_Var2_V1 Master.mp3-11bd5cb60034e60eb94ce221f76eebb7.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Player/Bubble_Jump_Var2_V1 Master.mp3"
+dest_files=["res://.godot/imported/Bubble_Jump_Var2_V1 Master.mp3-11bd5cb60034e60eb94ce221f76eebb7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
