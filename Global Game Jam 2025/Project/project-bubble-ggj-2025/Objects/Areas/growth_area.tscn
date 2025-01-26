@@ -6,6 +6,7 @@ size = Vector2(80, 384)
 [node name="GrowthArea" type="Area2D"]
 collision_layer = 8
 collision_mask = 0
+metadata/type = "Growth"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_acmbj")

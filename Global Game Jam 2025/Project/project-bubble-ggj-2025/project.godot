@@ -31,6 +31,7 @@ project/assembly_name="Project Bubble GGJ 2025"
 2d_render/layer_2="Player"
 2d_render/layer_3="Hazards"
 2d_render/layer_4="GrowthAreas"
+2d_render/layer_5="TransitionalAreas"
 
 [rendering]
 
