@@ -12,6 +12,8 @@ var BubbleIndicator_3:DiageticHUD_BubbleIndicator
 const BubbleOffset:int = 125
 const BubbleSeperation:int = 75
 
+var timeChange:float
+
 var isLookingRight:bool = false:
 	set(newValue):
 		isLookingRight = newValue
@@ -63,18 +65,21 @@ func _ready() -> void:
 	Player.player_jumped.connect(UpdateJumpIndicator)
 	Player.jump_restored.connect(UpdateJumpIndicator)
 
-func _physics_process(_delta: float) -> void:
-	updateBubbleIndicatorPositions()
+func _physics_process(delta: float) -> void:
+	updateBubbleIndicatorPositions(delta)
 
-func updateBubbleIndicatorPositions() -> void:
+
+func updateBubbleIndicatorPositions(delta: float) -> void:
 	if Player.velocity.x < 0:
 		isLookingRight = true
 	elif Player.velocity.x > 0:
 		isLookingRight = false
 	
-	BubbleIndicator_1.PositionMoveTowards.y = -Player.velocity.y/10
-	BubbleIndicator_2.PositionMoveTowards.y = -Player.velocity.y/8
-	BubbleIndicator_3.PositionMoveTowards.y = -Player.velocity.y/6
+	timeChange += delta
+	
+	BubbleIndicator_1.PositionMoveTowards.y = -Player.velocity.y/10 + (sin(timeChange) * 7)
+	BubbleIndicator_2.PositionMoveTowards.y = -Player.velocity.y/8 + (cos(timeChange) * 14)
+	BubbleIndicator_3.PositionMoveTowards.y = -Player.velocity.y/6 + (cos(timeChange * 1.3 + 60) * 21)
 	
 func UpdateJumpIndicator(newValue:int) -> void:
 	currentJumps = newValue
