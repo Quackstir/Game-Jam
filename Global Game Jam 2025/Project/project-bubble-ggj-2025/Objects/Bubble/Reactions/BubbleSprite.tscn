@@ -20,13 +20,16 @@ Eyes_Pupil = ExtResource("8_1jeg0")
 Eyes_Blink = ExtResource("13_tcms5")
 
 [node name="Body" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture = ExtResource("2_l512t")
 
 [node name="Mouth" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(73, 56)
-texture = ExtResource("11_aa1ni")
+texture = ExtResource("6_a6p5c")
 
 [node name="Glasses" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(54, -38)
 scale = Vector2(0.72, 0.72)
 texture = ExtResource("12_rkvpj")
@@ -37,7 +40,6 @@ scale = Vector2(0.77, 0.77)
 
 [node name="Eyes Pupil Left" type="Sprite2D" parent="left Pupil Anchor"]
 position = Vector2(6.785, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("8_1jeg0")
 
 [node name="right Pupil Anchor" type="Node2D" parent="."]
@@ -48,6 +50,7 @@ scale = Vector2(0.5929, 0.5929)
 texture = ExtResource("8_1jeg0")
 
 [node name="Eyes Blink" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 visible = false
 position = Vector2(76, -41)
 scale = Vector2(0.740458, 0.740458)
