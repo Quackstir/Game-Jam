@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b1ghgjxmegjif" path="res://Art/Sprites/Player_Bubble/bubble pop/pop0005.png" id="7_ec2ph"]
 [ext_resource type="Texture2D" uid="uid://2ejjty4f668g" path="res://Art/Sprites/Player_Bubble/bubble pop/pop0006.png" id="8_10yuu"]
 
-[sub_resource type="Curve" id="Curve_f665m"]
+[sub_resource type="Curve" id="Curve_w5bsu"]
 max_value = 1.2
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.754967, 1.2), 0.0, 0.0, 0, 0, Vector2(1, 0.88883), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.754768, 1.2), 0.0, 0.0, 0, 0, Vector2(1, 1.00232), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yptvj"]
@@ -46,8 +46,9 @@ animations = [{
 }]
 
 [node name="HudBubbleJumpIndicator" type="Node2D"]
+position = Vector2(-1, 0)
 script = ExtResource("1_603xj")
-expansionCurveAnimation = SubResource("Curve_f665m")
+Regenerating_CurveAnimation = SubResource("Curve_w5bsu")
 
 [node name="Bubble Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.19, 0.19)
