@@ -5,7 +5,6 @@ extends Control
 @onready var play: Button = $MarginContainer/VBoxContainer/HBoxContainer/play
 
 func _ready() -> void:
-	#get_tree().set_input_as_handled()
 	play.grab_focus()
 
 func _on_play_button_down() -> void:
