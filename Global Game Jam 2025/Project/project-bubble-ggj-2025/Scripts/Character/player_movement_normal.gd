@@ -34,14 +34,14 @@ func _handle_jump(player: CharacterBody2D, delta: float):
 			_jump_timer = 0.0
 	
 	# As good practice, you should replace UI actions with custom gameplay actions.	
-	if Input.is_action_just_pressed("ui_accept") and _jump_timer == 0.0 and _avaliable_jumps != 0:
+	if Input.is_action_just_pressed("Jump") and _jump_timer == 0.0 and _avaliable_jumps != 0:
 		player.velocity.y = JUMP_VELOCITY
 		_jump_timer = JUMP_COOLDOWN
 		_avaliable_jumps -= 1
 		player.on_jump(_avaliable_jumps)
 
 func _handle_horizontal_input(player: CharacterBody2D, delta: float):
-	var input_axis := Input.get_axis("ui_left", "ui_right")
+	var input_axis := Input.get_axis("Movement_Left", "Movement_Right")
 	if input_axis:
 		player.velocity.x = move_toward(player.velocity.x, input_axis * SPEED, ACCELERATION * delta)
 	else:
