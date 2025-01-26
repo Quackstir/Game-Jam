@@ -1,15 +1,16 @@
 [gd_scene load_steps=2 format=3 uid="uid://gv7xfg2ehl0a"]
 
-[ext_resource type="Script" path="res://Scripts/Kitchen Prefabs/bowl.gd" id="1_08av2"]
+[ext_resource type="Texture2D" uid="uid://dkbyc5r5ge8mc" path="res://Art/kitchen assets/mug2_kitchen asset_jacobh.png" id="2_2hy0f"]
 
 [node name="Bowl" type="StaticBody2D"]
 scale = Vector2(1.5, 1.5)
-script = ExtResource("1_08av2")
 
 [node name="BowlCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(32, 5.33333)
 scale = Vector2(0.641042, 1.12435)
 polygon = PackedVector2Array(-99.8374, 56.9216, -162.236, 49.8064, -212.154, 28.4608, -274.553, -14.2304, -324.472, -71.152, -336.951, -128.074, 237.114, -128.074, 224.634, -71.152, 174.715, -14.2304, 112.317, 28.4608, 62.3984, 49.8064, 0, 56.9216)
 
-[node name="BowlPolygon2D" type="Polygon2D" parent="BowlCollisionPolygon2D"]
-color = Color(0.0211156, 0.0295736, 0.00749884, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(21.3333, -32)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_2hy0f")

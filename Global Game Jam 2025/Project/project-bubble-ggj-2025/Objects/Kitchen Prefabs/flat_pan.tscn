@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl0mdlxeqbfiq"]
+
+[ext_resource type="Texture2D" uid="uid://cw8dm075cb0ho" path="res://Art/kitchen assets/pan2_kitchen asset_jacobh.png" id="1_io07j"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+scale = Vector2(2, 2)
+
+[node name="Pan2KitchenAssetJacobh" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+texture = ExtResource("1_io07j")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-48, -56)
+polygon = PackedVector2Array(-184, 56, -184, 96, -160, 128, 72, 128, 104, 104, 112, 96, 232, 96, 272, 88, 280, 56, 144, 48)

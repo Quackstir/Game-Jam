@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://wv2esswx8qum"]
+
+[ext_resource type="Texture2D" uid="uid://dwujecuv8jkmq" path="res://Art/kitchen assets/pan_kitchen asset_jacobh.png" id="1_fganh"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="PanKitchenAssetJacobh" type="Sprite2D" parent="."]
+position = Vector2(0, -3.8147e-06)
+rotation = -3.09173
+texture = ExtResource("1_fganh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-24, 296, -88, 288, -160, 224, -184, 160, -176, 80, -136, 8, -72, -48, -40, -64, -40, -184, -48, -232, -48, -272, 8, -296, 16, -296, 40, -280, 32, -200, 32, -88, 40, -72, 120, -16, 160, 40, 168, 120, 152, 184, 128, 224, 80, 272, 24, 296)

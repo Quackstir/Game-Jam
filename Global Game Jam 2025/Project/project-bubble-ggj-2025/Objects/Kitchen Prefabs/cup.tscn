@@ -1,15 +1,16 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1ahxdgu8oonf"]
 
-[ext_resource type="Script" path="res://Scripts/Kitchen Prefabs/cup.gd" id="1_8n7ao"]
+[ext_resource type="Texture2D" uid="uid://bdhpxan55a1d" path="res://Art/kitchen assets/mug1_kitchen asset_jacobh.png" id="2_rxatd"]
 
 [node name="Cup" type="StaticBody2D"]
 scale = Vector2(1.5, 1.5)
-script = ExtResource("1_8n7ao")
 
 [node name="CupCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-8.01086e-05, 0)
+position = Vector2(-7.27596e-12, 5.33333)
 scale = Vector2(0.641042, 1.12435)
-polygon = PackedVector2Array(-207.995, 61.665, 24.9594, 61.665, 41.5989, -52.1781, 49.9187, -246.66, -232.954, -246.66, -224.634, -52.1781)
+polygon = PackedVector2Array(-183.035, 61.6653, 1.13502e-11, 61.6653, 41.5989, 42.6913, 49.9187, -4.74348, 133.117, 0, 166.396, -9.48696, 174.716, -37.9479, 183.035, -104.357, 183.035, -175.509, 108.157, -203.97, 83.1979, -208.713, 91.5177, -237.174, 83.1979, -260.891, -232.954, -246.66, -232.954, -166.022, -224.634, -42.6913, -216.314, 33.2044)
 
-[node name="CupPolygon2D" type="Polygon2D" parent="CupCollisionPolygon2D"]
-color = Color(0.604955, 0.872058, 0.902005, 1)
+[node name="Mug1KitchenAssetJacobh" type="Sprite2D" parent="."]
+position = Vector2(-16, -106.667)
+scale = Vector2(0.9, 1.3)
+texture = ExtResource("2_rxatd")
