@@ -58,8 +58,8 @@ func EyesOpen() -> void:
 	eyes_blink.visible = false
 
 func _process(delta: float) -> void:
-	var input_axis := Input.get_axis("ui_left", "ui_right")
-	
+	var input_axis := Input.get_axis("Movement_Left", "Movement_Right")
+
 	if input_axis > 0: 
 		isLookingRight = true
 	elif input_axis < 0:
