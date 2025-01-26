@@ -45,14 +45,17 @@ func _ready() -> void:
 	add_child(BubbleIndicator_3)
 	BubbleIndicator_3.PositionMoveTowards = Vector2(-275,0)
 	
-	await get_tree().create_timer(3).timeout
-	currentJumps = 2
+	Player.player_jumped.connect(UpdateJumpIndicator)
+	Player.jump_restored.connect(UpdateJumpIndicator)
 
-	await get_tree().create_timer(1).timeout
-	currentJumps = 1
-	
-	await get_tree().create_timer(1).timeout
-	currentJumps = 0
-	
-	await get_tree().create_timer(1).timeout
-	currentJumps = 3
+func _physics_process(_delta: float) -> void:
+	updateBubbleIndicatorPositions()
+
+func updateBubbleIndicatorPositions() -> void:
+	var XMovementDirection = 1 if Player.velocity.x < 0 else -1
+	BubbleIndicator_1.PositionMoveTowards = Vector2(XMovementDirection * BubbleOffset,0)
+	BubbleIndicator_2.PositionMoveTowards = Vector2(XMovementDirection * (BubbleOffset + BubbleSeperation),0)
+	BubbleIndicator_3.PositionMoveTowards = Vector2(XMovementDirection * (BubbleOffset + (BubbleSeperation*2)),0)
+
+func UpdateJumpIndicator(newValue:int) -> void:
+	currentJumps = newValue
