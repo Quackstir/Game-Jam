@@ -28,3 +28,11 @@ func _play_press_sfx() -> void:
 
 func _play_on_hover_sfx() -> void:
 	_hover_sfx.play()
+
+
+func _on_play_focus_entered() -> void:
+	_play_on_hover_sfx()
+
+
+func _on_quit_focus_entered() -> void:
+	_play_on_hover_sfx()
