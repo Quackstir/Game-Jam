@@ -13,7 +13,7 @@ func _on_retry_button_button_down() -> void:
 	get_tree().paused = true
 	await LevelTransition.fade_to_black()
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Levels/test_level.tscn")
+	get_tree().change_scene_to_file("res://Levels/chris_level.tscn")
 	LevelTransition.fade_from_black()
 
 func _on_retry_button_mouse_entered() -> void:

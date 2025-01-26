@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _on_play_button_down() -> void:
 	await _play_press_sfx()
-	get_tree().change_scene_to_file("res://Levels/test_level.tscn")
+	get_tree().change_scene_to_file("res://Levels/chris_level.tscn")
 
 func _on_play_mouse_entered() -> void:
 	_play_on_hover_sfx()
