@@ -3,7 +3,7 @@ const ACCELERATION = 1000.0
 const FRICTION = 200.0
 
 # JUMPING VALUES
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -260.0
 const GRAVITY_SCALE = 0.2
 const MAX_JUMPS = 3
 var _avaliable_jumps = MAX_JUMPS
@@ -23,8 +23,8 @@ func handle_input(player: CharacterBody2D, delta: float) -> void:
 	player.move_and_slide()
 
 func _apply_gravity(player: CharacterBody2D, delta: float):
-	if not player.is_on_floor():
-		player.velocity += player.get_gravity() * GRAVITY_SCALE * delta
+	#if not player.is_on_floor():
+	player.velocity += player.get_gravity() * GRAVITY_SCALE * delta
 
 func _handle_jump(player: CharacterBody2D, delta: float):
 	#update jump timer

@@ -4,7 +4,7 @@ class_name bubble_character
 var PlayerMovement = preload("res://Scripts/Character/player_movement_normal.gd").new()
 
 # JUMP ABILITY
-const JUMP_ABILITY_COOLDOWN = 4.0
+@export var JUMP_ABILITY_COOLDOWN = 7.0
 signal player_jumped(jumps_left:int)
 signal jump_restored(jumps_left:int)
 
