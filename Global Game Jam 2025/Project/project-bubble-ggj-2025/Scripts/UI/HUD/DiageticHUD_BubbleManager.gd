@@ -12,15 +12,21 @@ var BubbleIndicator_3:DiageticHUD_BubbleIndicator
 const BubbleOffset:int = 125
 const BubbleSeperation:int = 75
 
+var timeChange:float
+
 var isLookingRight:bool = false:
 	set(newValue):
 		isLookingRight = newValue
 		
-		var BubbleDirection = 1 if isLookingRight else -1
+		var BubbleDirection
+		if isLookingRight:
+			BubbleDirection = 1
+		else:
+			BubbleDirection = -1
 		
-		BubbleIndicator_1.PositionMoveTowards = Vector2(BubbleDirection * BubbleOffset,0)
-		BubbleIndicator_2.PositionMoveTowards = Vector2(BubbleDirection * (BubbleOffset + BubbleSeperation),0)
-		BubbleIndicator_3.PositionMoveTowards = Vector2(BubbleDirection * (BubbleOffset + (BubbleSeperation*2)),0)
+		BubbleIndicator_1.PositionMoveTowards = Vector2(BubbleDirection * (BubbleOffset + abs(Player.velocity.x/4)),BubbleIndicator_1.PositionMoveTowards.y)
+		BubbleIndicator_2.PositionMoveTowards = Vector2(BubbleDirection * (BubbleOffset + BubbleSeperation + abs(Player.velocity.x/3.5)),BubbleIndicator_2.PositionMoveTowards.y)
+		BubbleIndicator_3.PositionMoveTowards = Vector2(BubbleDirection * (BubbleOffset + (BubbleSeperation*2) + abs(Player.velocity.x/3)),BubbleIndicator_3.PositionMoveTowards.y)
 
 
 var currentJumps = 3:
@@ -59,14 +65,21 @@ func _ready() -> void:
 	Player.player_jumped.connect(UpdateJumpIndicator)
 	Player.jump_restored.connect(UpdateJumpIndicator)
 
-func _physics_process(_delta: float) -> void:
-	updateBubbleIndicatorPositions()
+func _physics_process(delta: float) -> void:
+	updateBubbleIndicatorPositions(delta)
 
-func updateBubbleIndicatorPositions() -> void:
+
+func updateBubbleIndicatorPositions(delta: float) -> void:
 	if Player.velocity.x < 0:
 		isLookingRight = true
 	elif Player.velocity.x > 0:
 		isLookingRight = false
+	
+	timeChange += delta
+	
+	BubbleIndicator_1.PositionMoveTowards.y = -Player.velocity.y/10 + (sin(timeChange) * 7)
+	BubbleIndicator_2.PositionMoveTowards.y = -Player.velocity.y/8 + (cos(timeChange) * 14)
+	BubbleIndicator_3.PositionMoveTowards.y = -Player.velocity.y/6 + (cos(timeChange * 1.3 + 60) * 21)
 	
 func UpdateJumpIndicator(newValue:int) -> void:
 	currentJumps = newValue
