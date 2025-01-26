@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dmo8ogit11wpb"]
+[gd_scene load_steps=27 format=3 uid="uid://dmo8ogit11wpb"]
 
 [ext_resource type="PackedScene" uid="uid://cxc5nomuic724" path="res://Objects/bubble_character.tscn" id="1_gckm5"]
 [ext_resource type="PackedScene" uid="uid://gv7xfg2ehl0a" path="res://Objects/Kitchen Prefabs/bowl.tscn" id="2_0ggcw"]
@@ -9,18 +9,23 @@
 [ext_resource type="PackedScene" uid="uid://ugqaiox014qb" path="res://Objects/camera_dock.tscn" id="6_m8umf"]
 [ext_resource type="PackedScene" uid="uid://dx2brpkej33vx" path="res://Objects/Kitchen Prefabs/knife.tscn" id="6_sfbjs"]
 [ext_resource type="PackedScene" uid="uid://dxydjtljwfgvu" path="res://Objects/Areas/stage_transition_area.tscn" id="7_4fc4u"]
-[ext_resource type="Texture2D" uid="uid://bdhpxan55a1d" path="res://Art/kitchen assets/mug1_kitchen asset_jacobh.png" id="7_getkm"]
 [ext_resource type="PackedScene" uid="uid://cr0l4p17q0jye" path="res://Objects/Kitchen Prefabs/toothpick.tscn" id="8_7jlkb"]
-[ext_resource type="Texture2D" uid="uid://dkbyc5r5ge8mc" path="res://Art/kitchen assets/mug2_kitchen asset_jacobh.png" id="8_ahbi5"]
 [ext_resource type="PackedScene" uid="uid://b77jqbpnfjrkl" path="res://Objects/Areas/growth_area.tscn" id="8_qm3cq"]
-[ext_resource type="Texture2D" uid="uid://cw8dm075cb0ho" path="res://Art/kitchen assets/pan2_kitchen asset_jacobh.png" id="9_0rm0j"]
 [ext_resource type="Texture2D" uid="uid://ok30ljxaf2s2" path="res://Art/old lady/lady0001.png" id="10_n3ylc"]
+[ext_resource type="PackedScene" uid="uid://beadpx3hcbl6r" path="res://Objects/Kitchen Prefabs/cutting_knife.tscn" id="11_f6qxb"]
 [ext_resource type="Texture2D" uid="uid://d0agnpqh0ymuk" path="res://Art/spikes.png" id="12_0l8ti"]
+[ext_resource type="PackedScene" uid="uid://v6xawliynaui" path="res://Objects/Kitchen Prefabs/Fire_Flame_2d.tscn" id="12_pq0gf"]
 [ext_resource type="Texture2D" uid="uid://c1d87r3qsy8gs" path="res://Art/kitchen assets/sponge_kitchen asset_jacobh.png" id="13_wrake"]
 [ext_resource type="PackedScene" uid="uid://d1ahxdgu8oonf" path="res://Objects/Kitchen Prefabs/cup.tscn" id="14_ttm5a"]
 [ext_resource type="PackedScene" uid="uid://cl0mdlxeqbfiq" path="res://Objects/Kitchen Prefabs/flat_pan.tscn" id="15_4rggn"]
 [ext_resource type="PackedScene" uid="uid://b1syhdx6v5kuo" path="res://Objects/Kitchen Prefabs/fork.tscn" id="16_s5cb6"]
 [ext_resource type="Texture2D" uid="uid://bcrg6wx1rg42d" path="res://Art/knifeguy0001.png" id="18_qc8mc"]
+[ext_resource type="Texture2D" uid="uid://c0hddcl3lrdne" path="res://Art/kitchen assets/window_kitchen asset_jacobh.png" id="21_5uf6r"]
+[ext_resource type="Texture2D" uid="uid://j3yglkqj0x7k" path="res://Art/kitchen assets/vent_kitchen asset_jacobh.png" id="22_7ac61"]
+[ext_resource type="Texture2D" uid="uid://cska24uml1ju3" path="res://Art/kitchen assets/stove and oven_kitchen asset_jacobh.png" id="23_jhnu1"]
+[ext_resource type="Texture2D" uid="uid://8fhf88j53wv6" path="res://Art/kitchen assets/smoke_kitchen asset_jacobh.png" id="24_o1kq6"]
+[ext_resource type="Texture2D" uid="uid://0mhf0fgeqvgv" path="res://Art/kitchen assets/sink_kitchen asset_jacobh.png" id="25_f56eb"]
+[ext_resource type="Texture2D" uid="uid://eql7goe5vt0v" path="res://Art/kitchen assets/paneling_kitchen asset_jacobh.png" id="26_asn83"]
 
 [node name="ChrisLevel" type="Node2D"]
 
@@ -57,6 +62,11 @@ scale = Vector2(-1.96642, 1.666)
 
 [node name="Section 7" type="Node" parent="Flat Pan"]
 
+[node name="StaticBody2D3" parent="Flat Pan/Section 7" instance=ExtResource("15_4rggn")]
+position = Vector2(9232, -1920)
+rotation = -3.14159
+scale = Vector2(1.5, 1.5)
+
 [node name="Hanging Pan" type="Node" parent="."]
 
 [node name="Section 1" type="Node" parent="Hanging Pan"]
@@ -77,12 +87,19 @@ scale = Vector2(1.3, 1.3)
 
 [node name="Section 7" type="Node" parent="Hanging Pan"]
 
-[node name="CounterTops" type="Node" parent="."]
+[node name="StaticBody2D2" parent="Hanging Pan/Section 7" instance=ExtResource("3_msh8x")]
+position = Vector2(7552, -2656)
+scale = Vector2(0.9, 0.9)
 
-[node name="Polygon2D" type="Polygon2D" parent="CounterTops"]
-position = Vector2(-1032, 64)
-scale = Vector2(2, 2)
-polygon = PackedVector2Array(200, -64, 160, -64, 160, 256, -288, 256, -288, -64, -328, -64, -328, 280, 200, 280)
+[node name="StaticBody2D3" parent="Hanging Pan/Section 7" instance=ExtResource("3_msh8x")]
+position = Vector2(7832, -2704)
+scale = Vector2(0.9, 0.9)
+
+[node name="StaticBody2D4" parent="Hanging Pan/Section 7" instance=ExtResource("3_msh8x")]
+position = Vector2(9552, -2688)
+scale = Vector2(0.9, 0.9)
+
+[node name="CounterTops" type="Node" parent="."]
 
 [node name="CounterTop" parent="CounterTops" instance=ExtResource("6_ll4d0")]
 position = Vector2(-608, -32)
@@ -99,6 +116,13 @@ rotation = -1.5708
 
 [node name="CounterTop4" parent="CounterTops" instance=ExtResource("6_ll4d0")]
 position = Vector2(6624, -1888)
+scale = Vector2(0.9, 1)
+
+[node name="CounterTop6" parent="CounterTops" instance=ExtResource("6_ll4d0")]
+position = Vector2(-608, -2944)
+
+[node name="CounterTop7" parent="CounterTops" instance=ExtResource("6_ll4d0")]
+position = Vector2(6624, -2944)
 scale = Vector2(0.9, 1)
 
 [node name="Bowls" type="Node" parent="."]
@@ -163,6 +187,11 @@ scale = Vector2(1.50405, 1.45103)
 
 [node name="Section 6" type="Node" parent="Bowls"]
 
+[node name="Bowl8" parent="Bowls/Section 6" instance=ExtResource("2_0ggcw")]
+position = Vector2(7576, -1992)
+rotation = -0.012116
+scale = Vector2(1.40718, 0.972562)
+
 [node name="Section 7" type="Node" parent="Bowls"]
 
 [node name="Cups" type="Node" parent="."]
@@ -183,7 +212,7 @@ position = Vector2(2520, -328)
 [node name="Section 3" type="Node" parent="Cups"]
 
 [node name="Cup" parent="Cups/Section 3" instance=ExtResource("14_ttm5a")]
-position = Vector2(7016, -176)
+position = Vector2(6864, -176)
 rotation = -3.14159
 scale = Vector2(1.54, -1.5)
 
@@ -210,6 +239,11 @@ scale = Vector2(1.54, -1.5)
 
 [node name="Section 7" type="Node" parent="Cups"]
 
+[node name="Cup4" parent="Cups/Section 7" instance=ExtResource("14_ttm5a")]
+position = Vector2(8488, -1960)
+rotation = -3.14159
+scale = Vector2(1.41528, -0.54491)
+
 [node name="Forks" type="Node" parent="."]
 
 [node name="Section 1" type="Node" parent="Forks"]
@@ -230,6 +264,11 @@ z_index = -1
 position = Vector2(5024, -272)
 rotation = -2.09439
 
+[node name="Fork4" parent="Forks/Section 2" instance=ExtResource("16_s5cb6")]
+z_index = -1
+position = Vector2(2864, -304)
+rotation = -0.817268
+
 [node name="Section 3" type="Node" parent="Forks"]
 
 [node name="Fork4" parent="Forks/Section 3" instance=ExtResource("16_s5cb6")]
@@ -246,6 +285,24 @@ rotation = -1.20437
 [node name="Section 7" type="Node" parent="Forks"]
 
 [node name="Sponge-toothpicks" type="Node" parent="."]
+
+[node name="Section 3" type="Node" parent="Sponge-toothpicks"]
+
+[node name="StaticBody2D" parent="Sponge-toothpicks/Section 3" instance=ExtResource("5_3rofd")]
+position = Vector2(7280, -128)
+rotation = 0.0548213
+
+[node name="StaticBody2D2" parent="Sponge-toothpicks/Section 3" instance=ExtResource("8_7jlkb")]
+z_index = -1
+position = Vector2(7200, -240)
+rotation = -0.135972
+scale = Vector2(0.4, 0.308)
+
+[node name="StaticBody2D3" parent="Sponge-toothpicks/Section 3" instance=ExtResource("8_7jlkb")]
+z_index = -1
+position = Vector2(7464, -104)
+rotation = 4.41337
+scale = Vector2(0.4, 0.308)
 
 [node name="Section 4" type="Node" parent="Sponge-toothpicks"]
 
@@ -285,6 +342,41 @@ scale = Vector2(0.4, 0.308)
 
 [node name="Section 5" type="Node" parent="Sponge-toothpicks"]
 
+[node name="StaticBody2D7" parent="Sponge-toothpicks/Section 5" instance=ExtResource("5_3rofd")]
+position = Vector2(11352, -2008)
+rotation = -0.224052
+scale = Vector2(1, 1)
+
+[node name="StaticBody2D8" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
+z_index = -1
+position = Vector2(11176, -2088)
+rotation = -0.414845
+scale = Vector2(0.4, 0.308)
+
+[node name="StaticBody2D9" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
+z_index = -1
+position = Vector2(11264, -2080)
+rotation = -0.874512
+scale = Vector2(0.4, 0.308)
+
+[node name="StaticBody2D10" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
+z_index = -1
+position = Vector2(11528, -1984)
+rotation = 2.02193
+scale = Vector2(0.4, 0.308)
+
+[node name="StaticBody2D11" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
+z_index = -1
+position = Vector2(11184, -1976)
+rotation = 1.73115
+scale = Vector2(0.4, 0.308)
+
+[node name="StaticBody2D12" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
+z_index = -1
+position = Vector2(11440, -2120)
+rotation = -2.97194
+scale = Vector2(0.4, 0.308)
+
 [node name="Knives" type="Node" parent="."]
 
 [node name="Section 1" type="Node" parent="Knives"]
@@ -293,33 +385,113 @@ scale = Vector2(0.4, 0.308)
 
 [node name="Section 3" type="Node" parent="Knives"]
 
+[node name="Cutting_Knife" parent="Knives/Section 3" instance=ExtResource("11_f6qxb")]
+position = Vector2(8360, -1064)
+rotation = 1.85148
+scale = Vector2(2.18037, -1.27635)
+
 [node name="Section 4" type="Node" parent="Knives"]
 
 [node name="Section 5" type="Node" parent="Knives"]
 
 [node name="Section 6" type="Node" parent="Knives"]
 
+[node name="knife7" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(8624, -2672)
+rotation = -3.10839
+
+[node name="knife8" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(9776, -2640)
+rotation = -3.10839
+
+[node name="knife19" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(9088, -2760)
+rotation = -3.10839
+
+[node name="knife20" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(8048, -2728)
+rotation = -3.10839
+
+[node name="knife9" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(7168, -2648)
+rotation = -3.10839
+
+[node name="knife10" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(7248, -2592)
+rotation = -3.1588
+scale = Vector2(-1.8, 1.8)
+
+[node name="knife11" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(8736, -2704)
+rotation = -3.1588
+scale = Vector2(-1.8, 1.8)
+
+[node name="knife12" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(8360, -2720)
+rotation = -3.1588
+scale = Vector2(-1.8, 1.8)
+
+[node name="knife13" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(8240, -2632)
+rotation = -3.1588
+scale = Vector2(-1.8, 1.8)
+
+[node name="knife14" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(8128, -2544)
+rotation = -3.1588
+scale = Vector2(-1.8, 1.8)
+
+[node name="knife15" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(9856, -2480)
+rotation = -3.1588
+scale = Vector2(-1.8, 1.8)
+
+[node name="knife16" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(9952, -2664)
+rotation = -3.1588
+scale = Vector2(-1.8, 1.8)
+
+[node name="knife17" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(9224, -2728)
+rotation = -3.1588
+scale = Vector2(-1.8, 1.8)
+
+[node name="knife18" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(7336, -2768)
+rotation = -3.1588
+scale = Vector2(-1.8, 1.8)
+
+[node name="knife21" parent="Knives/Section 6" instance=ExtResource("6_sfbjs")]
+position = Vector2(8872, -1976)
+rotation = -4.99155
+scale = Vector2(-1.8, 1.8)
+
 [node name="Section 7" type="Node" parent="Knives"]
 
-[node name="knife" parent="Knives" instance=ExtResource("6_sfbjs")]
-position = Vector2(6584, 360)
-
-[node name="knife2" parent="Knives" instance=ExtResource("6_sfbjs")]
-position = Vector2(3112, 333)
-
-[node name="knife3" parent="Knives" instance=ExtResource("6_sfbjs")]
-position = Vector2(10352, 426)
-
-[node name="knife4" parent="Knives" instance=ExtResource("6_sfbjs")]
-position = Vector2(10304, -2144)
-
-[node name="knife5" parent="Knives" instance=ExtResource("6_sfbjs")]
-position = Vector2(6608, -2184)
-
-[node name="knife6" parent="Knives" instance=ExtResource("6_sfbjs")]
-position = Vector2(3144, -2184)
-
 [node name="Fire" type="Node" parent="."]
+
+[node name="StaticBody2D" parent="Fire" instance=ExtResource("12_pq0gf")]
+z_index = 1
+position = Vector2(5056, -152)
+
+[node name="StaticBody2D2" parent="Fire" instance=ExtResource("12_pq0gf")]
+z_index = 1
+position = Vector2(4320, -152)
+
+[node name="StaticBody2D3" parent="Fire" instance=ExtResource("12_pq0gf")]
+z_index = 1
+position = Vector2(5384, -104)
+scale = Vector2(0.946729, 0.437187)
+
+[node name="StaticBody2D4" parent="Fire" instance=ExtResource("12_pq0gf")]
+z_index = 1
+position = Vector2(5584, -104)
+scale = Vector2(-1.17325, 0.437187)
+
+[node name="StaticBody2D5" parent="Fire" instance=ExtResource("12_pq0gf")]
+z_index = 1
+position = Vector2(3616, -104)
+scale = Vector2(-1.17325, 0.437187)
 
 [node name="GameplayCamera" parent="." node_paths=PackedStringArray("camera_path") instance=ExtResource("5_2kauq")]
 camera_path = [NodePath("../CameraPath/CameraDock"), NodePath("../CameraPath/CameraDock2"), NodePath("../CameraPath/CameraDock3"), NodePath("../CameraPath/CameraDock4"), NodePath("../CameraPath/CameraDock5"), NodePath("../CameraPath/CameraDock6"), NodePath("../CameraPath/CameraDock7"), NodePath("../CameraPath/CameraDock8")]
@@ -414,35 +586,75 @@ scale = Vector2(1, 4.08)
 [node name="Growth Transition" type="Node" parent="."]
 
 [node name="GrowthArea" parent="Growth Transition" instance=ExtResource("8_qm3cq")]
-position = Vector2(564, -577)
+position = Vector2(2688, -632)
 scale = Vector2(1, 2.84)
 
 [node name="GrowthArea2" parent="Growth Transition" instance=ExtResource("8_qm3cq")]
-position = Vector2(2776, -564)
+position = Vector2(9984, -992)
 scale = Vector2(1, 2.84)
 
 [node name="GrowthArea3" parent="Growth Transition" instance=ExtResource("8_qm3cq")]
-position = Vector2(6763, -614)
+position = Vector2(6712, -2352)
 scale = Vector2(1, 2.84)
 
-[node name="Sink" type="Node" parent="."]
+[node name="Background assets" type="Node" parent="."]
 
-[node name="Mug2KitchenAssetJacobh2" type="Sprite2D" parent="Sink"]
-position = Vector2(-1454, 260)
-texture = ExtResource("8_ahbi5")
+[node name="Section 1" type="Node" parent="Background assets"]
 
-[node name="Mug1KitchenAssetJacobh2" type="Sprite2D" parent="Sink"]
-position = Vector2(-1444, 436)
-texture = ExtResource("7_getkm")
+[node name="WindowKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 1"]
+position = Vector2(1552, -1184)
+texture = ExtResource("21_5uf6r")
 
-[node name="Pan2KitchenAssetJacobh2" type="Sprite2D" parent="Sink"]
-position = Vector2(-1021, 522)
-texture = ExtResource("9_0rm0j")
-
-[node name="SpongeKitchenAssetJacobh" type="Sprite2D" parent="Sink"]
+[node name="SpongeKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 1"]
 position = Vector2(-680, -144)
 rotation = -1.66296
+scale = Vector2(1, 1)
 texture = ExtResource("13_wrake")
+
+[node name="SinkKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 1"]
+z_index = -1
+position = Vector2(-1608, 672)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("25_f56eb")
+
+[node name="Section 2" type="Node" parent="Background assets"]
+
+[node name="VentKitchenAssetJacobh2" type="Sprite2D" parent="Background assets/Section 2"]
+position = Vector2(5296, -1520)
+texture = ExtResource("22_7ac61")
+
+[node name="VentKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 2"]
+position = Vector2(4128, -1496)
+texture = ExtResource("22_7ac61")
+
+[node name="StoveAndOvenKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 2"]
+position = Vector2(4672, 896)
+scale = Vector2(3.5, 3)
+texture = ExtResource("23_jhnu1")
+
+[node name="SmokeKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 2"]
+position = Vector2(4280, -1016)
+texture = ExtResource("24_o1kq6")
+
+[node name="SmokeKitchenAssetJacobh2" type="Sprite2D" parent="Background assets/Section 2"]
+position = Vector2(5256, -792)
+rotation = -3.14159
+scale = Vector2(1, -1.5)
+texture = ExtResource("24_o1kq6")
+
+[node name="Section 3" type="Node" parent="Background assets"]
+
+[node name="Section 4" type="Node" parent="Background assets"]
+
+[node name="Section 5" type="Node" parent="Background assets"]
+
+[node name="Section 6" type="Node" parent="Background assets"]
+
+[node name="Section 7" type="Node" parent="Background assets"]
+
+[node name="PanelingKitchenAssetJacobh" type="Sprite2D" parent="."]
+position = Vector2(-128, -1656)
+texture = ExtResource("26_asn83")
 
 [connection signal="player_grew" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_grew"]
 [connection signal="player_reached_screen_edge" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_reached_screen_edge"]
