@@ -1,0 +1,128 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccbie3lgr13lk"]
+
+[ext_resource type="Script" path="res://Scripts/Level/game_over_screen.gd" id="1_w4vy2"]
+[ext_resource type="Texture2D" uid="uid://ht6d0j73tfrc" path="res://Art/Sprites/GameOver/gameover_text.png" id="1_xkwsr"]
+[ext_resource type="Texture2D" uid="uid://c14swlb8oviu4" path="res://Art/Sprites/GameOver/dead_bobby.png" id="2_pohdv"]
+[ext_resource type="FontFile" uid="uid://brkxlrqc1lnkl" path="res://Art/Font/AtkinsonHyperlegible-Regular.ttf" id="3_3roey"]
+[ext_resource type="StyleBox" uid="uid://b11i8ift36lh5" path="res://Art/Themes/Normal_Blue.tres" id="4_6fkt0"]
+[ext_resource type="StyleBox" uid="uid://cyjxvbkpfb6w" path="res://Art/Themes/Hovered_Blue.tres" id="4_q0msl"]
+[ext_resource type="StyleBox" uid="uid://cy8ug0cm7vein" path="res://Art/Themes/Pressed_Blue.tres" id="5_0ev15"]
+[ext_resource type="AudioStream" uid="uid://ceukdd0i0r7gs" path="res://Audio/SFX/Menu/Menu_Click_V1.mp3" id="8_v3l28"]
+[ext_resource type="AudioStream" uid="uid://f60hv1ixm48q" path="res://Audio/SFX/Menu/Menu_Hover_V1.mp3" id="9_vklav"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6fmd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w4vy2")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+
+[node name="Background" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_xkwsr")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_top = -200.0
+offset_right = 281.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 100
+
+[node name="DeadBobby" type="TextureRect" parent="CenterContainer/Background/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_pohdv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 285
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_c6fmd")
+
+[node name="RetryButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_3roey")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("4_q0msl")
+theme_override_styles/pressed = ExtResource("5_0ev15")
+theme_override_styles/normal = ExtResource("4_6fkt0")
+text = "Try Again?"
+
+[node name="Panel3" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_c6fmd")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_c6fmd")
+
+[node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_3roey")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("4_q0msl")
+theme_override_styles/pressed = ExtResource("5_0ev15")
+theme_override_styles/normal = ExtResource("4_6fkt0")
+text = "Back to Main Menu"
+
+[node name="Panel3" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_c6fmd")
+
+[node name="PressSFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(392, 225)
+stream = ExtResource("8_v3l28")
+volume_db = 1.0
+
+[node name="HoverSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_vklav")
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_mouse_entered"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer2/MainMenuButton" to="." method="_on_main_menu_button_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer2/MainMenuButton" to="." method="_on_main_menu_button_mouse_entered"]
