@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccbie3lgr13lk"]
+[gd_scene load_steps=12 format=3 uid="uid://ccbie3lgr13lk"]
 
 [ext_resource type="Script" path="res://Scripts/Level/game_over_screen.gd" id="1_w4vy2"]
 [ext_resource type="Texture2D" uid="uid://ht6d0j73tfrc" path="res://Art/Sprites/GameOver/gameover_text.png" id="1_xkwsr"]
@@ -9,6 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://cy8ug0cm7vein" path="res://Art/Themes/Pressed_Blue.tres" id="5_0ev15"]
 [ext_resource type="AudioStream" uid="uid://ceukdd0i0r7gs" path="res://Audio/SFX/Menu/Menu_Click_V1.mp3" id="8_v3l28"]
 [ext_resource type="AudioStream" uid="uid://f60hv1ixm48q" path="res://Audio/SFX/Menu/Menu_Hover_V1.mp3" id="9_vklav"]
+[ext_resource type="AudioStream" uid="uid://duvh4jrn4hl4t" path="res://Audio/SFX/Player/Bubble_DeathSeparated_YouPopped_V1 Master.mp3" id="10_iudqm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6fmd"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -121,6 +122,10 @@ volume_db = 1.0
 
 [node name="HoverSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_vklav")
+
+[node name="YouPoppedSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_iudqm")
+autoplay = true
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_button_down"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_mouse_entered"]

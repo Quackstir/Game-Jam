@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8dy7xgtwuynd"]
+
+[ext_resource type="AudioStream" uid="uid://pkwddgmrfwdy" path="res://Audio/SFX/Player/Bubble_DeathSeparated_Scream_V1 Master.mp3" id="1_if0s4"]
+
+[node name="DeathSound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_if0s4")
