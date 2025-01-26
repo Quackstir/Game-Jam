@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctjoxyocsyuie"
-path="res://.godot/imported/st2_bub0007.png-e64f5b06d2f08b680712062e42801da9.ctex"
+uid="uid://bid7w8sg51abx"
+path="res://.godot/imported/stage2_bub0008.png-e6032d543b4ba5417ad0f283f10654a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/Player_Bubble/Bubble_st2/st2_bub0007.png"
-dest_files=["res://.godot/imported/st2_bub0007.png-e64f5b06d2f08b680712062e42801da9.ctex"]
+source_file="res://Art/Sprites/Player_Bubble/Stages/Bubble_st2/stage2_bub0008.png"
+dest_files=["res://.godot/imported/stage2_bub0008.png-e6032d543b4ba5417ad0f283f10654a9.ctex"]
 
 [params]
 

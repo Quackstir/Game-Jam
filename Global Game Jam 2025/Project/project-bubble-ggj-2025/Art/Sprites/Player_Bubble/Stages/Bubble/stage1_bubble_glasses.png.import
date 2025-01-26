@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dab524nfl6t0v"
-path="res://.godot/imported/frownmouth.png-92197e8d844eaddf6c623e000234a2f6.ctex"
+uid="uid://cpqxr7wm7xqj6"
+path="res://.godot/imported/stage1_bubble_glasses.png-421ce545fd892fd22b8896d1fe0f1d38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/Player_Bubble/Bubble/frownmouth.png"
-dest_files=["res://.godot/imported/frownmouth.png-92197e8d844eaddf6c623e000234a2f6.ctex"]
+source_file="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubble_glasses.png"
+dest_files=["res://.godot/imported/stage1_bubble_glasses.png-421ce545fd892fd22b8896d1fe0f1d38.ctex"]
 
 [params]
 

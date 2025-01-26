@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnwefpdxuou72"
-path="res://.godot/imported/glassescrop.png-7feb2d9d6cfa43df2ff6b9484c5c8f18.ctex"
+uid="uid://8wqa1868tshw"
+path="res://.godot/imported/stage1_bubble_frown.png-0cd2e3b9b0faa33c662b8798fab5fe2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/Player_Bubble/Bubble/glassescrop.png"
-dest_files=["res://.godot/imported/glassescrop.png-7feb2d9d6cfa43df2ff6b9484c5c8f18.ctex"]
+source_file="res://Art/Sprites/Player_Bubble/Stages/Bubble/stage1_bubble_frown.png"
+dest_files=["res://.godot/imported/stage1_bubble_frown.png-0cd2e3b9b0faa33c662b8798fab5fe2b.ctex"]
 
 [params]
 

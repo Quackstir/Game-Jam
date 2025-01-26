@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq2vc3ccc26qm"
-path="res://.godot/imported/eyecrop.png-47e975f52c047c2b26d7946931524329.ctex"
+uid="uid://g7ffo1gwknhp"
+path="res://.godot/imported/stage3_fatso0001.png-94f36dd401d82839da9358ac2d25d608.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/Player_Bubble/Bubble/eyecrop.png"
-dest_files=["res://.godot/imported/eyecrop.png-47e975f52c047c2b26d7946931524329.ctex"]
+source_file="res://Art/Sprites/Player_Bubble/Stages/bubble_st3/stage3_fatso0001.png"
+dest_files=["res://.godot/imported/stage3_fatso0001.png-94f36dd401d82839da9358ac2d25d608.ctex"]
 
 [params]
 
