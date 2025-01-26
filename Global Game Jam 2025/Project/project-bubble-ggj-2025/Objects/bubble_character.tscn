@@ -48,4 +48,14 @@ debug_color = Color(0.825595, 0, 0.128512, 0.42)
 [node name="DiageticHUD_BubbleManager" type="Node2D" parent="."]
 script = ExtResource("3_ykrj2")
 
+[node name="GrowthDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="GrowthBox" type="CollisionShape2D" parent="GrowthDetector"]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_xpodn")
+debug_color = Color(0.92549, 0.886275, 0, 0.419608)
+
 [connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
+[connection signal="area_entered" from="GrowthDetector" to="." method="_on_growth_detector_area_entered"]
