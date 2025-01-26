@@ -6,11 +6,14 @@ const FRICTION = 200.0
 const JUMP_VELOCITY = -300.0
 const GRAVITY_SCALE = 0.2
 const MAX_JUMPS = 3
-var _avaliable_jumps = 3
+var _avaliable_jumps = MAX_JUMPS
 const JUMP_COOLDOWN = 1.0
 var _jump_timer = 0.0
 
-signal player_jumped(jumps_left: int)
+func add_avaliable_jump():
+	_avaliable_jumps += 1
+	if _avaliable_jumps > MAX_JUMPS:
+		_avaliable_jumps = MAX_JUMPS
 
 func handle_input(player: CharacterBody2D, delta: float) -> void:
 	_apply_gravity(player,delta)
@@ -34,7 +37,7 @@ func _handle_jump(player: CharacterBody2D, delta: float):
 		player.velocity.y = JUMP_VELOCITY
 		_jump_timer = JUMP_COOLDOWN
 		_avaliable_jumps -= 1
-		player_jumped.emit(_avaliable_jumps)
+		player.on_jump(_avaliable_jumps)
 
 func _handle_horizontal_input(player: CharacterBody2D, delta: float):
 	var input_axis := Input.get_axis("ui_left", "ui_right")
