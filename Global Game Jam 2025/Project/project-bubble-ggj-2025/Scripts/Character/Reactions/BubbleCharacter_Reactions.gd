@@ -37,6 +37,12 @@ var isLookingRight:bool = false:
 @export var Eyes_Pupil:Texture2D
 @export var Eyes_Blink:Texture2D
 
+@export_category("Nodes")
+@onready var mouth: Sprite2D = %Mouth
+
+func _ready() -> void:
+	mouth.texture = Mouth_Smile
+
 func _on_timer_timeout() -> void:
 	body.texture = T2D_Body[randi_range(0,T2D_Body.size() - 1)]
 	timer.wait_time = randf_range(minChangeBody,maxChangeBody)
@@ -71,3 +77,10 @@ func EyesLookAt(LookTowards:Vector2) -> void:
 	
 	left_pupil_anchor.look_at(LookTowards + left_pupil_anchor.global_position)
 	right_pupil_anchor.look_at(LookTowards + right_pupil_anchor.global_position)
+
+
+func _on_fear_detector_area_entered(area: Area2D) -> void:
+	mouth.texture = Mouth_Frown
+
+func _on_fear_detector_area_exited(area: Area2D) -> void:
+	mouth.texture = Mouth_Smile

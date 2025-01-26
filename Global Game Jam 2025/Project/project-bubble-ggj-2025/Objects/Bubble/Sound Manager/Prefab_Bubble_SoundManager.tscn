@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnbdafbebslbk"]
+[gd_scene load_steps=14 format=3 uid="uid://dnbdafbebslbk"]
 
 [ext_resource type="Script" path="res://Scripts/Character/Sound Manager/Bubble_SoundManager.gd" id="1_tw4gq"]
 [ext_resource type="AudioStream" uid="uid://ds8mumhn3l2gf" path="res://Audio/SFX/Player/Bubble_Jump_Var1_V1 Master.mp3" id="2_5cv5r"]
@@ -6,12 +6,21 @@
 [ext_resource type="AudioStream" uid="uid://db7nexx5s4nvi" path="res://Audio/SFX/Player/Bubble_Jump_Var3_V1 Master.mp3" id="4_4tunv"]
 [ext_resource type="AudioStream" uid="uid://da5nkasn0dfcf" path="res://Audio/SFX/Player/Bubble_BubbleRegen_V1 Master.mp3" id="5_006oh"]
 [ext_resource type="AudioStream" uid="uid://dpbk0o2br4xqm" path="res://Audio/SFX/Player/Bubble_SmallGrow_V1 Master.mp3" id="6_slb0m"]
+[ext_resource type="AudioStream" uid="uid://bwfarny1k2k3t" path="res://Audio/SFX/Player/Bubble_Afraid_Var1_V1 Master.mp3" id="7_1wpca"]
+[ext_resource type="AudioStream" uid="uid://bmk8ce1t5h214" path="res://Audio/SFX/Player/Bubble_Relief_Var1_V1 Master.mp3" id="7_f0o2w"]
+[ext_resource type="AudioStream" uid="uid://0eb6c5qyhu4j" path="res://Audio/SFX/Player/Bubble_Afraid_Var2_V1 Master.mp3" id="8_a8t0r"]
+[ext_resource type="AudioStream" uid="uid://diwqaa7w12gdv" path="res://Audio/SFX/Player/Bubble_Relief_Var2_V1 Master.mp3" id="8_y2i5y"]
+[ext_resource type="AudioStream" uid="uid://b613isrye7q6c" path="res://Audio/SFX/Player/Bubble_Relief_Var3_V1 Master.mp3" id="9_o1o03"]
+[ext_resource type="AudioStream" uid="uid://dr21rbo7qfejc" path="res://Audio/SFX/Player/Bubble_Afraid_Var3_V1 Master.mp3" id="9_yfeq4"]
+[ext_resource type="AudioStream" uid="uid://bf26jviokkivh" path="res://Audio/SFX/Player/Bubble_Relief_Var4_V1 Master.mp3" id="10_ytak2"]
 
 [node name="PrefabBubbleSoundManager" type="Node"]
 script = ExtResource("1_tw4gq")
 JumpSFX = Array[AudioStreamMP3]([ExtResource("2_5cv5r"), ExtResource("3_rj74g"), ExtResource("4_4tunv")])
 JumpRestoreSFX = ExtResource("5_006oh")
 SizeGrowSFX = ExtResource("6_slb0m")
+FearSFX = Array[AudioStreamMP3]([ExtResource("7_1wpca"), ExtResource("8_a8t0r"), ExtResource("9_yfeq4")])
+ReliefSFX = Array[AudioStreamMP3]([ExtResource("7_f0o2w"), ExtResource("8_y2i5y"), ExtResource("9_o1o03"), ExtResource("10_ytak2")])
 
 [node name="ASP_JumpSFX" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -22,5 +31,13 @@ unique_name_in_owner = true
 volume_db = -5.0
 
 [node name="ASP_Grow" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = -5.0
+
+[node name="ASP_Fear" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = -5.0
+
+[node name="ASP_Relief" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 volume_db = -5.0

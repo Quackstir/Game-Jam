@@ -9,7 +9,7 @@
 radius = 14.4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cl2g2"]
-radius = 96.0
+radius = 220.009
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xpodn"]
 radius = 64.0
@@ -58,5 +58,9 @@ Player = NodePath("..")
 Player = NodePath("..")
 JumpRestoreSFX = null
 
+[connection signal="area_entered" from="FearDetector" to="BubbleSprite" method="_on_fear_detector_area_entered"]
+[connection signal="area_entered" from="FearDetector" to="PrefabBubbleSoundManager" method="_on_fear_detector_area_entered"]
+[connection signal="area_exited" from="FearDetector" to="BubbleSprite" method="_on_fear_detector_area_exited"]
+[connection signal="area_exited" from="FearDetector" to="PrefabBubbleSoundManager" method="_on_fear_detector_area_exited"]
 [connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
 [connection signal="area_entered" from="GrowthDetector" to="." method="_on_growth_detector_area_entered"]
