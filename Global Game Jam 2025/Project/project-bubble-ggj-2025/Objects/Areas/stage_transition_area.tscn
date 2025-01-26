@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxydjtljwfgvu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uerk"]
+size = Vector2(80, 256)
+
+[node name="StageTransitionArea" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+metadata/type = "Transition"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6uerk")
+debug_color = Color(0.937255, 0.482353, 0, 0.419608)
