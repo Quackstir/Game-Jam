@@ -1,44 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b71dwi00v1fy3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ux6m"]
-size = Vector2(128, 48)
+[gd_scene load_steps=2 format=3 uid="uid://b71dwi00v1fy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpah7"]
-size = Vector2(128, 48)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_infdm"]
-size = Vector2(128, 32)
+size = Vector2(128, 128)
 
 [node name="SteamArea" type="Area2D"]
+collision_layer = 0
 collision_mask = 3
 gravity_space_override = 3
 gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)
-gravity = 200.0
+gravity = 500.0
+linear_damp = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 40)
-shape = SubResource("RectangleShape2D_5ux6m")
-debug_color = Color(0.886275, 0.145098, 0, 0.470588)
-
-[node name="Area2D" type="Area2D" parent="."]
-gravity_space_override = 1
-gravity_point_center = Vector2(0, -1)
-gravity_direction = Vector2(0, -1)
-gravity = 100.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_jpah7")
 debug_color = Color(0.854902, 0.552941, 0, 0.419608)
-
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(0, -32)
-gravity_space_override = 1
-gravity_point_center = Vector2(0, -1)
-gravity_direction = Vector2(0, -1)
-gravity = 50.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_infdm")

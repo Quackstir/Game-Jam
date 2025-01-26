@@ -55,7 +55,8 @@ position = Vector2(1944, 200)
 scale = Vector2(1, 2)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(312, 80)
+position = Vector2(224, 64)
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_o80qn")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
@@ -66,13 +67,12 @@ texture = ExtResource("9_ujjpv")
 shape = SubResource("CircleShape2D_10fng")
 
 [node name="SteamArea" parent="." instance=ExtResource("8_qrpy5")]
-position = Vector2(304, 400)
-scale = Vector2(2.36, 2.28)
-gravity_space_override = 1
+position = Vector2(304, 440)
+scale = Vector2(2.36, 1.64)
 
 [node name="SteamArea2" parent="." instance=ExtResource("8_qrpy5")]
-position = Vector2(1680, 328)
-scale = Vector2(2.56, 3.56)
+position = Vector2(1680, 360)
+scale = Vector2(2.56, 2.97926)
 
 [connection signal="player_grew" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_grew"]
 [connection signal="player_reached_screen_edge" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_reached_screen_edge"]
