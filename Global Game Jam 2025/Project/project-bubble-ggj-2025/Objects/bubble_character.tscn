@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxc5nomuic724"]
+[gd_scene load_steps=8 format=3 uid="uid://cxc5nomuic724"]
 
 [ext_resource type="Script" path="res://Scripts/Character/bubble_character.gd" id="1_ajysd"]
 [ext_resource type="Texture2D" uid="uid://cdrtvidtmpo6v" path="res://Art/Sprites/bubble.png" id="1_kqvtk"]
@@ -18,6 +18,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gn3kd"]
 radius = 14.4
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cl2g2"]
+radius = 96.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_xpodn"]
 radius = 64.0
 
@@ -33,6 +36,14 @@ sprite_frames = SubResource("SpriteFrames_bcttm")
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_gn3kd")
 
+[node name="FearDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="FearBox" type="CollisionShape2D" parent="FearDetector"]
+shape = SubResource("CircleShape2D_cl2g2")
+debug_color = Color(1, 0.175913, 0.677788, 0.42)
+
 [node name="HazardDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
@@ -40,9 +51,6 @@ collision_mask = 4
 [node name="HurtBox" type="CollisionShape2D" parent="HazardDetector"]
 shape = SubResource("CircleShape2D_xpodn")
 debug_color = Color(0.825595, 0, 0.128512, 0.42)
-
-[node name="DiageticHUD_BubbleManager" type="Node2D" parent="."]
-script = ExtResource("3_ykrj2")
 
 [node name="GrowthDetector" type="Area2D" parent="."]
 collision_layer = 0
@@ -52,6 +60,9 @@ collision_mask = 24
 scale = Vector2(0.25, 0.25)
 shape = SubResource("CircleShape2D_xpodn")
 debug_color = Color(0.92549, 0.886275, 0, 0.419608)
+
+[node name="DiageticHUD_BubbleManager" type="Node2D" parent="."]
+script = ExtResource("3_ykrj2")
 
 [connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
 [connection signal="area_entered" from="GrowthDetector" to="." method="_on_growth_detector_area_entered"]
