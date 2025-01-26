@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://tgmti6pd3n5o"]
+[gd_scene load_steps=8 format=3 uid="uid://tgmti6pd3n5o"]
 
 [ext_resource type="FontFile" uid="uid://dud5j0dtqjlgx" path="res://Art/Font/backlash.ttf" id="1_a2wco"]
 [ext_resource type="Script" path="res://menu.gd" id="1_n2pb2"]
 [ext_resource type="FontFile" uid="uid://brkxlrqc1lnkl" path="res://Art/Font/AtkinsonHyperlegible-Regular.ttf" id="2_w6iux"]
+[ext_resource type="AudioStream" uid="uid://ceukdd0i0r7gs" path="res://Audio/SFX/Menu/Menu_Click_V1.mp3" id="4_qav4v"]
+[ext_resource type="AudioStream" uid="uid://f60hv1ixm48q" path="res://Audio/SFX/Menu/Menu_Hover_V1.mp3" id="5_cc4gn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8p2p"]
 bg_color = Color(0.505635, 0.179772, 0.470001, 1)
@@ -102,5 +104,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_fvnvf")
 
+[node name="PressSFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(392, 225)
+stream = ExtResource("4_qav4v")
+volume_db = 1.0
+
+[node name="HoverSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_cc4gn")
+
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_mouse_entered"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer2/quit" to="." method="_on_quit_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer2/quit" to="." method="_on_quit_mouse_entered"]
