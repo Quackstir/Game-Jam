@@ -10,10 +10,11 @@ var _avaliable_jumps = MAX_JUMPS
 const JUMP_COOLDOWN = 1.0
 var _jump_timer = 0.0
 
-func add_avaliable_jump():
+func add_avaliable_jump() -> int:
 	_avaliable_jumps += 1
 	if _avaliable_jumps > MAX_JUMPS:
 		_avaliable_jumps = MAX_JUMPS
+	return _avaliable_jumps
 
 func handle_input(player: CharacterBody2D, delta: float) -> void:
 	_apply_gravity(player,delta)

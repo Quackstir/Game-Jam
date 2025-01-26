@@ -5,6 +5,7 @@ var PlayerMovement = preload("res://Scripts/Character/player_movement_normal.gd"
 
 const JUMP_ABILITY_COOLDOWN = 4.0
 signal player_jumped(jumps_left:int)
+signal jump_restored(jumps_left:int)
 
 func _physics_process(delta: float) -> void:
 	PlayerMovement.handle_input(self, delta)
@@ -19,4 +20,4 @@ func _on_hazard_detector_area_entered(_area: Area2D) -> void:
 	queue_free()
 
 func _on_jump_ability_timer_end() -> void:
-	PlayerMovement.add_avaliable_jump()
+	jump_restored.emit(PlayerMovement.add_avaliable_jump())
