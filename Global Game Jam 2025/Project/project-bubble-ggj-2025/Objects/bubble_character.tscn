@@ -71,7 +71,6 @@ Player = NodePath("..")
 
 [node name="PrefabBubbleSoundManager" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("4_7iy61")]
 Player = NodePath("..")
-JumpRestoreSFX = null
 
 [node name="VictoryActivate" type="Node" parent="."]
 script = ExtResource("5_uxml0")
