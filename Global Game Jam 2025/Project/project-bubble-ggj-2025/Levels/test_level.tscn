@@ -47,4 +47,5 @@ scale = Vector2(1, 2.76)
 position = Vector2(1816, 200)
 scale = Vector2(1, 2)
 
+[connection signal="player_grew" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_grew"]
 [connection signal="player_reached_screen_edge" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_reached_screen_edge"]
