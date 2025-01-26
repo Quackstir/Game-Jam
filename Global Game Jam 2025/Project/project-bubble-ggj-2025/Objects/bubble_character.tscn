@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxc5nomuic724"]
+[gd_scene load_steps=11 format=3 uid="uid://cxc5nomuic724"]
 
 [ext_resource type="Script" path="res://Scripts/Character/bubble_character.gd" id="1_ajysd"]
 [ext_resource type="PackedScene" uid="uid://dxfi6tbbbi0k8" path="res://Objects/Bubble/Reactions/BubbleSprite.tscn" id="3_7krfi"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD/DiageticHUD_BubbleManager.gd" id="3_ykrj2"]
 [ext_resource type="PackedScene" uid="uid://dnbdafbebslbk" path="res://Objects/Bubble/Sound Manager/Prefab_Bubble_SoundManager.tscn" id="4_7iy61"]
+[ext_resource type="Script" path="res://Scripts/Level/level_Victory.gd" id="5_uxml0"]
+[ext_resource type="PackedScene" uid="uid://b5ph8v0rbabsd" path="res://Objects/HUD/PreFab_VictoryScreen.tscn" id="6_8m2lw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gn3kd"]
 radius = 14.4
@@ -14,8 +16,12 @@ radius = 220.009
 [sub_resource type="CircleShape2D" id="CircleShape2D_xpodn"]
 radius = 64.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6ofe"]
+radius = 71.1126
+
 [node name="BubbleCharacter" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 33
 script = ExtResource("1_ajysd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -47,6 +53,14 @@ scale = Vector2(0.25, 0.25)
 shape = SubResource("CircleShape2D_xpodn")
 debug_color = Color(0.92549, 0.886275, 0, 0.419608)
 
+[node name="VictoryDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryDetector"]
+shape = SubResource("CircleShape2D_c6ofe")
+debug_color = Color(0.734044, 0.228613, 1, 0.42)
+
 [node name="DiageticHUD_BubbleManager" type="Node2D" parent="."]
 script = ExtResource("3_ykrj2")
 
@@ -58,9 +72,14 @@ Player = NodePath("..")
 Player = NodePath("..")
 JumpRestoreSFX = null
 
+[node name="VictoryActivate" type="Node" parent="."]
+script = ExtResource("5_uxml0")
+UI_VictoryScreen = ExtResource("6_8m2lw")
+
 [connection signal="area_entered" from="FearDetector" to="BubbleSprite" method="_on_fear_detector_area_entered"]
 [connection signal="area_entered" from="FearDetector" to="PrefabBubbleSoundManager" method="_on_fear_detector_area_entered"]
 [connection signal="area_exited" from="FearDetector" to="BubbleSprite" method="_on_fear_detector_area_exited"]
 [connection signal="area_exited" from="FearDetector" to="PrefabBubbleSoundManager" method="_on_fear_detector_area_exited"]
 [connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
 [connection signal="area_entered" from="GrowthDetector" to="." method="_on_growth_detector_area_entered"]
+[connection signal="area_entered" from="VictoryDetector" to="VictoryActivate" method="_on_victory_detector_area_entered"]

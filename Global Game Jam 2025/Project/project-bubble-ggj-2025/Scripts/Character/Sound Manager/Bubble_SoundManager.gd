@@ -22,27 +22,27 @@ func _ready() -> void:
 	Player.jump_restored.connect(jumpRestorePlay)
 	Player.player_grew.connect(SizeGrowPlay)
 
-func jumpPlay(amount:int):
+func jumpPlay(_amount:int):
 	asp_jump_sfx.stream = JumpSFX[randi_range(0,JumpSFX.size() - 1)]
 	asp_jump_sfx.pitch_scale = randf_range(0.8,1.2)
 	asp_jump_sfx.play()
 
-func jumpRestorePlay(amount:int):
+func jumpRestorePlay(_amount:int):
 	asp_jump_restore_sfx.stream = JumpRestoreSFX
 	asp_jump_restore_sfx.pitch_scale = randf_range(0.8,1.2)
 	asp_jump_restore_sfx.play()
 	
-func SizeGrowPlay(amount:int):
+func SizeGrowPlay(_amount:int):
 	asp_grow.stream = SizeGrowSFX
 	asp_grow.pitch_scale = randf_range(0.8,1.2)
 	asp_grow.play()
 
-func _on_fear_detector_area_entered(area: Area2D) -> void:
+func _on_fear_detector_area_entered(_area: Area2D) -> void:
 	asp_fear.stream = FearSFX[randi_range(0,FearSFX.size() - 1)]
 	asp_fear.pitch_scale = randf_range(0.8,1.2)
 	asp_fear.play()
 
-func _on_fear_detector_area_exited(area: Area2D) -> void:
+func _on_fear_detector_area_exited(_area: Area2D) -> void:
 	asp_relief.stream = ReliefSFX[randi_range(0,ReliefSFX.size() - 1)]
 	asp_relief.pitch_scale = randf_range(0.8,1.2)
 	asp_relief.play()
