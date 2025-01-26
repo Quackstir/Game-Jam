@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfk1xwt3p4i0j"]
+
+[ext_resource type="Script" path="res://Scripts/Kitchen Prefabs/counter_top.gd" id="1_kj3ei"]
+
+[node name="CounterTop" type="StaticBody2D"]
+script = ExtResource("1_kj3ei")
+
+[node name="CounterCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, -32, -32, 32, 7200, 32, 7200, -32, -24, -32)
+
+[node name="CounterPolygon2D" type="Polygon2D" parent="CounterCollisionPolygon2D"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1syhdx6v5kuo"]
+[gd_scene load_steps=3 format=3 uid="uid://b1syhdx6v5kuo"]
 
-[ext_resource type="Script" path="res://Objects/fork.gd" id="1_4dhab"]
+[ext_resource type="Script" path="res://Scripts/Kitchen Prefabs/fork.gd" id="1_4dhab"]
+[ext_resource type="PackedScene" uid="uid://bi7ckyrkolbj0" path="res://Objects/hazard_area.tscn" id="2_gsm6b"]
 
 [node name="Fork" type="StaticBody2D"]
 position = Vector2(-16, 0)
@@ -14,3 +15,9 @@ polygon = PackedVector2Array(33.2793, 109.1, 24.9595, 109.1, 24.9595, -66.4085, 
 
 [node name="ForkPolygon2D" type="Polygon2D" parent="ForkCollisionPolygon2D"]
 color = Color(0.830388, 0.857398, 0.954071, 1)
+
+[node name="HazardArea" parent="." instance=ExtResource("2_gsm6b")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardArea"]
+position = Vector2(2, -4.66667)
+polygon = PackedVector2Array(32, -133.333, 21.3333, -101.333, 16, -101.333)

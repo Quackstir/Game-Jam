@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmo8ogit11wpb"]
+
+[ext_resource type="PackedScene" uid="uid://cxc5nomuic724" path="res://Objects/bubble_character.tscn" id="1_gckm5"]
+[ext_resource type="PackedScene" uid="uid://gv7xfg2ehl0a" path="res://Objects/Kitchen Prefabs/bowl.tscn" id="2_0ggcw"]
+[ext_resource type="PackedScene" uid="uid://cfk1xwt3p4i0j" path="res://Objects/Kitchen Prefabs/counter_top.tscn" id="6_ll4d0"]
+[ext_resource type="PackedScene" uid="uid://dx2brpkej33vx" path="res://Objects/Kitchen Prefabs/knife.tscn" id="6_sfbjs"]
+
+[node name="ChrisLevel" type="Node2D"]
+
+[node name="BubbleCharacter" parent="." instance=ExtResource("1_gckm5")]
+position = Vector2(-128, -168)
+
+[node name="CounterTops" type="Node" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="CounterTops"]
+position = Vector2(-1032, 64)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(200, -64, 160, -64, 160, 256, -288, 256, -288, -64, -328, -64, -328, 280, 200, 280)
+
+[node name="CounterTop" parent="CounterTops" instance=ExtResource("6_ll4d0")]
+position = Vector2(-608, -32)
+
+[node name="CounterTop2" parent="CounterTops" instance=ExtResource("6_ll4d0")]
+position = Vector2(6624, -32)
+
+[node name="CounterTop3" parent="CounterTops" instance=ExtResource("6_ll4d0")]
+position = Vector2(-608, -1888)
+
+[node name="CounterTop4" parent="CounterTops" instance=ExtResource("6_ll4d0")]
+position = Vector2(6624, -1888)
+scale = Vector2(0.9, 1)
+
+[node name="CounterTop5" parent="CounterTops" instance=ExtResource("6_ll4d0")]
+position = Vector2(13824, -1280)
+scale = Vector2(0.02, 40)
+
+[node name="Bowls" type="Node" parent="."]
+
+[node name="Bowl" parent="Bowls" instance=ExtResource("2_0ggcw")]
+position = Vector2(928, -168)
+
+[node name="Cups" type="Node" parent="."]
+
+[node name="Forks" type="Node" parent="."]
+
+[node name="Knives" type="Node" parent="."]
+
+[node name="knife" parent="." instance=ExtResource("6_sfbjs")]
+position = Vector2(6584, -296)
+
+[node name="knife2" parent="." instance=ExtResource("6_sfbjs")]
+position = Vector2(3112, -280)
+
+[node name="knife3" parent="." instance=ExtResource("6_sfbjs")]
+position = Vector2(10352, -272)
+
+[node name="knife4" parent="." instance=ExtResource("6_sfbjs")]
+position = Vector2(10304, -2144)
+
+[node name="knife5" parent="." instance=ExtResource("6_sfbjs")]
+position = Vector2(6608, -2184)
+
+[node name="knife6" parent="." instance=ExtResource("6_sfbjs")]
+position = Vector2(3144, -2184)
