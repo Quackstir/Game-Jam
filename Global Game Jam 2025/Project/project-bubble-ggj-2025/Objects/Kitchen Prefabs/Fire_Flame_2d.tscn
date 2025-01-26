@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://v6xawliynaui"]
+
+[ext_resource type="Texture2D" uid="uid://ifhmvv0rk3c6" path="res://Art/kitchen assets/flame1_kitchen asset_jacobh.png" id="1_n466c"]
+[ext_resource type="Texture2D" uid="uid://bdjp668dllrb6" path="res://Art/kitchen assets/flame2_kitchen asset_jacobh.png" id="2_1t3pb"]
+[ext_resource type="PackedScene" uid="uid://bi7ckyrkolbj0" path="res://Objects/hazard_area.tscn" id="3_yrefx"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Flame1KitchenAssetJacobh" type="Sprite2D" parent="."]
+position = Vector2(-16, 16)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_n466c")
+
+[node name="Flame2KitchenAssetJacobh" type="Sprite2D" parent="."]
+position = Vector2(40, 48)
+texture = ExtResource("2_1t3pb")
+
+[node name="Flame1KitchenAssetJacobh2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(32, -40)
+scale = Vector2(0.84, 1)
+texture = ExtResource("1_n466c")
+
+[node name="Flame2KitchenAssetJacobh2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-16, -48)
+texture = ExtResource("2_1t3pb")
+
+[node name="Flame2KitchenAssetJacobh3" type="Sprite2D" parent="."]
+position = Vector2(-64, 64)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_1t3pb")
+
+[node name="HazardArea" parent="." instance=ExtResource("3_yrefx")]
+position = Vector2(0, -8)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardArea"]
+position = Vector2(-424, -160)
+polygon = PackedVector2Array(400, 40, 472, 24, 512, 104, 504, 192, 528, 280, 472, 304, 344, 304, 304, 280, 352, 168, 376, 80)
