@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dmo8ogit11wpb"]
+[gd_scene load_steps=33 format=3 uid="uid://dmo8ogit11wpb"]
 
 [ext_resource type="PackedScene" uid="uid://cxc5nomuic724" path="res://Objects/bubble_character.tscn" id="1_gckm5"]
 [ext_resource type="PackedScene" uid="uid://gv7xfg2ehl0a" path="res://Objects/Kitchen Prefabs/bowl.tscn" id="2_0ggcw"]
@@ -22,10 +22,16 @@
 [ext_resource type="Texture2D" uid="uid://bcrg6wx1rg42d" path="res://Art/knifeguy0001.png" id="18_qc8mc"]
 [ext_resource type="Texture2D" uid="uid://c0hddcl3lrdne" path="res://Art/kitchen assets/window_kitchen asset_jacobh.png" id="21_5uf6r"]
 [ext_resource type="Texture2D" uid="uid://j3yglkqj0x7k" path="res://Art/kitchen assets/vent_kitchen asset_jacobh.png" id="22_7ac61"]
+[ext_resource type="Texture2D" uid="uid://bw1xfcsunifpt" path="res://Art/kitchen assets/cabinet1_kitchen asset_jacobh and poppy.png" id="22_pyq7f"]
+[ext_resource type="Texture2D" uid="uid://bya664hfjaciq" path="res://Art/kitchen assets/countertop_kitchen asset_jacobh and poppy.png" id="23_f47y3"]
 [ext_resource type="Texture2D" uid="uid://cska24uml1ju3" path="res://Art/kitchen assets/stove and oven_kitchen asset_jacobh.png" id="23_jhnu1"]
+[ext_resource type="Texture2D" uid="uid://bey56bu151w7e" path="res://Art/kitchen assets/cabinet2_kitchen asset_jacobh.png" id="24_52m2k"]
 [ext_resource type="Texture2D" uid="uid://8fhf88j53wv6" path="res://Art/kitchen assets/smoke_kitchen asset_jacobh.png" id="24_o1kq6"]
 [ext_resource type="Texture2D" uid="uid://0mhf0fgeqvgv" path="res://Art/kitchen assets/sink_kitchen asset_jacobh.png" id="25_f56eb"]
-[ext_resource type="Texture2D" uid="uid://eql7goe5vt0v" path="res://Art/kitchen assets/paneling_kitchen asset_jacobh.png" id="26_asn83"]
+[ext_resource type="Texture2D" uid="uid://heyggwv0hhny" path="res://Art/kitchen assets/chair_kitchen asset_jacobh and poppy.png" id="25_yopfq"]
+[ext_resource type="Texture2D" uid="uid://cha8hlsj58kru" path="res://Art/background/tiledwalltexture.png" id="27_lr0vf"]
+[ext_resource type="Texture2D" uid="uid://w13iukxgx54k" path="res://Art/kitchen assets/door_kitchen asset_jacobh.png" id="28_j03t2"]
+[ext_resource type="Texture2D" uid="uid://b3mf6o2m887hf" path="res://Art/kitchen assets/lamp_kitchen asset_jacobh and poppy.png" id="29_ijq18"]
 
 [node name="ChrisLevel" type="Node2D"]
 
@@ -52,8 +58,8 @@ scale = Vector2(3.12033, -3.31967)
 [node name="Section 4" type="Node" parent="Flat Pan"]
 
 [node name="StaticBody2D2" parent="Flat Pan/Section 4" instance=ExtResource("15_4rggn")]
-position = Vector2(13624, -1328)
-rotation = 2.15028
+position = Vector2(13632, -1320)
+rotation = 2.24012
 scale = Vector2(-1.96642, 1.666)
 
 [node name="Section 5" type="Node" parent="Flat Pan"]
@@ -174,13 +180,14 @@ rotation = 0.0266889
 scale = Vector2(-1.47425, 1.53656)
 
 [node name="Bowl6" parent="Bowls/Section 4" instance=ExtResource("2_0ggcw")]
+z_index = -1
 position = Vector2(13056, -368)
 rotation = -0.200761
 scale = Vector2(1.50405, 1.45103)
 
 [node name="Bowl7" parent="Bowls/Section 4" instance=ExtResource("2_0ggcw")]
-position = Vector2(13568, -944)
-rotation = -3.08577
+position = Vector2(13504, -1008)
+rotation = -3.35252
 scale = Vector2(1.50405, 1.45103)
 
 [node name="Section 5" type="Node" parent="Bowls"]
@@ -229,7 +236,8 @@ scale = Vector2(1.54, -1.5)
 [node name="Section 4" type="Node" parent="Cups"]
 
 [node name="Cup4" parent="Cups/Section 4" instance=ExtResource("14_ttm5a")]
-position = Vector2(13600, -392)
+z_index = -1
+position = Vector2(13584, -416)
 rotation = 2.88337
 scale = Vector2(1.54, -1.5)
 
@@ -343,39 +351,63 @@ scale = Vector2(0.4, 0.308)
 [node name="Section 5" type="Node" parent="Sponge-toothpicks"]
 
 [node name="StaticBody2D7" parent="Sponge-toothpicks/Section 5" instance=ExtResource("5_3rofd")]
-position = Vector2(11352, -2008)
-rotation = -0.224052
-scale = Vector2(1, 1)
+position = Vector2(11384, -1976)
+rotation = -0.100485
+scale = Vector2(0.8, 0.8)
 
 [node name="StaticBody2D8" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
 z_index = -1
-position = Vector2(11176, -2088)
-rotation = -0.414845
-scale = Vector2(0.4, 0.308)
+position = Vector2(11272, -2064)
+rotation = -0.337431
+scale = Vector2(0.3, 0.232)
 
 [node name="StaticBody2D9" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
 z_index = -1
-position = Vector2(11264, -2080)
-rotation = -0.874512
-scale = Vector2(0.4, 0.308)
+position = Vector2(11336, -2056)
+rotation = 0.625853
+scale = Vector2(0.3, 0.232)
 
 [node name="StaticBody2D10" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
 z_index = -1
-position = Vector2(11528, -1984)
-rotation = 2.02193
-scale = Vector2(0.4, 0.308)
+position = Vector2(11408, -2048)
+rotation = 2.98818
+scale = Vector2(0.3, 0.232)
 
 [node name="StaticBody2D11" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
 z_index = -1
-position = Vector2(11184, -1976)
-rotation = 1.73115
-scale = Vector2(0.4, 0.308)
+position = Vector2(11416, -2048)
+rotation = 3.51415
+scale = Vector2(0.3, 0.232)
 
 [node name="StaticBody2D12" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
 z_index = -1
-position = Vector2(11440, -2120)
-rotation = -2.97194
-scale = Vector2(0.4, 0.308)
+position = Vector2(11504, -2040)
+rotation = -2.60536
+scale = Vector2(0.3, 0.232)
+
+[node name="StaticBody2D13" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
+z_index = -1
+position = Vector2(11528, -1976)
+rotation = -1.23298
+scale = Vector2(0.3, 0.232)
+
+[node name="StaticBody2D14" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
+z_index = -1
+position = Vector2(11464, -2080)
+rotation = -0.0809874
+scale = Vector2(0.3, 0.232)
+
+[node name="StaticBody2D15" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
+z_index = -3
+position = Vector2(11904, -2000)
+rotation = -1.16782
+scale = Vector2(0.3, 0.232)
+
+[node name="StaticBody2D16" parent="Sponge-toothpicks/Section 5" instance=ExtResource("8_7jlkb")]
+z_index = -3
+position = Vector2(11960, -2576)
+rotation = -0.908166
+scale = Vector2(0.3, 0.232)
 
 [node name="Knives" type="Node" parent="."]
 
@@ -594,28 +626,84 @@ position = Vector2(9984, -992)
 scale = Vector2(1, 2.84)
 
 [node name="GrowthArea3" parent="Growth Transition" instance=ExtResource("8_qm3cq")]
-position = Vector2(6712, -2352)
+position = Vector2(10264, -2352)
 scale = Vector2(1, 2.84)
 
 [node name="Background assets" type="Node" parent="."]
 
+[node name="LowerCabnets" type="Node" parent="Background assets"]
+
+[node name="SinkKitchenAssetJacobh" type="Sprite2D" parent="Background assets/LowerCabnets"]
+z_index = -5
+position = Vector2(-1608, 672)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("25_f56eb")
+
+[node name="StoveAndOvenKitchenAssetJacobh" type="Sprite2D" parent="Background assets/LowerCabnets"]
+z_index = -5
+position = Vector2(4672, 896)
+scale = Vector2(3.5, 3)
+texture = ExtResource("23_jhnu1")
+
+[node name="Cabinet1KitchenAssetJacobhAndPoppy" type="Sprite2D" parent="Background assets/LowerCabnets"]
+z_index = -5
+position = Vector2(2408, 896)
+scale = Vector2(2.5, 3)
+texture = ExtResource("22_pyq7f")
+
+[node name="CountertopKitchenAssetJacobhAndPoppy" type="Sprite2D" parent="Background assets/LowerCabnets"]
+z_index = -5
+position = Vector2(368, 906)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("23_f47y3")
+
+[node name="Cabinet1KitchenAssetJacobhAndPoppy2" type="Sprite2D" parent="Background assets/LowerCabnets"]
+z_index = -5
+position = Vector2(8924, 913)
+scale = Vector2(2.5, 3)
+texture = ExtResource("22_pyq7f")
+
+[node name="CountertopKitchenAssetJacobhAndPoppy2" type="Sprite2D" parent="Background assets/LowerCabnets"]
+z_index = -5
+position = Vector2(6884, 923)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("23_f47y3")
+
+[node name="Cabinet1KitchenAssetJacobhAndPoppy3" type="Sprite2D" parent="Background assets/LowerCabnets"]
+z_index = -5
+position = Vector2(12988, 873)
+scale = Vector2(2.5, 3)
+texture = ExtResource("22_pyq7f")
+
+[node name="CountertopKitchenAssetJacobhAndPoppy3" type="Sprite2D" parent="Background assets/LowerCabnets"]
+z_index = -5
+position = Vector2(10948, 883)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("23_f47y3")
+
+[node name="UpperCabnets" type="Node" parent="Background assets"]
+
+[node name="Cabinet2KitchenAssetJacobh" type="Sprite2D" parent="Background assets/UpperCabnets"]
+z_index = -9
+position = Vector2(12248, -2624)
+texture = ExtResource("24_52m2k")
+
+[node name="Cabinet2KitchenAssetJacobh2" type="Sprite2D" parent="Background assets/UpperCabnets"]
+z_index = -9
+position = Vector2(10880, -2632)
+texture = ExtResource("24_52m2k")
+
 [node name="Section 1" type="Node" parent="Background assets"]
 
 [node name="WindowKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 1"]
-position = Vector2(1552, -1184)
+z_index = -2
+position = Vector2(1456, -1320)
 texture = ExtResource("21_5uf6r")
 
 [node name="SpongeKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 1"]
 position = Vector2(-680, -144)
 rotation = -1.66296
-scale = Vector2(1, 1)
 texture = ExtResource("13_wrake")
-
-[node name="SinkKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 1"]
-z_index = -1
-position = Vector2(-1608, 672)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("25_f56eb")
 
 [node name="Section 2" type="Node" parent="Background assets"]
 
@@ -627,11 +715,6 @@ texture = ExtResource("22_7ac61")
 position = Vector2(4128, -1496)
 texture = ExtResource("22_7ac61")
 
-[node name="StoveAndOvenKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 2"]
-position = Vector2(4672, 896)
-scale = Vector2(3.5, 3)
-texture = ExtResource("23_jhnu1")
-
 [node name="SmokeKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 2"]
 position = Vector2(4280, -1016)
 texture = ExtResource("24_o1kq6")
@@ -642,9 +725,36 @@ rotation = -3.14159
 scale = Vector2(1, -1.5)
 texture = ExtResource("24_o1kq6")
 
+[node name="LampKitchenAssetJacobhAndPoppy3" type="Sprite2D" parent="Background assets/Section 2"]
+position = Vector2(2928, -1512)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("29_ijq18")
+
 [node name="Section 3" type="Node" parent="Background assets"]
 
+[node name="LampKitchenAssetJacobhAndPoppy2" type="Sprite2D" parent="Background assets/Section 3"]
+position = Vector2(7128, -1512)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("29_ijq18")
+
+[node name="DoorKitchenAssetJacobh" type="Sprite2D" parent="Background assets/Section 3"]
+z_index = -10
+position = Vector2(8648, -872)
+texture = ExtResource("28_j03t2")
+
 [node name="Section 4" type="Node" parent="Background assets"]
+
+[node name="LampKitchenAssetJacobhAndPoppy" type="Sprite2D" parent="Background assets/Section 4"]
+position = Vector2(11328, -1512)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("29_ijq18")
+
+[node name="ChairKitchenAssetJacobhAndPoppy" type="Sprite2D" parent="Background assets/Section 4"]
+z_index = -11
+position = Vector2(12056, -272)
+rotation = -3.14159
+scale = Vector2(1.5, -1.5)
+texture = ExtResource("25_yopfq")
 
 [node name="Section 5" type="Node" parent="Background assets"]
 
@@ -652,9 +762,13 @@ texture = ExtResource("24_o1kq6")
 
 [node name="Section 7" type="Node" parent="Background assets"]
 
-[node name="PanelingKitchenAssetJacobh" type="Sprite2D" parent="."]
-position = Vector2(-128, -1656)
-texture = ExtResource("26_asn83")
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+z_index = -10
+texture_repeat = 2
+position = Vector2(9328, -3896)
+texture = ExtResource("27_lr0vf")
+polygon = PackedVector2Array(5576, -2352, 5432, 5752, -11952, 5792, -11944, -2200)
 
 [connection signal="player_grew" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_grew"]
 [connection signal="player_reached_screen_edge" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_reached_screen_edge"]
