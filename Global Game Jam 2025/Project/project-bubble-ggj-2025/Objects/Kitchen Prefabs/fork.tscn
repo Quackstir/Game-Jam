@@ -1,23 +1,24 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1syhdx6v5kuo"]
 
-[ext_resource type="Script" path="res://Scripts/Kitchen Prefabs/fork.gd" id="1_4dhab"]
 [ext_resource type="PackedScene" uid="uid://bi7ckyrkolbj0" path="res://Objects/hazard_area.tscn" id="2_gsm6b"]
+[ext_resource type="Texture2D" uid="uid://bbi4blaqs5ofi" path="res://Art/kitchen assets/fork_kitchen asset_jacobh and poppy.png" id="3_ke23q"]
 
 [node name="Fork" type="StaticBody2D"]
 position = Vector2(-16, 0)
-scale = Vector2(1.5, 1.5)
-script = ExtResource("1_4dhab")
+scale = Vector2(2, 2)
 
 [node name="ForkCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(1.27156e-06, 0)
+position = Vector2(-8.2, 11.4667)
 scale = Vector2(0.641042, 1.12435)
-polygon = PackedVector2Array(33.2793, 109.1, 24.9595, 109.1, 24.9595, -66.4085, 16.6396, -80.6389, 49.9187, -118.587, 33.2792, -90.1258, 24.9594, -75.8954, 33.2792, -61.665)
-
-[node name="ForkPolygon2D" type="Polygon2D" parent="ForkCollisionPolygon2D"]
-color = Color(0.830388, 0.857398, 0.954071, 1)
+polygon = PackedVector2Array(39.519, 90.1262, 14.5596, 90.1262, 13.5196, 27.868, 16.6396, -18.9739, 14.5596, -40.3196, -2.07995, -49.2136, -13.5197, -85.9756, 13.5196, -87.1615, 48.8787, -88.3473, 71.7582, -90.1262, 68.6382, -80.6392, 62.3984, -52.7712, 46.7988, -40.9125, 43.6789, -10.0799, 40.559, 57.5147)
 
 [node name="HazardArea" parent="." instance=ExtResource("2_gsm6b")]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardArea"]
-position = Vector2(2, -4.66667)
-polygon = PackedVector2Array(32, -133.333, 21.3333, -101.333, 16, -101.333)
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="HazardArea"]
+position = Vector2(-0.200001, 24.1333)
+polygon = PackedVector2Array(38.6667, -115.333, 38.6667, -135.333, -20.6667, -134, -16.6667, -109.333)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10.4667, 2.13333)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_ke23q")

@@ -1,11 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfk1xwt3p4i0j"]
+[gd_scene load_steps=3 format=3 uid="uid://cfk1xwt3p4i0j"]
 
-[ext_resource type="Script" path="res://Scripts/Kitchen Prefabs/counter_top.gd" id="1_kj3ei"]
+[ext_resource type="Texture2D" uid="uid://pqwbl2jgeaum" path="res://Art/kitchen assets/shelf2_kitchen asset_jacobh and poppy.png" id="2_j1q8q"]
+[ext_resource type="Texture2D" uid="uid://b7raxgroygf3" path="res://Art/kitchen assets/shelf1_kitchen asset_jacobh and poppy.png" id="3_s4ib1"]
 
 [node name="CounterTop" type="StaticBody2D"]
-script = ExtResource("1_kj3ei")
 
 [node name="CounterCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-32, -32, -32, 32, 7200, 32, 7200, -32, -24, -32)
 
-[node name="CounterPolygon2D" type="Polygon2D" parent="CounterCollisionPolygon2D"]
+[node name="Shelf2KitchenAssetJacobhAndPoppy" type="Sprite2D" parent="."]
+position = Vector2(358.5, 37)
+texture = ExtResource("2_j1q8q")
+
+[node name="Shelf1KitchenAssetJacobhAndPoppy" type="Sprite2D" parent="."]
+position = Vector2(1206.5, 1)
+texture = ExtResource("3_s4ib1")
+
+[node name="Shelf2KitchenAssetJacobhAndPoppy2" type="Sprite2D" parent="."]
+position = Vector2(3763.5, 37)
+texture = ExtResource("2_j1q8q")
+
+[node name="Shelf1KitchenAssetJacobhAndPoppy2" type="Sprite2D" parent="."]
+position = Vector2(4611.5, 1)
+texture = ExtResource("3_s4ib1")
+
+[node name="Shelf2KitchenAssetJacobhAndPoppy3" type="Sprite2D" parent="."]
+position = Vector2(2059.5, 37)
+texture = ExtResource("2_j1q8q")
+
+[node name="Shelf1KitchenAssetJacobhAndPoppy3" type="Sprite2D" parent="."]
+position = Vector2(2907.5, 1)
+texture = ExtResource("3_s4ib1")
+
+[node name="Shelf2KitchenAssetJacobhAndPoppy4" type="Sprite2D" parent="."]
+position = Vector2(5467.5, 37)
+texture = ExtResource("2_j1q8q")
+
+[node name="Shelf1KitchenAssetJacobhAndPoppy4" type="Sprite2D" parent="."]
+position = Vector2(6315.5, 1)
+texture = ExtResource("3_s4ib1")
+
+[node name="Shelf2KitchenAssetJacobhAndPoppy5" type="Sprite2D" parent="."]
+position = Vector2(6848, 32)
+texture = ExtResource("2_j1q8q")

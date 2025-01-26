@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm5tus6821vas"]
+
+[ext_resource type="Texture2D" uid="uid://u5ti4qqsksc8" path="res://Art/kitchen assets/sponge2_kitchen asset_jacobh.png" id="1_nkdgd"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sponge2KitchenAssetJacobh" type="Sprite2D" parent="."]
+rotation = -1.51844
+texture = ExtResource("1_nkdgd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-160, -80, -128, -88, -72, -80, -48, -88, 24, -80, 96, -88, 160, -72, 184, -24, 168, 64, -160, 64, -184, 32, -184, -32, -176, -64)

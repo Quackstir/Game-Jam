@@ -1,24 +1,25 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx2brpkej33vx"]
 
-[ext_resource type="Script" path="res://Scripts/Kitchen Prefabs/knife.gd" id="1_lo0hw"]
 [ext_resource type="PackedScene" uid="uid://bi7ckyrkolbj0" path="res://Objects/hazard_area.tscn" id="2_5lryg"]
+[ext_resource type="Texture2D" uid="uid://ignb8fph0v67" path="res://Art/kitchen assets/knife_kitchen asset_jacobh and poppy.png" id="3_5ofwy"]
 
 [node name="knife" type="StaticBody2D"]
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_lo0hw")
 
 [node name="KnifeCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-3.94185e-05, 0)
+position = Vector2(-22.9333, -33.5993)
 scale = Vector2(0.641042, 1.12435)
-polygon = PackedVector2Array(16.6395, 109.1, 41.5989, 109.1, 33.2791, 23.7173, 41.5989, 18.9738, 58.2385, 14.2304, 58.2384, -23.7173, 49.9186, -80.6389, 41.5989, -128.074, 24.9593, -147.047, 8.3197, -156.534, 8.31976, 14.2304, 16.6396, 23.7173)
-
-[node name="KnifePolygon2D" type="Polygon2D" parent="KnifeCollisionPolygon2D"]
-position = Vector2(1.03995, 0)
-color = Color(0.977521, 0.916599, 0.978132, 1)
+polygon = PackedVector2Array(16.6395, 109.1, 41.5989, 109.1, 41.5989, 42.6913, 66.5583, 37.9479, 66.5583, -4.74348, 66.5583, -71.1522, 49.9187, -90.1262, 33.2792, -104.357, 16.6396, -113.844, -8.31978, -123.331, 8.31979, 37.9479, 16.6396, 47.4348)
 
 [node name="HazardArea" parent="." instance=ExtResource("2_5lryg")]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardArea"]
-polygon = PackedVector2Array(26.6667, 21.3333, 37.3333, 16, 37.3333, -26.6667, 32, -90.6667, 26.6667, -144, 16, -165.333, 5.33333, -176, 5.33333, -165.333, 16, -138.667, 16, 5.33333)
+position = Vector2(-17.6003, -6.93273)
+polygon = PackedVector2Array(21.3333, 21.3333, 37.3333, 16, 37.3333, -26.6667, 37.3333, -101.333, 26.6667, -133.333, 10.6667, -149.333, -5.33333, -165.333, -5.33333, -133.333, 16, -117.333, 16, 5.33333)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.60033, -38.9327)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_5ofwy")
