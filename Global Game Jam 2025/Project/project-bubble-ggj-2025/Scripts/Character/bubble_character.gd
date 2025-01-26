@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name bubble_character
 
 var PlayerMovement = preload("res://Scripts/Character/player_movement_normal.gd").new()
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 # JUMP ABILITY
 @export var JUMP_ABILITY_COOLDOWN = 7.0
@@ -26,7 +27,7 @@ func on_jump(jumps_left: int):
 
 func _on_hazard_detector_area_entered(_area: Area2D) -> void:
 	#TODO popping animation
-	#TODO send signal for game over when player pops
+	await transition_to_game_over()
 	queue_free()
 
 func _on_jump_ability_timer_end() -> void:
@@ -43,3 +44,12 @@ func _on_growth_detector_area_entered(area: Area2D) -> void:
 			"Transition":
 				player_reached_screen_edge.emit()
 	area.queue_free()
+
+func transition_to_game_over():
+	#get_tree().paused = true
+	LevelTransition.fade_to_black()
+	death_sound.play()
+	await death_sound.finished
+	#get_tree().paused = false
+	get_tree().change_scene_to_file("res://Levels/game_over_scene.tscn")
+	LevelTransition.fade_from_black()
