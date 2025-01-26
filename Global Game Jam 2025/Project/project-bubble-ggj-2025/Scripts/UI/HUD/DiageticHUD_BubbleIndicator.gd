@@ -15,7 +15,7 @@ var bubble_scale:float = 0.0:
 		scale.y = expansionCurveAnimation.sample(newValue)
 
 func _physics_process(delta: float) -> void:
-	position = lerp(position, PositionMoveTowards, get_process_delta_time() * 10)
+	position = lerp(position, PositionMoveTowards, delta * 10)
 	
 func isUsedUpdate(newValue:bool) -> void:
 	if newValue:
