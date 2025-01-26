@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmo8ogit11wpb"]
+[gd_scene load_steps=9 format=3 uid="uid://dmo8ogit11wpb"]
 
 [ext_resource type="PackedScene" uid="uid://cxc5nomuic724" path="res://Objects/bubble_character.tscn" id="1_gckm5"]
 [ext_resource type="PackedScene" uid="uid://gv7xfg2ehl0a" path="res://Objects/Kitchen Prefabs/bowl.tscn" id="2_0ggcw"]
+[ext_resource type="PackedScene" uid="uid://ca3r6q3j2mhd5" path="res://Objects/gameplay_camera.tscn" id="5_2kauq"]
 [ext_resource type="PackedScene" uid="uid://cfk1xwt3p4i0j" path="res://Objects/Kitchen Prefabs/counter_top.tscn" id="6_ll4d0"]
+[ext_resource type="PackedScene" uid="uid://ugqaiox014qb" path="res://Objects/camera_dock.tscn" id="6_m8umf"]
 [ext_resource type="PackedScene" uid="uid://dx2brpkej33vx" path="res://Objects/Kitchen Prefabs/knife.tscn" id="6_sfbjs"]
+[ext_resource type="PackedScene" uid="uid://dxydjtljwfgvu" path="res://Objects/Areas/stage_transition_area.tscn" id="7_4fc4u"]
+[ext_resource type="PackedScene" uid="uid://b77jqbpnfjrkl" path="res://Objects/Areas/growth_area.tscn" id="8_qm3cq"]
 
 [node name="ChrisLevel" type="Node2D"]
 
@@ -37,7 +41,7 @@ scale = Vector2(0.02, 40)
 [node name="Bowls" type="Node" parent="."]
 
 [node name="Bowl" parent="Bowls" instance=ExtResource("2_0ggcw")]
-position = Vector2(928, -168)
+position = Vector2(1000, -168)
 
 [node name="Cups" type="Node" parent="."]
 
@@ -62,3 +66,26 @@ position = Vector2(6608, -2184)
 
 [node name="knife6" parent="." instance=ExtResource("6_sfbjs")]
 position = Vector2(3144, -2184)
+
+[node name="GameplayCamera" parent="." node_paths=PackedStringArray("camera_path") instance=ExtResource("5_2kauq")]
+camera_path = [NodePath("../CameraPath/CameraDock"), NodePath("../CameraPath/CameraDock2")]
+
+[node name="CameraPath" type="Node" parent="."]
+
+[node name="CameraDock" parent="CameraPath" instance=ExtResource("6_m8umf")]
+position = Vector2(192, -320)
+
+[node name="CameraDock2" parent="CameraPath" instance=ExtResource("6_m8umf")]
+position = Vector2(1408, -320)
+metadata/order = 1
+
+[node name="StageTransitionArea" parent="." instance=ExtResource("7_4fc4u")]
+position = Vector2(864, -552)
+scale = Vector2(1, 4.08)
+
+[node name="GrowthArea" parent="." instance=ExtResource("8_qm3cq")]
+position = Vector2(1568, -568)
+scale = Vector2(1, 2.84)
+
+[connection signal="player_grew" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_grew"]
+[connection signal="player_reached_screen_edge" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_reached_screen_edge"]
