@@ -57,7 +57,7 @@ func EyesOpen() -> void:
 	eyes_pupil_right.visible = true
 	eyes_blink.visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var input_axis := Input.get_axis("Movement_Left", "Movement_Right")
 
 	if input_axis > 0: 
@@ -79,8 +79,8 @@ func EyesLookAt(LookTowards:Vector2) -> void:
 	right_pupil_anchor.look_at(LookTowards + right_pupil_anchor.global_position)
 
 
-func _on_fear_detector_area_entered(area: Area2D) -> void:
+func _on_fear_detector_area_entered(_area: Area2D) -> void:
 	mouth.texture = Mouth_Frown
 
-func _on_fear_detector_area_exited(area: Area2D) -> void:
+func _on_fear_detector_area_exited(_area: Area2D) -> void:
 	mouth.texture = Mouth_Smile
