@@ -1,13 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmo8ogit11wpb"]
+[gd_scene load_steps=19 format=3 uid="uid://dmo8ogit11wpb"]
 
 [ext_resource type="PackedScene" uid="uid://cxc5nomuic724" path="res://Objects/bubble_character.tscn" id="1_gckm5"]
 [ext_resource type="PackedScene" uid="uid://gv7xfg2ehl0a" path="res://Objects/Kitchen Prefabs/bowl.tscn" id="2_0ggcw"]
 [ext_resource type="PackedScene" uid="uid://ca3r6q3j2mhd5" path="res://Objects/gameplay_camera.tscn" id="5_2kauq"]
+[ext_resource type="Texture2D" uid="uid://bbi4blaqs5ofi" path="res://Art/kitchen assets/fork_kitchen asset_jacobh and poppy.png" id="5_s7lj7"]
 [ext_resource type="PackedScene" uid="uid://cfk1xwt3p4i0j" path="res://Objects/Kitchen Prefabs/counter_top.tscn" id="6_ll4d0"]
 [ext_resource type="PackedScene" uid="uid://ugqaiox014qb" path="res://Objects/camera_dock.tscn" id="6_m8umf"]
 [ext_resource type="PackedScene" uid="uid://dx2brpkej33vx" path="res://Objects/Kitchen Prefabs/knife.tscn" id="6_sfbjs"]
+[ext_resource type="Texture2D" uid="uid://ignb8fph0v67" path="res://Art/kitchen assets/knife_kitchen asset_jacobh and poppy.png" id="6_wqcye"]
 [ext_resource type="PackedScene" uid="uid://dxydjtljwfgvu" path="res://Objects/Areas/stage_transition_area.tscn" id="7_4fc4u"]
+[ext_resource type="Texture2D" uid="uid://bdhpxan55a1d" path="res://Art/kitchen assets/mug1_kitchen asset_jacobh.png" id="7_getkm"]
+[ext_resource type="Texture2D" uid="uid://dkbyc5r5ge8mc" path="res://Art/kitchen assets/mug2_kitchen asset_jacobh.png" id="8_ahbi5"]
 [ext_resource type="PackedScene" uid="uid://b77jqbpnfjrkl" path="res://Objects/Areas/growth_area.tscn" id="8_qm3cq"]
+[ext_resource type="Texture2D" uid="uid://cw8dm075cb0ho" path="res://Art/kitchen assets/pan2_kitchen asset_jacobh.png" id="9_0rm0j"]
+[ext_resource type="Texture2D" uid="uid://dwujecuv8jkmq" path="res://Art/kitchen assets/pan_kitchen asset_jacobh.png" id="10_ddhyu"]
+[ext_resource type="Texture2D" uid="uid://c83eii8j6f5lo" path="res://Art/kitchen assets/spatula_kitchen asset_jacobh.png" id="11_id1nr"]
+[ext_resource type="Texture2D" uid="uid://b283ebgwm3q7b" path="res://Art/kitchen assets/spoon_kitchen asset_jacobh and poppy.png" id="12_gulo3"]
+[ext_resource type="Texture2D" uid="uid://c1d87r3qsy8gs" path="res://Art/kitchen assets/sponge_kitchen asset_jacobh.png" id="13_wrake"]
+[ext_resource type="Texture2D" uid="uid://bcrg6wx1rg42d" path="res://Art/knifeguy0001.png" id="18_qc8mc"]
 
 [node name="ChrisLevel" type="Node2D"]
 
@@ -41,7 +51,19 @@ scale = Vector2(0.02, 40)
 [node name="Bowls" type="Node" parent="."]
 
 [node name="Bowl" parent="Bowls" instance=ExtResource("2_0ggcw")]
-position = Vector2(1000, -168)
+position = Vector2(3096, -163)
+
+[node name="Bowl2" parent="Bowls" instance=ExtResource("2_0ggcw")]
+position = Vector2(3775, -215)
+scale = Vector2(2.25, 2.25)
+
+[node name="Bowl3" parent="Bowls" instance=ExtResource("2_0ggcw")]
+position = Vector2(6361, -165)
+scale = Vector2(-1.57369, 1.535)
+
+[node name="Bowl4" parent="Bowls" instance=ExtResource("2_0ggcw")]
+position = Vector2(5294, -224)
+scale = Vector2(2.26249, 2.34877)
 
 [node name="Cups" type="Node" parent="."]
 
@@ -49,23 +71,98 @@ position = Vector2(1000, -168)
 
 [node name="Knives" type="Node" parent="."]
 
-[node name="knife" parent="." instance=ExtResource("6_sfbjs")]
-position = Vector2(6584, -296)
+[node name="knife" parent="Knives" instance=ExtResource("6_sfbjs")]
+position = Vector2(6584, 360)
 
-[node name="knife2" parent="." instance=ExtResource("6_sfbjs")]
-position = Vector2(3112, -280)
+[node name="knife2" parent="Knives" instance=ExtResource("6_sfbjs")]
+position = Vector2(3112, 333)
 
-[node name="knife3" parent="." instance=ExtResource("6_sfbjs")]
-position = Vector2(10352, -272)
+[node name="knife3" parent="Knives" instance=ExtResource("6_sfbjs")]
+position = Vector2(10352, 426)
 
-[node name="knife4" parent="." instance=ExtResource("6_sfbjs")]
+[node name="knife4" parent="Knives" instance=ExtResource("6_sfbjs")]
 position = Vector2(10304, -2144)
 
-[node name="knife5" parent="." instance=ExtResource("6_sfbjs")]
+[node name="knife5" parent="Knives" instance=ExtResource("6_sfbjs")]
 position = Vector2(6608, -2184)
 
-[node name="knife6" parent="." instance=ExtResource("6_sfbjs")]
+[node name="knife6" parent="Knives" instance=ExtResource("6_sfbjs")]
 position = Vector2(3144, -2184)
+
+[node name="ForkKitchenAssetJacobhAndPoppy" type="Sprite2D" parent="Knives"]
+position = Vector2(1363, 401)
+texture = ExtResource("5_s7lj7")
+
+[node name="KnifeKitchenAssetJacobhAndPoppy" type="Sprite2D" parent="Knives"]
+position = Vector2(1171, 401)
+texture = ExtResource("6_wqcye")
+
+[node name="KnifeKitchenAssetJacobhAndPoppy2" type="Sprite2D" parent="Knives"]
+position = Vector2(1685, -339)
+texture = ExtResource("6_wqcye")
+
+[node name="Mug1KitchenAssetJacobh" type="Sprite2D" parent="Knives"]
+position = Vector2(-406, 376)
+texture = ExtResource("7_getkm")
+
+[node name="Mug1KitchenAssetJacobh4" type="Sprite2D" parent="Knives"]
+position = Vector2(2285, -268)
+texture = ExtResource("7_getkm")
+
+[node name="Mug1KitchenAssetJacobh3" type="Sprite2D" parent="Knives"]
+position = Vector2(1476, -212)
+texture = ExtResource("7_getkm")
+
+[node name="Mug2KitchenAssetJacobh" type="Sprite2D" parent="Knives"]
+position = Vector2(-58, 220)
+texture = ExtResource("8_ahbi5")
+
+[node name="Mug2KitchenAssetJacobh3" type="Sprite2D" parent="Knives"]
+position = Vector2(789, -143)
+texture = ExtResource("8_ahbi5")
+
+[node name="Pan2KitchenAssetJacobh3" type="Sprite2D" parent="Knives"]
+position = Vector2(2169, -93)
+rotation = -3.13094
+scale = Vector2(1, 1)
+texture = ExtResource("9_0rm0j")
+
+[node name="Pan2KitchenAssetJacobh" type="Sprite2D" parent="Knives"]
+position = Vector2(27, 401)
+texture = ExtResource("9_0rm0j")
+
+[node name="Mug2KitchenAssetJacobh2" type="Sprite2D" parent="Knives"]
+position = Vector2(-1454, 260)
+texture = ExtResource("8_ahbi5")
+
+[node name="Mug1KitchenAssetJacobh2" type="Sprite2D" parent="Knives"]
+position = Vector2(-1444, 436)
+texture = ExtResource("7_getkm")
+
+[node name="Pan2KitchenAssetJacobh2" type="Sprite2D" parent="Knives"]
+position = Vector2(-1021, 522)
+texture = ExtResource("9_0rm0j")
+
+[node name="PanKitchenAssetJacobh" type="Sprite2D" parent="Knives"]
+position = Vector2(471, 401)
+texture = ExtResource("10_ddhyu")
+
+[node name="SpatulaKitchenAssetJacobh" type="Sprite2D" parent="Knives"]
+position = Vector2(2482, -431)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("11_id1nr")
+
+[node name="SpoonKitchenAssetJacobhAndPoppy" type="Sprite2D" parent="Knives"]
+position = Vector2(945, 406)
+texture = ExtResource("12_gulo3")
+
+[node name="SpoonKitchenAssetJacobhAndPoppy2" type="Sprite2D" parent="Knives"]
+position = Vector2(966, -279)
+texture = ExtResource("12_gulo3")
+
+[node name="SpongeKitchenAssetJacobh" type="Sprite2D" parent="Knives"]
+position = Vector2(-1654, -184)
+texture = ExtResource("13_wrake")
 
 [node name="GameplayCamera" parent="." node_paths=PackedStringArray("camera_path") instance=ExtResource("5_2kauq")]
 camera_path = [NodePath("../CameraPath/CameraDock"), NodePath("../CameraPath/CameraDock2")]
@@ -80,12 +177,32 @@ position = Vector2(1408, -320)
 metadata/order = 1
 
 [node name="StageTransitionArea" parent="." instance=ExtResource("7_4fc4u")]
-position = Vector2(864, -552)
+position = Vector2(523, -554)
 scale = Vector2(1, 4.08)
 
 [node name="GrowthArea" parent="." instance=ExtResource("8_qm3cq")]
-position = Vector2(1568, -568)
+position = Vector2(564, -577)
 scale = Vector2(1, 2.84)
+
+[node name="StageTransitionArea2" parent="." instance=ExtResource("7_4fc4u")]
+position = Vector2(2713, -545)
+scale = Vector2(1, 4.08)
+
+[node name="GrowthArea2" parent="." instance=ExtResource("8_qm3cq")]
+position = Vector2(2776, -564)
+scale = Vector2(1, 2.84)
+
+[node name="StageTransitionArea3" parent="." instance=ExtResource("7_4fc4u")]
+position = Vector2(6701, -595)
+scale = Vector2(1, 4.08)
+
+[node name="GrowthArea3" parent="." instance=ExtResource("8_qm3cq")]
+position = Vector2(6763, -614)
+scale = Vector2(1, 2.84)
+
+[node name="Knifeguy0001" type="Sprite2D" parent="."]
+position = Vector2(7521, -386)
+texture = ExtResource("18_qc8mc")
 
 [connection signal="player_grew" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_grew"]
 [connection signal="player_reached_screen_edge" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_reached_screen_edge"]
