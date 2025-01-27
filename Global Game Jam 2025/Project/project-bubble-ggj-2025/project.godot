@@ -72,8 +72,3 @@ Movement_Right={
 2d_render/layer_3="Hazards"
 2d_render/layer_4="GrowthAreas"
 2d_render/layer_5="TransitionalAreas"
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

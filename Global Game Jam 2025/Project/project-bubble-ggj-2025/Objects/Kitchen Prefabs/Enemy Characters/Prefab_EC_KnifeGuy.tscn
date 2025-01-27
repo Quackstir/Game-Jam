@@ -36,6 +36,5 @@ scale = Vector2(1.08797, 1.08797)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Knife Anchor/Knife Arm/HazardArea"]
 position = Vector2(101.371, -15.1975)
 rotation = -0.357792
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fy6bp")
 debug_color = Color(0.992157, 0, 0, 0.419608)

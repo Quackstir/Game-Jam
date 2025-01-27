@@ -1,1 +1,0 @@
-The game can be run in Web browser or in Windows 64-Bit

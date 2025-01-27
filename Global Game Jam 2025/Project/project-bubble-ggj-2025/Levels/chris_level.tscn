@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dmo8ogit11wpb"]
+[gd_scene load_steps=36 format=3 uid="uid://dmo8ogit11wpb"]
 
 [ext_resource type="PackedScene" uid="uid://cxc5nomuic724" path="res://Objects/bubble_character.tscn" id="1_gckm5"]
 [ext_resource type="PackedScene" uid="uid://gv7xfg2ehl0a" path="res://Objects/Kitchen Prefabs/bowl.tscn" id="2_0ggcw"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://bi7ckyrkolbj0" path="res://Objects/hazard_area.tscn" id="33_5kvu3"]
 [ext_resource type="PackedScene" uid="uid://bvnc6sp5iw0ro" path="res://Objects/Kitchen Prefabs/Enemy Characters/Prefab_EC_KnifeGuy.tscn" id="34_2uch0"]
 [ext_resource type="PackedScene" uid="uid://c4js24ylxb8ik" path="res://Objects/Areas/victory_area.tscn" id="34_spdcu"]
+[ext_resource type="AudioStream" uid="uid://d0dhb8obaukdc" path="res://Audio/Music/2025 GGJ - Discover Life.mp3" id="35_5yluc"]
 [ext_resource type="Texture2D" uid="uid://hqkiyuw0wadm" path="res://Art/kitchen assets/stovetop vent_kitchen asset_jacobh.png" id="35_m0wk0"]
 
 [node name="ChrisLevel" type="Node2D"]
@@ -781,6 +782,11 @@ texture = ExtResource("35_m0wk0")
 z_index = -6
 position = Vector2(7976, -384)
 scale = Vector2(1.6, 1.6)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_5yluc")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="player_grew" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_grew"]
 [connection signal="player_reached_screen_edge" from="BubbleCharacter" to="GameplayCamera" method="_on_bubble_character_player_reached_screen_edge"]
