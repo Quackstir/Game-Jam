@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://tgmti6pd3n5o"]
+[gd_scene load_steps=16 format=3 uid="uid://tgmti6pd3n5o"]
 
 [ext_resource type="FontFile" uid="uid://dud5j0dtqjlgx" path="res://Art/Font/backlash.ttf" id="1_a2wco"]
 [ext_resource type="Script" path="res://menu.gd" id="1_n2pb2"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://f60hv1ixm48q" path="res://Audio/SFX/Menu/Menu_Hover_V1.mp3" id="5_cc4gn"]
 [ext_resource type="StyleBox" uid="uid://cy8ug0cm7vein" path="res://Art/Themes/Pressed_Blue.tres" id="5_gbdyq"]
 [ext_resource type="StyleBox" uid="uid://b11i8ift36lh5" path="res://Art/Themes/Normal_Blue.tres" id="6_3b674"]
+[ext_resource type="AudioStream" uid="uid://7u3uho0p6aa0" path="res://Audio/Music/2025 GGJ - Title - Bubbles.mp3" id="13_dq82g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8p2p"]
 bg_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
@@ -180,6 +181,11 @@ volume_db = 1.0
 
 [node name="HoverSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_cc4gn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_dq82g")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_button_down"]
 [connection signal="focus_entered" from="MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_focus_entered"]

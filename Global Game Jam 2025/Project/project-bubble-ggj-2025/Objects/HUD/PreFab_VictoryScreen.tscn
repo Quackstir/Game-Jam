@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5ph8v0rbabsd"]
+[gd_scene load_steps=12 format=3 uid="uid://b5ph8v0rbabsd"]
 
 [ext_resource type="Script" path="res://Scripts/Level/VictoryScreenFunctionality.gd" id="1_oma0d"]
 [ext_resource type="FontFile" uid="uid://dud5j0dtqjlgx" path="res://Art/Font/backlash.ttf" id="1_s61ee"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ceukdd0i0r7gs" path="res://Audio/SFX/Menu/Menu_Click_V1.mp3" id="6_2bfb8"]
 [ext_resource type="AudioStream" uid="uid://f60hv1ixm48q" path="res://Audio/SFX/Menu/Menu_Hover_V1.mp3" id="7_o8sxq"]
 [ext_resource type="AudioStream" uid="uid://ctoetkcuerujf" path="res://Audio/SFX/Victory/Victory_PartyPoppers_V2 Master.mp3" id="9_gllx5"]
+[ext_resource type="AudioStream" uid="uid://7u3uho0p6aa0" path="res://Audio/Music/2025 GGJ - Title - Bubbles.mp3" id="10_g4u2r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cxb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -142,6 +143,11 @@ stream = ExtResource("7_o8sxq")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_gllx5")
 volume_db = -5.0
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_g4u2r")
+volume_db = -10.0
 autoplay = true
 
 [connection signal="button_down" from="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/play" to="." method="_on_play_button_down"]
