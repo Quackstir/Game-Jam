@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bi7ckyrkolbj0" path="res://Objects/hazard_area.tscn" id="2_eftcb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fy6bp"]
-size = Vector2(115.934, 25.9553)
+size = Vector2(120.83, 31.2128)
 
 [node name="Prefab_Ec_KnifeGuy" type="Node2D"]
 script = ExtResource("1_31gce")
+KnifeSpeed = 0.62
 
 [node name="Person Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_hhurb")
@@ -33,7 +34,7 @@ rotation = -1.07163
 scale = Vector2(1.08797, 1.08797)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Knife Anchor/Knife Arm/HazardArea"]
-position = Vector2(93.6654, -19.1271)
+position = Vector2(101.371, -15.1975)
 rotation = -0.357792
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fy6bp")
