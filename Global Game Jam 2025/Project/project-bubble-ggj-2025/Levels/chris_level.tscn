@@ -758,7 +758,6 @@ texture = ExtResource("25_yopfq")
 [node name="Section 7" type="Node" parent="Background assets"]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-visible = false
 z_index = -10
 texture_repeat = 2
 position = Vector2(9328, -3896)
