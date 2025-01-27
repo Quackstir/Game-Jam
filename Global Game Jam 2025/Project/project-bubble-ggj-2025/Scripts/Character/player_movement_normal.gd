@@ -17,6 +17,9 @@ func add_avaliable_jump() -> int:
 	return _avaliable_jumps
 
 func handle_input(player: CharacterBody2D, delta: float) -> void:
+	#may be better elsewhere in a proper project
+	_handle_restart_input(player)
+	
 	_apply_gravity(player,delta)
 	_handle_jump(player, delta)
 	_handle_horizontal_input(player,delta)
@@ -46,3 +49,11 @@ func _handle_horizontal_input(player: CharacterBody2D, delta: float):
 		player.velocity.x = move_toward(player.velocity.x, input_axis * SPEED, ACCELERATION * delta)
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, FRICTION * delta)
+
+func _handle_restart_input(player: CharacterBody2D) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		player.get_tree().paused = true
+		await LevelTransition.fade_to_black()
+		player.get_tree().paused = false
+		player.get_tree().change_scene_to_file("res://Levels/chris_level.tscn")
+		LevelTransition.fade_from_black()
