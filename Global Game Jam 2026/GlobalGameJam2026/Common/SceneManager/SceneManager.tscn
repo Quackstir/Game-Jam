@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dxvt1hjftc4hl" path="res://Common/SceneManager/scene_manager.gd" id="1_1jswr"]
 
-[node name="SceneManager" type="Node" unique_id=1606874128 node_paths=PackedStringArray("level", "hud")]
+[node name="SceneManager" type="Node" unique_id=1606874128 node_paths=PackedStringArray("levels", "huds")]
 script = ExtResource("1_1jswr")
-level = NodePath("Level")
-hud = NodePath("HUD")
+levels = NodePath("Level")
+huds = NodePath("HUD")
 
 [node name="Level" type="Node2D" parent="." unique_id=1695452954]
 
