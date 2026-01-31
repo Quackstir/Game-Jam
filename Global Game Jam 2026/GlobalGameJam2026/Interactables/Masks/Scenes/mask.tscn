@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cfeltdrkt2o5t"]
+
+[ext_resource type="Script" uid="uid://cwarss02fgofv" path="res://Interactables/Masks/Script/mask.gd" id="1_o16ux"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_png08"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4j0nx"]
+
+[node name="Mask" type="Area2D" unique_id=225643898]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_o16ux")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1442869235]
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("2_png08")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=719000932]
+shape = SubResource("CircleShape2D_4j0nx")
+debug_color = Color(0.52825445, 0.5721198, 0, 0.41960785)
