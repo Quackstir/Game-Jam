@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://cossgt14y3mx0"]
 
 [node name="CarlosTestLevel" type="Node2D" unique_id=335627649]
+
+[node name="Test" type="Control" parent="." unique_id=882394643]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Test" unique_id=164070697]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "LEVEL 1 EXAMPLE"
