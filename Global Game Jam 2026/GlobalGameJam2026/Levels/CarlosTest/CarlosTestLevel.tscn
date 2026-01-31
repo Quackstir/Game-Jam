@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cossgt14y3mx0"]
+
+[ext_resource type="PackedScene" uid="uid://gsyphhdvtm5y" path="res://NPCs/Enemy/Guards/basic_guard.tscn" id="1_s2tio"]
+[ext_resource type="PackedScene" uid="uid://b1ofadrugnxnw" path="res://Player/Scenes/player_character.tscn" id="2_r7pay"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_1wiik"]
+
+[sub_resource type="Curve2D" id="Curve2D_s2tio"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 333, 180, 0, 0, 0, 0, 811, 180, 0, 0, 0, 0, 811, 418, 0, 0, 0, 0, 333, 418, 0, 0, 0, 0, 333, 180)
+}
+point_count = 5
+
+[node name="CarlosTestLevel" type="Node2D" unique_id=335627649]
+
+[node name="Test" type="Control" parent="." unique_id=882394643]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Test" unique_id=164070697]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "LEVEL 1 EXAMPLE"
+
+[node name="Path2D" type="Path2D" parent="." unique_id=2126439044]
+curve = SubResource("Curve2D_s2tio")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=505639046]
+position = Vector2(333, 180)
+rotates = false
+
+[node name="BasicGuard" parent="Path2D/PathFollow2D" unique_id=1977318214 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("1_s2tio")]
+current_dir = 2
+patrol_path = NodePath("../..")
+path_follow = NodePath("..")
+
+[node name="PlayerCharacter" parent="." unique_id=23574427 instance=ExtResource("2_r7pay")]
+position = Vector2(873, 482)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerCharacter" unique_id=1492197936]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_1wiik")
