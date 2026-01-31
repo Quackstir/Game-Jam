@@ -8,6 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_r47l6"]
 
 [node name="BasicGuard" type="CharacterBody2D" unique_id=1977318214]
+collision_layer = 2
 script = ExtResource("1_blie3")
 metadata/_custom_type_script = "uid://clu3m8ip8r4lq"
 
