@@ -49,6 +49,6 @@ func get_current_level() -> Node2D:
 	return levels.get_child(0)
 
 func _boot_up_splash_screen():
-	var splash = load("res://Levels/CarlosTest/CarlosTestMenu.tscn").instantiate()
-	levels.add_child(splash)
+	var splash = load("res://Levels/MainMenu/main_menu.tscn").instantiate()
+	huds.add_child(splash)
 	_current_level = splash
