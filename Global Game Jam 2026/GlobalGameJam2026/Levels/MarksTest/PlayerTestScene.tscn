@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b1ekxsjmcpnkn" path="res://Interactables/_Base/interactable.gd" id="2_b3n0l"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_teqxm"]
 [ext_resource type="PackedScene" uid="uid://cfeltdrkt2o5t" path="res://Interactables/Masks/Scenes/mask.tscn" id="4_b3n0l"]
+[ext_resource type="Script" uid="uid://beb2ijtkw8nx" path="res://Interactables/Loot/Script/loot.gd" id="4_t6nnd"]
 [ext_resource type="PackedScene" uid="uid://cqyettnmgof3d" path="res://Interactables/Masks/Scenes/mask_statue.tscn" id="6_q6tp2"]
 [ext_resource type="PackedScene" uid="uid://j4c0f1dingol" path="res://Interactables/Masks/Scenes/mask_cop_projectile.tscn" id="7_sytug"]
 [ext_resource type="PackedScene" uid="uid://c88oye8lcig6o" path="res://Interactables/Masks/Scenes/mask_cop.tscn" id="7_t6nnd"]
@@ -29,6 +30,31 @@ scale = Vector2(0.085, 0.085)
 texture = ExtResource("3_teqxm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1589920963]
+shape = SubResource("CircleShape2D_4j0nx")
+debug_color = Color(0.52825445, 0.5721198, 0, 0.41960785)
+
+[node name="Loot" type="Area2D" parent="." unique_id=843699104]
+position = Vector2(8, -78)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("4_t6nnd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Loot" unique_id=568135536]
+position = Vector2(-0.9999999, 0.9999999)
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("3_teqxm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Loot" unique_id=1549040553]
+position = Vector2(1.9999996, -1.9999996)
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("3_teqxm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Loot" unique_id=1343232765]
+position = Vector2(-0.99999917, -2.9999995)
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("3_teqxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot" unique_id=683723590]
 shape = SubResource("CircleShape2D_4j0nx")
 debug_color = Color(0.52825445, 0.5721198, 0, 0.41960785)
 
