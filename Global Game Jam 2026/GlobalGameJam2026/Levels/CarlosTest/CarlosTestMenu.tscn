@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://yeqyhxhh1fli"]
+
+[ext_resource type="Script" uid="uid://tlef8bkp1860" path="res://Levels/CarlosTest/carlos_test_menu.gd" id="1_ie4me"]
+
+[node name="CarlosTestMenu" type="Node2D" unique_id=1562167216]
+script = ExtResource("1_ie4me")
+
+[node name="Test" type="Control" parent="." unique_id=79100334]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="Test" unique_id=402572864]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "MENU EXAMPLE"
+
+[node name="Button" type="Button" parent="Test" unique_id=2118874586]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 64.0
+offset_right = 180.0
+offset_bottom = 95.0
+text = "CHANGE SCENE"
+
+[connection signal="pressed" from="Test/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://gsyphhdvtm5y"]
+
+[ext_resource type="Script" uid="uid://clu3m8ip8r4lq" path="res://NPCs/Enemy/Guards/basic_guard.gd" id="1_blie3"]
+[ext_resource type="PackedScene" uid="uid://c8rp8inbmjeiw" path="res://NPCs/Enemy/Guards/waypoint_area.tscn" id="2_44dus"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_r47l6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blie3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r47l6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44dus"]
+
+[node name="BasicGuard" type="CharacterBody2D" unique_id=1977318214]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_blie3")
+metadata/_custom_type_script = "uid://clu3m8ip8r4lq"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=910471963]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_r47l6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1631770831]
+scale = Vector2(4.4, 4.4)
+shape = SubResource("RectangleShape2D_blie3")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1784049656]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1821078982]
+scale = Vector2(7.69, 7.69)
+shape = SubResource("CircleShape2D_r47l6")
+debug_color = Color(0.8463823, 0.0009889907, 0.9098306, 0.41960785)
+
+[node name="VisionCone" type="Area2D" parent="." unique_id=1178017701]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionCone" unique_id=87919354]
+scale = Vector2(10, 10)
+polygon = PackedVector2Array(0, 0, 40, -15, 40, 15)
+
+[node name="WaypointFinder" type="Area2D" parent="." unique_id=79589218]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaypointFinder" unique_id=1563174460]
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CircleShape2D_44dus")
+
+[node name="WaypointArea" parent="." unique_id=788527078 instance=ExtResource("2_44dus")]
+
+[connection signal="area_entered" from="WaypointFinder" to="." method="_on_waypoint_finder_area_entered"]

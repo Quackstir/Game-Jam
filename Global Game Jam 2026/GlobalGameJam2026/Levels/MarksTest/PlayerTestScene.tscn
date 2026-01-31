@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://cf0j7a0udsp8r"]
+
+[ext_resource type="PackedScene" uid="uid://b1ofadrugnxnw" path="res://Player/Scenes/player_character.tscn" id="1_b3n0l"]
+[ext_resource type="Script" uid="uid://b1ekxsjmcpnkn" path="res://Interactables/_Base/interactable.gd" id="2_b3n0l"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_teqxm"]
+[ext_resource type="PackedScene" uid="uid://cfeltdrkt2o5t" path="res://Interactables/Masks/Scenes/mask.tscn" id="4_b3n0l"]
+[ext_resource type="Script" uid="uid://beb2ijtkw8nx" path="res://Interactables/Loot/Script/loot.gd" id="4_t6nnd"]
+[ext_resource type="PackedScene" uid="uid://cqyettnmgof3d" path="res://Interactables/Masks/Scenes/mask_statue.tscn" id="6_q6tp2"]
+[ext_resource type="PackedScene" uid="uid://j4c0f1dingol" path="res://Interactables/Masks/Scenes/mask_cop_projectile.tscn" id="7_sytug"]
+[ext_resource type="PackedScene" uid="uid://c88oye8lcig6o" path="res://Interactables/Masks/Scenes/mask_cop.tscn" id="7_t6nnd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4j0nx"]
+
+[node name="PlayerTestScene" type="Node2D" unique_id=886230346]
+
+[node name="PlayerCharacter" parent="." unique_id=23574427 instance=ExtResource("1_b3n0l")]
+movement_speed = 10000.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1233902717]
+zoom = Vector2(2.42, 2.42)
+
+[node name="Interactable" type="Area2D" parent="." unique_id=878314103]
+position = Vector2(111, -72)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("2_b3n0l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable" unique_id=496280202]
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("3_teqxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1589920963]
+shape = SubResource("CircleShape2D_4j0nx")
+debug_color = Color(0.52825445, 0.5721198, 0, 0.41960785)
+
+[node name="Loot" type="Area2D" parent="." unique_id=843699104]
+position = Vector2(8, -78)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("4_t6nnd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Loot" unique_id=568135536]
+position = Vector2(-0.9999999, 0.9999999)
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("3_teqxm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Loot" unique_id=1549040553]
+position = Vector2(1.9999996, -1.9999996)
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("3_teqxm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Loot" unique_id=1343232765]
+position = Vector2(-0.99999917, -2.9999995)
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("3_teqxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot" unique_id=683723590]
+shape = SubResource("CircleShape2D_4j0nx")
+debug_color = Color(0.52825445, 0.5721198, 0, 0.41960785)
+
+[node name="Mask" parent="." unique_id=225643898 instance=ExtResource("4_b3n0l")]
+position = Vector2(111, 2)
+
+[node name="Cop Mask" parent="." unique_id=396170535 instance=ExtResource("4_b3n0l")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(86, -32)
+
+[node name="Interactable2" type="Area2D" parent="." unique_id=611469607]
+position = Vector2(-76, -84)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable2" unique_id=324862483]
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("3_teqxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2" unique_id=413411196]
+shape = SubResource("CircleShape2D_4j0nx")
+
+[node name="MaskStatue" parent="." unique_id=842988786 instance=ExtResource("6_q6tp2")]
+position = Vector2(91, 30)
+
+[node name="MaskCopProjectile" parent="." unique_id=1085852277 instance=ExtResource("7_sytug")]
+position = Vector2(-36, -51)
+
+[node name="MaskCop" parent="." unique_id=1571880158 instance=ExtResource("7_t6nnd")]
+position = Vector2(61, 3)
