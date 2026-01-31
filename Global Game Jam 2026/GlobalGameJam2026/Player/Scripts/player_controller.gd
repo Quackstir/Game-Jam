@@ -7,9 +7,24 @@ var _movement_input:Vector2
 var _current_interactable:Interactable
 var _current_mask:Mask
 
+var is_detectable:bool:
+	set(newValue):
+		is_detectable = newValue
+		sprite_2d.visible = is_detectable
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+signal on_movement(is_moving)
 
 func _input(event: InputEvent) -> void:
-	_handle_movement()
+	#Yes I am aware that there are multiple solutions for this one of them being
+	# Finite State Machine which I could copy and paste code but lazy
+	if event.is_action("move_down") or \
+			event.is_action("move_left") or \
+			event.is_action("move_right") or \
+			event.is_action("move_up"):
+		_handle_movement()
+		look_at(_movement_input + global_position)
 
 	if event.is_action_pressed("interact"):
 		_handle_interact()
@@ -22,6 +37,11 @@ func _handle_movement() -> void:
 	var _horizontal_movement:float = Input.get_action_raw_strength("move_right") - Input.get_action_raw_strength("move_left")
 	var _vertical_movement:float = Input.get_action_raw_strength("move_down") - Input.get_action_raw_strength("move_up")
 	_movement_input = Vector2(_horizontal_movement,_vertical_movement)
+	
+	
+	var _total_movement:float = _movement_input.x + _movement_input.y
+	var _is_moving:bool = _total_movement != 0
+	on_movement.emit(_is_moving)
 
 
 func _physics_process(delta: float) -> void:
