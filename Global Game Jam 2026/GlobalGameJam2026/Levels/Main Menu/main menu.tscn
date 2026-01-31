@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://c4cr65i8gx575"]
+
+[ext_resource type="Script" uid="uid://leecs86224gh" path="res://Levels/Main Menu/main_menu.gd" id="1_wyw3g"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_5ridv"]
+
+[sub_resource type="Theme" id="Theme_wyw3g"]
+
+[node name="MainMenu" type="Node2D" unique_id=800898316]
+script = ExtResource("1_wyw3g")
+
+[node name="Control" type="Control" parent="." unique_id=921846705]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1150976948]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = SubResource("Theme_wyw3g")
+texture = ExtResource("2_5ridv")
+
+[node name="Play Button" type="Button" parent="Control/TextureRect" unique_id=253500274]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07700001
+anchor_top = 0.287
+anchor_right = 0.351
+anchor_bottom = 0.432
+offset_left = 0.29599
+offset_top = 0.024002075
+offset_right = -0.35202026
+offset_bottom = 0.06399536
+theme_override_font_sizes/font_size = 50
+text = "PLAY"
+
+[node name="Credits Button" type="Button" parent="Control/TextureRect" unique_id=2063616123]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07700001
+anchor_top = 0.45800003
+anchor_right = 0.351
+anchor_bottom = 0.60300004
+offset_left = 0.29599
+offset_top = 0.2159729
+offset_right = -0.35202026
+offset_bottom = 0.25598145
+theme_override_font_sizes/font_size = 50
+text = "CREDITS"
+
+[node name="Quit Button" type="Button" parent="Control/TextureRect" unique_id=973674663]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.63000005
+anchor_right = 0.35200003
+anchor_bottom = 0.77500004
+offset_left = 0.14399719
+offset_top = -0.24002075
+offset_right = -0.5040283
+offset_bottom = -0.2000122
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1286334199]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=500915412]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 23.0
+offset_right = 949.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 72
+text = "Funny Name Yeehaw"
+horizontal_alignment = 1
+vertical_alignment = 1
