@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cf0j7a0udsp8r"]
+
+[ext_resource type="Script" uid="uid://snsgewv4mqj5" path="res://Player/Scripts/player_controller.gd" id="1_f8ic0"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_4j0nx"]
+[ext_resource type="Script" uid="uid://b1ekxsjmcpnkn" path="res://Interactables/_Base/interactable.gd" id="2_7x04e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gsobf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7x04e"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4j0nx"]
+
+[node name="PlayerTestScene" type="Node2D" unique_id=886230346]
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="." unique_id=1973503452]
+script = ExtResource("1_f8ic0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter" unique_id=1264056180]
+shape = SubResource("CircleShape2D_gsobf")
+
+[node name="DetectInteractables" type="Area2D" parent="PlayerCharacter" unique_id=1349215063]
+collision_layer = 4
+collision_mask = 4
+
+[node name="DICollision" type="CollisionShape2D" parent="PlayerCharacter/DetectInteractables" unique_id=1963521557]
+shape = SubResource("CircleShape2D_7x04e")
+debug_color = Color(0.6440771, 0.5234795, 0.06038078, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1233902717]
+
+[node name="Interactable" type="Area2D" parent="." unique_id=878314103]
+position = Vector2(111, -72)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("2_7x04e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable" unique_id=496280202]
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("2_4j0nx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1589920963]
+shape = SubResource("CircleShape2D_4j0nx")
+debug_color = Color(0.52825445, 0.5721198, 0, 0.41960785)
+
+[node name="Interactable2" type="Area2D" parent="." unique_id=611469607]
+position = Vector2(-76, -84)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable2" unique_id=324862483]
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("2_4j0nx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2" unique_id=413411196]
+shape = SubResource("CircleShape2D_4j0nx")
+
+[connection signal="area_entered" from="PlayerCharacter/DetectInteractables" to="PlayerCharacter" method="_on_detect_interactables_area_entered"]
+[connection signal="area_exited" from="PlayerCharacter/DetectInteractables" to="PlayerCharacter" method="_on_detect_interactables_area_exited"]
