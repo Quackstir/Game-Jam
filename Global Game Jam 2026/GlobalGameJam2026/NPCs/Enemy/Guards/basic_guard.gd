@@ -63,6 +63,7 @@ func _ready():
 	_done_looking_left = false
 	_done_looking_right = false
 	set_physics_process(true)
+	call_deferred("_init_path_follow")
 
 
 func _process(delta):
@@ -97,6 +98,10 @@ func _physics_process(delta):
 			return
 	_check_target_reached()
 	move_and_slide()
+
+
+func _init_path_follow():
+	path_follow.rotates = false
 
 
 # End chase if target has been reached
@@ -375,9 +380,11 @@ func _flash_away_once():
 
 
 func _drop_mask_and_leave():
-	var mask = mask_to_drop.instantiate()
-	mask.global_position = self.global_position
-	Global.scene_manager.get_current_level().add_child(mask)
+	if mask_to_drop:
+		var mask = mask_to_drop.instantiate()
+		if mask:
+			mask.global_position = self.global_position
+			Global.scene_manager.get_current_level().add_child(mask)
 	patrol_path.queue_free()
 
 
