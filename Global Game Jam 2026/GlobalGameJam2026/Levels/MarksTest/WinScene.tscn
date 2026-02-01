@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://kfaq4sudprsu"]
 
 [ext_resource type="Script" uid="uid://dokx4qptlohnf" path="res://Levels/MarksTest/win_scene.gd" id="1_n13gn"]
+[ext_resource type="AudioStream" uid="uid://c7m1ks2acoo4j" path="res://Player/Audio/WinLevelSFX.wav" id="2_j0mxe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c5u3"]
 
@@ -14,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_n13gn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1912213613]
+process_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=2030910399]
 anchors_preset = 15
@@ -75,11 +77,35 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer/MarginContainer" unique_id=169814792]
+[node name="RetryButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer/MarginContainer" unique_id=169814792]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer/MarginContainer/Button" unique_id=1449690638]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer/MarginContainer/RetryButton" unique_id=1449690638]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Retry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer" unique_id=273713655]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer/MarginContainer2" unique_id=389023374]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer/MarginContainer2/MainMenuButton" unique_id=247035162]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -95,3 +121,11 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4c5u3")
+
+[node name="WinLevelSfx" type="AudioStreamPlayer" parent="." unique_id=1485672552]
+process_mode = 3
+stream = ExtResource("2_j0mxe")
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer/MarginContainer/RetryButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer/MarginContainer2/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

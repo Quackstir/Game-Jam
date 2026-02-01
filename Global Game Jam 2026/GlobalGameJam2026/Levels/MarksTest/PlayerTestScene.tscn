@@ -15,9 +15,6 @@
 
 [node name="PlayerCharacter" parent="." unique_id=23574427 instance=ExtResource("1_b3n0l")]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1233902717]
-zoom = Vector2(2.42, 2.42)
-
 [node name="Loot" parent="." unique_id=1800392239 instance=ExtResource("4_hsf1l")]
 position = Vector2(8, -78)
 
