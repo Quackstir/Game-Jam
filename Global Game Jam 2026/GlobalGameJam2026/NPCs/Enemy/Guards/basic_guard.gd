@@ -49,6 +49,7 @@ func _ready():
 	_init_waypoint()
 	_current_speed = PATROL_SPEED
 	_turn_values_set = false
+	set_physics_process(true)
 
 
 func _process(delta):
@@ -58,20 +59,22 @@ func _process(delta):
 			_patrol(delta)
 		State.PATROL_TURN:
 			_turn_on_patrol(delta)
+		State.CHASE:
+			look_at(_player_location)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if _current_state != State.CHASE:
-		pass
+		return
 	navigation_agent.target_position = _target_nav_goal
 	var next_nav_position = navigation_agent.get_next_path_position()
 	var new_velocity = (global_position.direction_to(next_nav_position)
-			* CHASE_SPEED * delta)
+			* CHASE_SPEED)
 	
-	if navigation_agent.avoidance_enabled:
-		navigation_agent.set_velocity_forced(new_velocity)
-	else:
-		_on_navigation_agent_2d_velocity_computed(new_velocity)
+	#if navigation_agent.avoidance_enabled:
+		#navigation_agent.set_velocity_forced(new_velocity)
+	#else:
+	_on_navigation_agent_2d_velocity_computed(new_velocity)
 	move_and_slide()
 
 
@@ -133,14 +136,16 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	velocity = safe_velocity
 
 
-func _on_detection_area_area_entered(area):
-	_on_player_spotted(area)
-
-
-func _on_vision_cone_area_entered(area):
-	_on_player_spotted(area)
-
-
-func _on_player_spotted(_area):
+func _on_player_spotted(player):
 	print("PLAYER SPOTTED!")
+	_player_location = player.global_position
+	_target_nav_goal = _player_location
 	_change_state(State.CHASE)
+
+
+func _on_vision_cone_body_entered(body):
+	_on_player_spotted(body)
+
+
+func _on_detection_area_body_entered(body):
+	_on_player_spotted(body)

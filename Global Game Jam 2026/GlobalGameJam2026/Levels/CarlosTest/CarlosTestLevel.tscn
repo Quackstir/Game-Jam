@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://gsyphhdvtm5y" path="res://NPCs/Enemy/Guards/basic_guard.tscn" id="1_s2tio"]
 [ext_resource type="TileSet" uid="uid://d36k3ubo5ecjb" path="res://Levels/ChrisTest/tile_set_forest.tres" id="2_r7pay"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_1wiik"]
 [ext_resource type="PackedScene" uid="uid://b1ofadrugnxnw" path="res://Player/Scenes/player_character.tscn" id="3_68ctx"]
 
 [sub_resource type="Curve2D" id="Curve2D_s2tio"]
@@ -63,7 +62,3 @@ tile_set = ExtResource("2_r7pay")
 
 [node name="PlayerCharacter" parent="." unique_id=23574427 instance=ExtResource("3_68ctx")]
 position = Vector2(407, 306)
-
-[node name="Sprite2D3" type="Sprite2D" parent="PlayerCharacter" unique_id=1020943819]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_1wiik")
