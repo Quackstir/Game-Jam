@@ -70,7 +70,6 @@ shape = SubResource("CircleShape2D_44dus")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=892931331]
 avoidance_enabled = true
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
