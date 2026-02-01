@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _on_play_button_pressed() -> void:
-	Global.scene_manager.change_level_scene("res://Levels/ChrisTest/ChrisTestLevel.tscn")
+	Global.scene_manager.change_level_scene("res://Levels/Tutorial_Level/TutorialLevel.tscn")
 	self.queue_free()
 
 
