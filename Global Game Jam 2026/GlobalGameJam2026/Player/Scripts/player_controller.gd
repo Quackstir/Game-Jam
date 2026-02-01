@@ -13,15 +13,22 @@ var _current_mask : Mask :
 		_current_mask = newValue
 		equip_mask.emit(_current_mask)
 
-var is_detectable : bool:
+var is_detectable : bool = true:
 	set(newValue):
 		is_detectable = newValue
 		sprite_2d.visible = is_detectable
 
-var can_move : bool = true
+var can_move : bool = true :
+	set(newValue):
+		can_move = newValue
+		if !can_move:
+			velocity = Vector2(0,0)
 
 @onready var sprite_2d : Sprite2D = $Sprite2D
 @onready var keyboard_e: Sprite2D = $Node/Node2D/KeyboardE
+
+@onready var interact_sfx: AudioStreamPlayer = $InteractSfx
+@onready var small_loot_sfx: AudioStreamPlayer = $SmallLootSfx
 
 signal on_movement(is_moving)
 signal equip_mask(mask:Mask)
@@ -50,7 +57,7 @@ func _input(event: InputEvent) -> void:
 func _handle_movement() -> void:
 	var _horizontal_movement:float = Input.get_action_raw_strength("move_right") - Input.get_action_raw_strength("move_left")
 	var _vertical_movement:float = Input.get_action_raw_strength("move_down") - Input.get_action_raw_strength("move_up")
-	_movement_input = Vector2(_horizontal_movement,_vertical_movement)
+	_movement_input = Vector2(_horizontal_movement,_vertical_movement).normalized()
 	
 	var _total_movement:float = _movement_input.x + _movement_input.y
 	var _is_moving:bool = _total_movement != 0
@@ -66,7 +73,9 @@ func _handle_interact() -> void:
 	if _current_interactable == null:
 		print("nothing")
 		return
-		
+	
+	interact_sfx.play()
+	
 	if _current_interactable is Mask:
 		_handle_wear_mask()
 		return
@@ -91,13 +100,14 @@ func _handle_wear_mask() -> void:
 func _on_detect_interactables_area_entered(area: Area2D) -> void:
 	if area is not Interactable:
 		return
-		
+
 	var _interactable : Interactable = area as Interactable
-	
+
 	if _interactable.can_interact:
 		_current_interactable = area
 	else:
 		_interactable.activate()
+		small_loot_sfx.play()
 
 
 func _on_detect_interactables_area_exited(area: Area2D) -> void:

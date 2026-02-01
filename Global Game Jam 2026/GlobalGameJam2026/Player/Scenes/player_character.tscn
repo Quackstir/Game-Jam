@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://b1ofadrugnxnw"]
 
 [ext_resource type="Script" uid="uid://snsgewv4mqj5" path="res://Player/Scripts/player_controller.gd" id="1_lvh24"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_wq8u3"]
 [ext_resource type="PackedScene" uid="uid://dtb3w1lcwvwr1" path="res://Player/Scenes/HUD.tscn" id="3_d826i"]
+[ext_resource type="AudioStream" uid="uid://gy1yywvyae23" path="res://Player/Audio/InteractSFX.wav" id="3_trrhk"]
 [ext_resource type="Texture2D" uid="uid://bpo03tjd01bvd" path="res://Player/Art/keyboard_e.png" id="4_cl8d8"]
+[ext_resource type="Texture2D" uid="uid://cnqpmf35ha4wb" path="res://Player/Art/Theif.svg" id="4_ntxgr"]
+[ext_resource type="AudioStream" uid="uid://bp0pl8qk28uqo" path="res://Player/Audio/SmallLootSFX.wav" id="4_peoen"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gsobf"]
 
@@ -14,14 +16,16 @@ radius = 15.0
 scale = Vector2(2, 2)
 script = ExtResource("1_lvh24")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1617247604]
-scale = Vector2(0.155, 0.155)
-texture = ExtResource("2_wq8u3")
+[node name="InteractSfx" type="AudioStreamPlayer" parent="." unique_id=252520312]
+stream = ExtResource("3_trrhk")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=574552345]
-position = Vector2(18, 0)
-scale = Vector2(0.155, 0.0071875025)
-texture = ExtResource("2_wq8u3")
+[node name="SmallLootSfx" type="AudioStreamPlayer" parent="." unique_id=2015734229]
+stream = ExtResource("4_peoen")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1617247604]
+rotation = 1.5707964
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("4_ntxgr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1569176426]
 shape = SubResource("CircleShape2D_gsobf")

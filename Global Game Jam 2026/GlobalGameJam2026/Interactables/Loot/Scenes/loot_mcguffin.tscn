@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctbqjr1u1f0vi" path="res://Interactables/Loot/Script/loot_mcguffin.gd" id="1_iqbv7"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_becop"]
+[ext_resource type="AudioStream" uid="uid://dy2ov4giqe488" path="res://Interactables/Loot/Audio/BigLootSFX.wav" id="3_becop"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j0nx"]
 
@@ -18,3 +19,6 @@ texture = ExtResource("2_becop")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1775486428]
 shape = SubResource("CircleShape2D_4j0nx")
 debug_color = Color(0.52825445, 0.5721198, 0, 0.41960785)
+
+[node name="BigLootSfx" type="AudioStreamPlayer" parent="." unique_id=1511751098]
+stream = ExtResource("3_becop")

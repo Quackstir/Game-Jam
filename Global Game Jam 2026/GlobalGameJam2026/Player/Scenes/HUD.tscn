@@ -101,6 +101,7 @@ expand_mode = 5
 stretch_mode = 4
 
 [node name="CircleOutline" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Circle" unique_id=600890181]
+visible = false
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 8
@@ -120,6 +121,7 @@ expand_mode = 5
 stretch_mode = 4
 
 [node name="ButtonPress" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=303526048]
+visible = false
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_horizontal = 4

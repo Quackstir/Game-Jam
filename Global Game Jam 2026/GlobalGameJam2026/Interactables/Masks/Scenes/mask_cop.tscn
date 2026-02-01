@@ -2,20 +2,26 @@
 
 [ext_resource type="Script" uid="uid://441n8yflkbnt" path="res://Interactables/Masks/Script/mask_cop.gd" id="1_pos3m"]
 [ext_resource type="PackedScene" uid="uid://j4c0f1dingol" path="res://Interactables/Masks/Scenes/mask_cop_projectile.tscn" id="2_5klc6"]
-[ext_resource type="Texture2D" uid="uid://ulfaytoa7tae" path="res://Interactables/Masks/Art/thief.png" id="3_k8c70"]
+[ext_resource type="Texture2D" uid="uid://cfaxdpidae033" path="res://Interactables/Masks/Art/Theif Mask.png" id="3_5klc6"]
+[ext_resource type="AudioStream" uid="uid://cqxo4gqsrrtug" path="res://Interactables/Masks/Audio/ShootMaskSFX.wav" id="4_5klc6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j0nx"]
 
 [node name="MaskCop" type="Area2D" unique_id=225643898]
+scale = Vector2(2, 2)
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_pos3m")
 cop_projectile = ExtResource("2_5klc6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1442869235]
+rotation = -1.5707964
 scale = Vector2(0.03, 0.03)
-texture = ExtResource("3_k8c70")
+texture = ExtResource("3_5klc6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=719000932]
 shape = SubResource("CircleShape2D_4j0nx")
 debug_color = Color(0.52825445, 0.5721198, 0, 0.41960785)
+
+[node name="ShootMaskSfx" type="AudioStreamPlayer" parent="." unique_id=466864533]
+stream = ExtResource("4_5klc6")

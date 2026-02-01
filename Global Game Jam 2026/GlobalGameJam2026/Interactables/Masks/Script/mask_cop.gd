@@ -3,6 +3,8 @@ extends Mask
 
 @export var cop_projectile:PackedScene
 
+@onready var shoot_mask_sfx: AudioStreamPlayer = $ShootMaskSfx
+
 func _init() -> void:
 	can_use = true
 
@@ -17,6 +19,7 @@ func activate_mask() -> void:
 	can_use = false
 	_create_projectile()
 	print("shooty mc shoot shoot")
+	shoot_mask_sfx.play()
 
 
 func _create_projectile() -> void:
