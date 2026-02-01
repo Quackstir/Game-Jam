@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bd3pncfpobsxm"
+path="res://.godot/imported/2026Jan GGJ Menu and World Theme.wav-64ccd7560a4e39aad466165595a2789b.sample"
+
+[deps]
+
+source_file="res://Levels/MainMenu/2026Jan GGJ Menu and World Theme.wav"
+dest_files=["res://.godot/imported/2026Jan GGJ Menu and World Theme.wav-64ccd7560a4e39aad466165595a2789b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=120
+edit/loop_end=-1
+compress/mode=2
