@@ -121,7 +121,8 @@ func _check_target_reached():
 func _head_back_to_patrol_path():
 	_change_state(State.RESET)
 	var local_path_position = patrol_path.to_local(global_position)
-	_target_nav_goal = patrol_path.curve.get_closest_point(local_path_position)
+	var closest_point = patrol_path.curve.get_closest_point(local_path_position)
+	_target_nav_goal = patrol_path.to_global(closest_point)
 	_sometimes_play_sfx(just_wind_sfx, VOICE_LINE_CHANCE)
 
 
@@ -253,7 +254,8 @@ func _look_around(delta):
 			if not await _can_continue_after_idle(State.SEARCH):
 				return
 			var local_path_position = patrol_path.to_local(global_position)
-			_target_nav_goal = patrol_path.curve.get_closest_point(local_path_position)
+			var closest_point = patrol_path.curve.get_closest_point(local_path_position)
+			_target_nav_goal = patrol_path.to_global(closest_point)
 			_change_state(State.RESET_TURN)
 			_look_values_set = false
 
