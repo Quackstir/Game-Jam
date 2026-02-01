@@ -61,6 +61,7 @@ activate_mask={
 2d_physics/layer_4="Waypoint"
 2d_physics/layer_5="PlayerBackstab"
 2d_physics/layer_6="GuardBlindSpot"
+2d_physics/layer_7="Projectile"
 
 [physics]
 

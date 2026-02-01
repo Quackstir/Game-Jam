@@ -68,3 +68,6 @@ position = Vector2(472, 352)
 
 [node name="MaskStatue" parent="." unique_id=2094720340 instance=ExtResource("6_arqd1")]
 position = Vector2(676, 361)
+
+[node name="MaskCop" parent="." unique_id=272973029 instance=ExtResource("2_68ctx")]
+position = Vector2(256, 414)
