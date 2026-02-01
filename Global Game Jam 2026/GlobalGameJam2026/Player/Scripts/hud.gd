@@ -10,6 +10,7 @@ extends Control
 
 var _mask_can_activate : bool
 
+@onready var label: Label = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Panel/MarginContainer/Label
 @onready var rich_text_label: RichTextLabel = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect/MarginContainer/RichTextLabel
 
 
@@ -19,7 +20,10 @@ func _ready() -> void:
 	#Global.game_manager.win_state_change.connect(_can_win)
 	#Global.game_manager.call_deferred("win_state_change.connect", _can_win)
 	GM.win_state_change.connect(_can_win)
+	GM.score_change.connect(_score_changed)
 
+func _score_changed(_new_score:int) -> void:
+	label.text = "Score: " + str(_new_score)
 
 func _can_win(_can_win:bool) -> void:
 	if _can_win:
