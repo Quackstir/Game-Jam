@@ -13,13 +13,14 @@ enum State{
 	KNOCKED_OUT,
 }
 
-const PATROL_SPEED = 100
-const CHASE_SPEED = 150
+
 const TURN_SPEED = 4.0
 const SEARCH_SPEED = 2.0
 const IDLE_TIME = 0.3
 const VOICE_LINE_CHANCE = 0.6
 
+@export var PATROL_SPEED: int = 100
+@export var CHASE_SPEED: int = 150
 @export var patrol_path: Path2D
 @export var path_follow: PathFollow2D
 @export var mask_to_drop: PackedScene
