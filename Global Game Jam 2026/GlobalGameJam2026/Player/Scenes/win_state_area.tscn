@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bg162tgqy5ej2"]
 
 [ext_resource type="Script" uid="uid://bqiy2tv8llwf3" path="res://Player/Scripts/win_state_area.gd" id="1_wue1c"]
-[ext_resource type="AudioStream" uid="uid://c7m1ks2acoo4j" path="res://Player/Audio/WinLevelSFX.wav" id="2_8istb"]
+[ext_resource type="AudioStream" uid="uid://bf6mdh1c2f5tm" path="res://Common/MusicManager/2026Jan GGJ Win.wav" id="2_8istb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2f1f"]
 size = Vector2(158, 137)

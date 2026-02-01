@@ -21,6 +21,14 @@ func _ready() -> void:
 	add_child(battle_theme)
 
 
+func play_music() -> void:
+	music_theme.stream_paused = false
+	
+	
+func pause_music() -> void:
+	music_theme.stream_paused = true
+
+
 func play_battle_theme() -> void:
 	battle_theme.play()
 	music_theme.stream_paused = true

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kfaq4sudprsu"]
 
 [ext_resource type="Script" uid="uid://dokx4qptlohnf" path="res://Levels/MarksTest/win_scene.gd" id="1_n13gn"]
-[ext_resource type="AudioStream" uid="uid://c7m1ks2acoo4j" path="res://Player/Audio/WinLevelSFX.wav" id="2_j0mxe"]
+[ext_resource type="AudioStream" uid="uid://bf6mdh1c2f5tm" path="res://Common/MusicManager/2026Jan GGJ Win.wav" id="2_j0mxe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c5u3"]
 
