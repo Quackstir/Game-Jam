@@ -14,6 +14,7 @@ func on_interact(player:PlayerController) -> void:
 	super(player)
 	reparent(player)
 	position = Vector2.ZERO
+	rotation = 0
 	monitorable = false
 	_player = player
 
