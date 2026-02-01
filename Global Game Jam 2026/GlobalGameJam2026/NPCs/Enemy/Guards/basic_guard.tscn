@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b2cddoodt58qg" path="res://NPCs/Enemy/Guards/guard.png" id="2_th3xg"]
 [ext_resource type="Texture2D" uid="uid://cesqy747xst32" path="res://NPCs/Enemy/Guards/vision_cone.png" id="3_th3xg"]
 [ext_resource type="AudioStream" uid="uid://b4d4lv65hqsr6" path="res://NPCs/Enemy/Guards/PlayerDetectedSFX.wav" id="4_ri5nq"]
+[ext_resource type="AudioStream" uid="uid://hs7xjb23bjyp" path="res://NPCs/Enemy/Guards/justwind.wav" id="5_ekl64"]
+[ext_resource type="AudioStream" uid="uid://cqn7g851e2652" path="res://NPCs/Enemy/Guards/lostsight2.wav" id="6_jjlh7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blie3"]
 
@@ -94,6 +96,12 @@ debug_color = Color(0, 0.68235296, 0, 0.41960785)
 [node name="PlayerDetectedSfx" type="AudioStreamPlayer" parent="." unique_id=1304469820]
 stream = ExtResource("4_ri5nq")
 volume_db = -5.0
+
+[node name="JustWindSfx" type="AudioStreamPlayer" parent="." unique_id=101327031]
+stream = ExtResource("5_ekl64")
+
+[node name="LostSightSfx" type="AudioStreamPlayer" parent="." unique_id=1957031480]
+stream = ExtResource("6_jjlh7")
 
 [node name="WaypointArea" parent="." unique_id=788527078 instance=ExtResource("2_44dus")]
 scale = Vector2(2.4999998, 2.4999998)
