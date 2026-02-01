@@ -62,7 +62,6 @@ tile_set = ExtResource("2_r7pay")
 
 [node name="PlayerCharacter" parent="." unique_id=23574427 instance=ExtResource("3_68ctx")]
 position = Vector2(407, 306)
-movement_speed = 7000.0
 
 [node name="Mask" parent="." unique_id=225643898 instance=ExtResource("3_5bgu2")]
 position = Vector2(472, 352)

@@ -24,7 +24,7 @@ const IDLE_TIME = 0.3
 @export var mask_to_drop: PackedScene
 
 var _current_state: State
-var _player_location: Vector2 # Last known player location
+var _spotted_player: PlayerController
 var _target_nav_goal: Vector2
 var _waypoint: Area2D
 var _next_waypoint_index: int
@@ -47,7 +47,7 @@ var _done_looking_right: bool
 
 func _ready():
 	_current_state = State.PATROL
-	_player_location = Vector2.ZERO
+	_spotted_player = null
 	_target_nav_goal = Vector2.ZERO
 	_init_waypoint()
 	_current_speed = PATROL_SPEED
@@ -67,7 +67,7 @@ func _process(delta):
 		State.PATROL_TURN:
 			_turn_on_patrol(delta)
 		State.CHASE:
-			look_at(_player_location)
+			look_at(_target_nav_goal)
 		State.SEARCH:
 			_look_around(delta)
 		State.RESET_TURN:
@@ -81,6 +81,9 @@ func _process(delta):
 func _physics_process(delta):
 	match _current_state:
 		State.CHASE:
+			# update player location
+			if _spotted_player:
+				_target_nav_goal = _spotted_player.global_position
 			_nav_to_target(delta, CHASE_SPEED)
 		State.RESET:
 			_nav_to_target(delta, PATROL_SPEED)
@@ -289,14 +292,18 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 
 func _on_player_spotted(player):
 	if player.is_detectable:
-		_player_location = player.global_position
-		_target_nav_goal = _player_location
+		_spotted_player = player
+		_target_nav_goal = _spotted_player.global_position
 		_change_state(State.CHASE)
 
 
 func _on_vision_cone_body_entered(body):
 	if _current_state != State.KNOCKED_OUT:
 		_on_player_spotted(body)
+
+
+func _on_vision_cone_body_exited(_body):
+	_spotted_player = null
 
 
 func _on_detection_area_body_entered(body):
