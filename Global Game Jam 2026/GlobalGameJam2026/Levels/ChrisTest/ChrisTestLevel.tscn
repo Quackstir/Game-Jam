@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://gsyphhdvtm5y" path="res://NPCs/Enemy/Guards/basic_guard.tscn" id="2_wsoc6"]
 [ext_resource type="PackedScene" uid="uid://c88oye8lcig6o" path="res://Interactables/Masks/Scenes/mask_cop.tscn" id="3_ifelj"]
 [ext_resource type="PackedScene" uid="uid://b1ofadrugnxnw" path="res://Player/Scenes/player_character.tscn" id="4_ifelj"]
+[ext_resource type="PackedScene" uid="uid://dgi627qih5typ" path="res://Interactables/Loot/Scenes/loot.tscn" id="5_wwuay"]
+[ext_resource type="PackedScene" uid="uid://dsl2gq5vfhptp" path="res://Interactables/Loot/Scenes/loot_mcguffin.tscn" id="6_t6ywa"]
 
 [sub_resource type="Curve2D" id="Curve2D_vplco"]
 _data = {
@@ -132,248 +134,300 @@ collision_enabled = false
 position = Vector2(866, 2909)
 rotation = -1.573175
 
-[node name="Camp 1" type="Node2D" parent="." unique_id=199234406]
+[node name="Guard Placement" type="Node2D" parent="." unique_id=1233887704]
 
-[node name="Front Guard" type="Node2D" parent="Camp 1" unique_id=1808553071]
+[node name="Camp 1" type="Node2D" parent="Guard Placement" unique_id=199234406]
 
-[node name="Path2D" type="Path2D" parent="Camp 1/Front Guard" unique_id=506484153]
+[node name="Front Guard" type="Node2D" parent="Guard Placement/Camp 1" unique_id=1808553071]
+
+[node name="Path2D" type="Path2D" parent="Guard Placement/Camp 1/Front Guard" unique_id=506484153]
 position = Vector2(-51, 252)
 curve = SubResource("Curve2D_vplco")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Camp 1/Front Guard/Path2D" unique_id=640110026]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Camp 1/Front Guard/Path2D" unique_id=640110026]
+position = Vector2(920, 1719)
 rotates = false
 
-[node name="BasicGuard" parent="Camp 1/Front Guard/Path2D/PathFollow2D" unique_id=1977318214 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Camp 1/Front Guard/Path2D/PathFollow2D" unique_id=1977318214 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="Camp Guard" type="Node2D" parent="Camp 1" unique_id=1838508803]
+[node name="Camp Guard" type="Node2D" parent="Guard Placement/Camp 1" unique_id=1838508803]
 
-[node name="Path2D" type="Path2D" parent="Camp 1/Camp Guard" unique_id=1328862355]
+[node name="Path2D" type="Path2D" parent="Guard Placement/Camp 1/Camp Guard" unique_id=1328862355]
 position = Vector2(18, 38)
 curve = SubResource("Curve2D_ifelj")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Camp 1/Camp Guard/Path2D" unique_id=105714527]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Camp 1/Camp Guard/Path2D" unique_id=105714527]
 position = Vector2(662, 1742)
 rotates = false
 
-[node name="BasicGuard" parent="Camp 1/Camp Guard/Path2D/PathFollow2D" unique_id=1100359727 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Camp 1/Camp Guard/Path2D/PathFollow2D" unique_id=1100359727 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 position = Vector2(40.999996, 10.999999)
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="West Path Guard" type="Node2D" parent="Camp 1" unique_id=678161366]
+[node name="West Path Guard" type="Node2D" parent="Guard Placement/Camp 1" unique_id=678161366]
 
-[node name="Path2D" type="Path2D" parent="Camp 1/West Path Guard" unique_id=301135986]
+[node name="Path2D" type="Path2D" parent="Guard Placement/Camp 1/West Path Guard" unique_id=301135986]
 position = Vector2(-466, -148)
 curve = SubResource("Curve2D_hjeky")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Camp 1/West Path Guard/Path2D" unique_id=812670738]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Camp 1/West Path Guard/Path2D" unique_id=812670738]
 position = Vector2(764, 1675)
 rotates = false
 
-[node name="BasicGuard" parent="Camp 1/West Path Guard/Path2D/PathFollow2D" unique_id=80231349 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Camp 1/West Path Guard/Path2D/PathFollow2D" unique_id=80231349 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="Camp 2" type="Node2D" parent="." unique_id=1259229446]
+[node name="Camp 2" type="Node2D" parent="Guard Placement" unique_id=1259229446]
 
-[node name="Main Path Guard" type="Node2D" parent="Camp 2" unique_id=436196145]
+[node name="Main Path Guard" type="Node2D" parent="Guard Placement/Camp 2" unique_id=436196145]
 
-[node name="Path2D" type="Path2D" parent="Camp 2/Main Path Guard" unique_id=1825857073]
+[node name="Path2D" type="Path2D" parent="Guard Placement/Camp 2/Main Path Guard" unique_id=1825857073]
 position = Vector2(839, 375)
 curve = SubResource("Curve2D_wwuay")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Camp 2/Main Path Guard/Path2D" unique_id=546679419]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Camp 2/Main Path Guard/Path2D" unique_id=546679419]
 position = Vector2(766, 1700)
 rotates = false
 
-[node name="BasicGuard" parent="Camp 2/Main Path Guard/Path2D/PathFollow2D" unique_id=1530775225 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Camp 2/Main Path Guard/Path2D/PathFollow2D" unique_id=1530775225 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="Camp Guard" type="Node2D" parent="Camp 2" unique_id=1037563711]
+[node name="Camp Guard" type="Node2D" parent="Guard Placement/Camp 2" unique_id=1037563711]
 
-[node name="Path2D" type="Path2D" parent="Camp 2/Camp Guard" unique_id=319564008]
+[node name="Path2D" type="Path2D" parent="Guard Placement/Camp 2/Camp Guard" unique_id=319564008]
 position = Vector2(1279, 246)
 curve = SubResource("Curve2D_t6ywa")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Camp 2/Camp Guard/Path2D" unique_id=1520961861]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Camp 2/Camp Guard/Path2D" unique_id=1520961861]
 position = Vector2(672, 1630)
 rotates = false
 
-[node name="BasicGuard" parent="Camp 2/Camp Guard/Path2D/PathFollow2D" unique_id=1778774242 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Camp 2/Camp Guard/Path2D/PathFollow2D" unique_id=1778774242 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="Camp 3" type="Node2D" parent="." unique_id=272195741]
+[node name="Camp 3" type="Node2D" parent="Guard Placement" unique_id=272195741]
 
-[node name="Camp Guard" type="Node2D" parent="Camp 3" unique_id=2106349189]
+[node name="Camp Guard" type="Node2D" parent="Guard Placement/Camp 3" unique_id=2106349189]
 
-[node name="Path2D" type="Path2D" parent="Camp 3/Camp Guard" unique_id=636569219]
+[node name="Path2D" type="Path2D" parent="Guard Placement/Camp 3/Camp Guard" unique_id=636569219]
 position = Vector2(-1543, -1564)
 curve = SubResource("Curve2D_prvf6")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Camp 3/Camp Guard/Path2D" unique_id=928288662]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Camp 3/Camp Guard/Path2D" unique_id=928288662]
 position = Vector2(806, 1615)
 rotates = false
 
-[node name="BasicGuard" parent="Camp 3/Camp Guard/Path2D/PathFollow2D" unique_id=1590725832 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Camp 3/Camp Guard/Path2D/PathFollow2D" unique_id=1590725832 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="Mine Gate Guard" type="Node2D" parent="Camp 3" unique_id=2008281761]
+[node name="Mine Gate Guard" type="Node2D" parent="Guard Placement/Camp 3" unique_id=2008281761]
 
-[node name="Path2D" type="Path2D" parent="Camp 3/Mine Gate Guard" unique_id=1674097957]
+[node name="Path2D" type="Path2D" parent="Guard Placement/Camp 3/Mine Gate Guard" unique_id=1674097957]
 position = Vector2(-980, -1842)
 curve = SubResource("Curve2D_pc73w")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Camp 3/Mine Gate Guard/Path2D" unique_id=241015012]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Camp 3/Mine Gate Guard/Path2D" unique_id=241015012]
 position = Vector2(815, 1519)
 rotates = false
 
-[node name="BasicGuard" parent="Camp 3/Mine Gate Guard/Path2D/PathFollow2D" unique_id=1375756957 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Camp 3/Mine Gate Guard/Path2D/PathFollow2D" unique_id=1375756957 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 rotation = 1.5696493
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="Path Block Guard" type="Node2D" parent="Camp 3" unique_id=451176185]
+[node name="Path Block Guard" type="Node2D" parent="Guard Placement/Camp 3" unique_id=451176185]
 
-[node name="Path2D" type="Path2D" parent="Camp 3/Path Block Guard" unique_id=922525791]
+[node name="Path2D" type="Path2D" parent="Guard Placement/Camp 3/Path Block Guard" unique_id=922525791]
 position = Vector2(-1218, -1416)
 curve = SubResource("Curve2D_v33um")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Camp 3/Path Block Guard/Path2D" unique_id=945142342]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Camp 3/Path Block Guard/Path2D" unique_id=945142342]
 position = Vector2(1040, 1490)
 rotates = false
 
-[node name="BasicGuard" parent="Camp 3/Path Block Guard/Path2D/PathFollow2D" unique_id=297704860 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Camp 3/Path Block Guard/Path2D/PathFollow2D" unique_id=297704860 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="South Bridge" type="Node2D" parent="." unique_id=188089096]
+[node name="South Bridge" type="Node2D" parent="Guard Placement" unique_id=188089096]
 
-[node name="South End Guard" type="Node2D" parent="South Bridge" unique_id=126996146]
+[node name="South End Guard" type="Node2D" parent="Guard Placement/South Bridge" unique_id=126996146]
 
-[node name="Path2D" type="Path2D" parent="South Bridge/South End Guard" unique_id=1273729928]
+[node name="Path2D" type="Path2D" parent="Guard Placement/South Bridge/South End Guard" unique_id=1273729928]
 position = Vector2(591, -154)
 curve = SubResource("Curve2D_d0pnl")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="South Bridge/South End Guard/Path2D" unique_id=1573969322]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/South Bridge/South End Guard/Path2D" unique_id=1573969322]
 position = Vector2(1464, 1663)
 rotates = false
 
-[node name="BasicGuard" parent="South Bridge/South End Guard/Path2D/PathFollow2D" unique_id=1412558162 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/South Bridge/South End Guard/Path2D/PathFollow2D" unique_id=1412558162 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="East Guard" type="Node2D" parent="South Bridge/South End Guard" unique_id=2102387240]
+[node name="East Guard" type="Node2D" parent="Guard Placement/South Bridge/South End Guard" unique_id=2102387240]
 
-[node name="North End Guard" type="Node2D" parent="South Bridge" unique_id=62722818]
+[node name="North End Guard" type="Node2D" parent="Guard Placement/South Bridge" unique_id=62722818]
 
-[node name="Path2D" type="Path2D" parent="South Bridge/North End Guard" unique_id=1301443733]
+[node name="Path2D" type="Path2D" parent="Guard Placement/South Bridge/North End Guard" unique_id=1301443733]
 position = Vector2(877, -1042)
 curve = SubResource("Curve2D_jsoe8")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="South Bridge/North End Guard/Path2D" unique_id=219473632]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/South Bridge/North End Guard/Path2D" unique_id=219473632]
 position = Vector2(1042, 1453)
 rotates = false
 
-[node name="BasicGuard" parent="South Bridge/North End Guard/Path2D/PathFollow2D" unique_id=1111863487 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/South Bridge/North End Guard/Path2D/PathFollow2D" unique_id=1111863487 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 rotation = 1.5494915
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="West Bridge" type="Node2D" parent="." unique_id=1094074088]
+[node name="West Bridge" type="Node2D" parent="Guard Placement" unique_id=1094074088]
 
-[node name="East Guard" type="Node2D" parent="West Bridge" unique_id=843693452]
+[node name="East Guard" type="Node2D" parent="Guard Placement/West Bridge" unique_id=843693452]
 
-[node name="Path2D" type="Path2D" parent="West Bridge/East Guard" unique_id=1840799983]
+[node name="Path2D" type="Path2D" parent="Guard Placement/West Bridge/East Guard" unique_id=1840799983]
 position = Vector2(-270, -1918)
 curve = SubResource("Curve2D_ibnmo")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="West Bridge/East Guard/Path2D" unique_id=363592376]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/West Bridge/East Guard/Path2D" unique_id=363592376]
 position = Vector2(1033, 1578)
 rotates = false
 
-[node name="BasicGuard" parent="West Bridge/East Guard/Path2D/PathFollow2D" unique_id=1290644438 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/West Bridge/East Guard/Path2D/PathFollow2D" unique_id=1290644438 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 rotation = 1.5494915
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="Fort" type="Node2D" parent="." unique_id=754423217]
+[node name="Fort" type="Node2D" parent="Guard Placement" unique_id=754423217]
 
-[node name="South Wing Guard" type="Node2D" parent="Fort" unique_id=1512519727]
+[node name="South Wing Guard" type="Node2D" parent="Guard Placement/Fort" unique_id=1512519727]
 
-[node name="Path2D" type="Path2D" parent="Fort/South Wing Guard" unique_id=1633600416]
+[node name="Path2D" type="Path2D" parent="Guard Placement/Fort/South Wing Guard" unique_id=1633600416]
 position = Vector2(865, -1570)
 curve = SubResource("Curve2D_qodr1")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Fort/South Wing Guard/Path2D" unique_id=800266708]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Fort/South Wing Guard/Path2D" unique_id=800266708]
 position = Vector2(554, 1642)
 rotates = false
 
-[node name="BasicGuard" parent="Fort/South Wing Guard/Path2D/PathFollow2D" unique_id=156266279 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Fort/South Wing Guard/Path2D/PathFollow2D" unique_id=156266279 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 rotation = 1.5494915
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="West Wing Guard" type="Node2D" parent="Fort" unique_id=1253478216]
+[node name="West Wing Guard" type="Node2D" parent="Guard Placement/Fort" unique_id=1253478216]
 
-[node name="Path2D" type="Path2D" parent="Fort/West Wing Guard" unique_id=1981071890]
+[node name="Path2D" type="Path2D" parent="Guard Placement/Fort/West Wing Guard" unique_id=1981071890]
 position = Vector2(297, -1786)
 curve = SubResource("Curve2D_v7l6s")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Fort/West Wing Guard/Path2D" unique_id=471660796]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Fort/West Wing Guard/Path2D" unique_id=471660796]
 position = Vector2(957, 1399)
 rotates = false
 
-[node name="BasicGuard" parent="Fort/West Wing Guard/Path2D/PathFollow2D" unique_id=329516611 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Fort/West Wing Guard/Path2D/PathFollow2D" unique_id=329516611 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 rotation = 1.5494915
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="East Wing Guard" type="Node2D" parent="Fort" unique_id=730704341]
+[node name="East Wing Guard" type="Node2D" parent="Guard Placement/Fort" unique_id=730704341]
 
-[node name="Path2D" type="Path2D" parent="Fort/East Wing Guard" unique_id=268894217]
+[node name="Path2D" type="Path2D" parent="Guard Placement/Fort/East Wing Guard" unique_id=268894217]
 position = Vector2(1435, -1713)
 curve = SubResource("Curve2D_64hxf")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Fort/East Wing Guard/Path2D" unique_id=1508986860]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Fort/East Wing Guard/Path2D" unique_id=1508986860]
 position = Vector2(1249, 1483)
 rotates = false
 
-[node name="BasicGuard" parent="Fort/East Wing Guard/Path2D/PathFollow2D" unique_id=1411086404 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Fort/East Wing Guard/Path2D/PathFollow2D" unique_id=1411086404 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 rotation = 1.5494915
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
 
-[node name="North Wing Guard" type="Node2D" parent="Fort" unique_id=1543032173]
+[node name="North Wing Guard" type="Node2D" parent="Guard Placement/Fort" unique_id=1543032173]
 
-[node name="Path2D" type="Path2D" parent="Fort/North Wing Guard" unique_id=221621865]
+[node name="Path2D" type="Path2D" parent="Guard Placement/Fort/North Wing Guard" unique_id=221621865]
 position = Vector2(913, -1988)
 curve = SubResource("Curve2D_q6pal")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Fort/North Wing Guard/Path2D" unique_id=2040239067]
+[node name="PathFollow2D" type="PathFollow2D" parent="Guard Placement/Fort/North Wing Guard/Path2D" unique_id=2040239067]
 position = Vector2(1080, 1621)
 rotates = false
 
-[node name="BasicGuard" parent="Fort/North Wing Guard/Path2D/PathFollow2D" unique_id=1138922643 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
+[node name="BasicGuard" parent="Guard Placement/Fort/North Wing Guard/Path2D/PathFollow2D" unique_id=1138922643 node_paths=PackedStringArray("patrol_path", "path_follow") instance=ExtResource("2_wsoc6")]
 rotation = 1.5494915
 patrol_path = NodePath("../..")
 path_follow = NodePath("..")
 mask_to_drop = ExtResource("3_ifelj")
+
+[node name="Loot" type="Node2D" parent="." unique_id=533328201]
+
+[node name="SideLoot" type="Node2D" parent="Loot" unique_id=2125980808]
+
+[node name="Loot" parent="Loot/SideLoot" unique_id=1800392239 instance=ExtResource("5_wwuay")]
+position = Vector2(890, 1591)
+
+[node name="Loot2" parent="Loot/SideLoot" unique_id=1416926535 instance=ExtResource("5_wwuay")]
+position = Vector2(691, 1835)
+
+[node name="Loot3" parent="Loot/SideLoot" unique_id=1480494133 instance=ExtResource("5_wwuay")]
+position = Vector2(1270, 1787)
+
+[node name="Loot4" parent="Loot/SideLoot" unique_id=149249867 instance=ExtResource("5_wwuay")]
+position = Vector2(2038, 1880)
+
+[node name="Loot5" parent="Loot/SideLoot" unique_id=1556891277 instance=ExtResource("5_wwuay")]
+position = Vector2(2426, 1978)
+
+[node name="Loot6" parent="Loot/SideLoot" unique_id=225009293 instance=ExtResource("5_wwuay")]
+position = Vector2(-794, 104)
+
+[node name="Loot7" parent="Loot/SideLoot" unique_id=415820996 instance=ExtResource("5_wwuay")]
+position = Vector2(-699, 349)
+
+[node name="Loot8" parent="Loot/SideLoot" unique_id=693192111 instance=ExtResource("5_wwuay")]
+position = Vector2(1561, -131)
+
+[node name="Loot9" parent="Loot/SideLoot" unique_id=1804026747 instance=ExtResource("5_wwuay")]
+position = Vector2(2089, -38)
+
+[node name="Loot10" parent="Loot/SideLoot" unique_id=427692901 instance=ExtResource("5_wwuay")]
+position = Vector2(2515, 158)
+
+[node name="Loot11" parent="Loot/SideLoot" unique_id=1515165711 instance=ExtResource("5_wwuay")]
+position = Vector2(2617, -229)
+
+[node name="Loot12" parent="Loot/SideLoot" unique_id=952504161 instance=ExtResource("5_wwuay")]
+position = Vector2(2207, -383)
+
+[node name="Loot13" parent="Loot/SideLoot" unique_id=1249636161 instance=ExtResource("5_wwuay")]
+position = Vector2(2157, -385)
+
+[node name="Loot14" parent="Loot/SideLoot" unique_id=1186628168 instance=ExtResource("5_wwuay")]
+position = Vector2(1602, -422)
+
+[node name="Diamond" parent="Loot" unique_id=160545631 instance=ExtResource("6_t6ywa")]
+position = Vector2(2183, -381)
