@@ -18,6 +18,7 @@ const CHASE_SPEED = 150
 const TURN_SPEED = 4.0
 const SEARCH_SPEED = 2.0
 const IDLE_TIME = 0.3
+const VOICE_LINE_CHANCE = 0.6
 
 @export var patrol_path: Path2D
 @export var path_follow: PathFollow2D
@@ -45,6 +46,9 @@ var _done_looking_right: bool
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var player_spotted_sfx: AudioStreamPlayer = $PlayerDetectedSfx
+@onready var just_wind_sfx: AudioStreamPlayer = $JustWindSfx
+@onready var lost_sight_sfx: AudioStreamPlayer = $LostSightSfx
+
 
 func _ready():
 	_current_state = State.PATROL
@@ -110,7 +114,7 @@ func _head_back_to_patrol_path():
 	_change_state(State.RESET)
 	var local_path_position = patrol_path.to_local(global_position)
 	_target_nav_goal = patrol_path.curve.get_closest_point(local_path_position)
-	
+	_sometimes_play_sfx(just_wind_sfx, VOICE_LINE_CHANCE)
 
 
 func _resume_patrol():
@@ -194,12 +198,13 @@ func _look_around(delta):
 	await get_tree().create_timer(IDLE_TIME).timeout
 	
 	# set static local variables
-	if not _look_values_set:
+	if not _look_values_set and _current_state == State.SEARCH:
 		_turn_progress = 0.0
 		_old_rotation = global_rotation
 		_done_looking_left = false
 		_done_looking_right = false
 		_look_values_set = true
+		_sometimes_play_sfx(lost_sight_sfx, VOICE_LINE_CHANCE)
 	
 	var goal: float
 	
@@ -228,10 +233,10 @@ func _look_around(delta):
 		else:
 			# idle time
 			await get_tree().create_timer(IDLE_TIME).timeout
-			_look_values_set = false
 			var local_path_position = patrol_path.to_local(global_position)
 			_target_nav_goal = patrol_path.curve.get_closest_point(local_path_position)
 			_change_state(State.RESET_TURN)
+			_look_values_set = false
 
 
 func _lerp_rotation(end_rotation, delta):
@@ -286,6 +291,12 @@ func _move_waypoint():
 	if _next_waypoint_index >= patrol_path.curve.point_count:
 		_next_waypoint_index = 1
 	_waypoint.position = patrol_path.curve.get_point_position(_next_waypoint_index)
+
+
+func _sometimes_play_sfx(sound_effect: AudioStreamPlayer, chance: float):
+	if randf_range(0.0, 1.0) <= chance:
+		if not sound_effect.playing:
+			sound_effect.play()
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):

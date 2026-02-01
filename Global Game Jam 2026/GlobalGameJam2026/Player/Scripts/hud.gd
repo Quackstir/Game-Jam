@@ -25,8 +25,8 @@ func _ready() -> void:
 func _score_changed(_new_score:int) -> void:
 	label.text = "Score: " + str(_new_score)
 
-func _can_win(_can_win:bool) -> void:
-	if _can_win:
+func _can_win(can_win:bool) -> void:
+	if can_win:
 		rich_text_label.text = mcguffin_text
 	else:
 		rich_text_label.text = default_text
