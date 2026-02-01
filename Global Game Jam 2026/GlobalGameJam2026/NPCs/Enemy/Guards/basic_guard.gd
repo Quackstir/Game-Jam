@@ -128,7 +128,8 @@ func _resume_patrol():
 	self.position = Vector2.ZERO
 	# find and set next waypoint
 	_next_waypoint_index = _find_next_checkpoint()
-	_waypoint.position = patrol_path.curve.get_point_position(_next_waypoint_index)
+	_waypoint.position = (patrol_path.curve.get_point_position(_next_waypoint_index)
+			+ patrol_path.global_position)
 	look_at(_waypoint.global_position)
 
 
@@ -160,7 +161,8 @@ func _nav_to_target(_delta, speed):
 func _init_waypoint():
 	_waypoint = find_child("WaypointArea")
 	_next_waypoint_index = 1
-	_waypoint.position = patrol_path.curve.get_point_position(_next_waypoint_index)
+	_waypoint.position = (patrol_path.curve.get_point_position(_next_waypoint_index)
+			+ patrol_path.global_position)
 	self.remove_child(_waypoint)
 
 
@@ -299,7 +301,8 @@ func _move_waypoint():
 	_next_waypoint_index += 1
 	if _next_waypoint_index >= patrol_path.curve.point_count:
 		_next_waypoint_index = 1
-	_waypoint.position = patrol_path.curve.get_point_position(_next_waypoint_index)
+	_waypoint.position = (patrol_path.curve.get_point_position(_next_waypoint_index)
+			+ patrol_path.global_position)
 
 
 func _sometimes_play_sfx(sound_effect: AudioStreamPlayer, chance: float):
