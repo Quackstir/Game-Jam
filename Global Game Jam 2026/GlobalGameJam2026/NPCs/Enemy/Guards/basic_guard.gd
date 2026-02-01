@@ -80,7 +80,7 @@ func _process(delta):
 		State.RESET_TURN:
 			_turn_to_path(delta)
 		State.RESET:
-			look_at(_target_nav_goal)
+			look_at(navigation_agent.get_next_path_position())
 		State.KNOCKED_OUT:
 			_flash_away_once()
 
