@@ -20,7 +20,7 @@ func on_interact(player:PlayerController) -> void:
 
 func remove_mask(player:PlayerController) -> void:
 	print("Removing mask")
-	reparent(get_tree().current_scene)
+	reparent(Global.scene_manager.get_current_level())
 	position = player.position
 	monitorable = true
 	_player = null
