@@ -8,13 +8,16 @@ enum State{
 	PATROL_TURN,
 	CHASE,
 	SEARCH,
+	RESET_TURN,
 	RESET,
 	KNOCKED_OUT,
 }
 
 const PATROL_SPEED = 100
 const CHASE_SPEED = 150
-const TURN_SPEED = 5.0
+const TURN_SPEED = 4.0
+const SEARCH_SPEED = 2.0
+const IDLE_TIME = 0.3
 
 @export var patrol_path: Path2D
 @export var path_follow: PathFollow2D
@@ -27,12 +30,17 @@ var _waypoint: Area2D
 var _next_waypoint_index: int
 var _current_speed: int
 
-# local static variables
+# local static variables for _turn_on_patrol
 var _turn_progress: float
 var _old_rotation: float
 var _goal_rotation: float
 var _turn_values_set: bool
+# local static variables for _flash_away_once
 var _dead: bool
+# local static variables for _look_around
+var _look_values_set: bool
+var _done_looking_left: bool
+var _done_looking_right: bool
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite: Sprite2D = $Sprite2D
@@ -45,6 +53,9 @@ func _ready():
 	_current_speed = PATROL_SPEED
 	_turn_values_set = false
 	_dead = false
+	_look_values_set = false
+	_done_looking_left = false
+	_done_looking_right = false
 	set_physics_process(true)
 
 
@@ -57,6 +68,10 @@ func _process(delta):
 			_turn_on_patrol(delta)
 		State.CHASE:
 			look_at(_player_location)
+		State.SEARCH:
+			_look_around(delta)
+		State.RESET_TURN:
+			_turn_to_path(delta)
 		State.RESET:
 			look_at(_target_nav_goal)
 		State.KNOCKED_OUT:
@@ -82,7 +97,7 @@ func _check_target_reached():
 		# check if ended chasing or ending returning to patrol
 		match _current_state:
 			State.CHASE:
-				_head_back_to_patrol_path()
+				_change_state(State.SEARCH)
 			State.RESET:
 				_resume_patrol()
 
@@ -149,6 +164,7 @@ func _patrol(delta):
 	path_follow.progress += _current_speed * delta
 
 
+# turns guard to face next patrol _waypoint
 func _turn_on_patrol(delta):
 	# set static local variables 
 	if not _turn_values_set:
@@ -168,8 +184,88 @@ func _turn_on_patrol(delta):
 		_change_state(State.PATROL)
 
 
+# Plays after losing track of player
+func _look_around(delta):
+	# idle time
+	await get_tree().create_timer(IDLE_TIME).timeout
+	
+	# set static local variables
+	if not _look_values_set:
+		_turn_progress = 0.0
+		_old_rotation = global_rotation
+		_done_looking_left = false
+		_done_looking_right = false
+		_look_values_set = true
+	
+	var goal: float
+	
+	# look left
+	if not _done_looking_left:
+		goal = _old_rotation - deg_to_rad(45.0)
+	elif not _done_looking_right:
+		# look right
+		goal = _old_rotation + deg_to_rad(90.0)
+	else:
+		# return to original
+		goal = _old_rotation - deg_to_rad(45.0)
+	
+	_lerp_rotation(goal, delta)
+	
+	# when done move on to next step
+	if is_equal_approx(fposmod(global_rotation, TAU), fposmod(goal, TAU)):
+		if not _done_looking_left:
+			_done_looking_left = true
+			_old_rotation = goal
+			_turn_progress = 0.0
+		elif not _done_looking_right:
+			_done_looking_right = true
+			_old_rotation = goal
+			_turn_progress = 0.0
+		else:
+			# idle time
+			await get_tree().create_timer(IDLE_TIME).timeout
+			_look_values_set = false
+			var local_path_position = patrol_path.to_local(global_position)
+			_target_nav_goal = patrol_path.curve.get_closest_point(local_path_position)
+			_change_state(State.RESET_TURN)
+
+
+func _lerp_rotation(end_rotation, delta):
+	global_rotation = lerp_angle(_old_rotation, end_rotation, _turn_progress)
+	_turn_progress += SEARCH_SPEED * delta
+	_turn_progress = clampf(_turn_progress, 0.0, 1.0)
+
+
+func _turn_to_path(delta):
+	if _turn_towards(_target_nav_goal, delta):
+		_head_back_to_patrol_path()
+
+
+# returns true once turn is complete
+func _turn_towards(point, delta) -> bool:
+	# set static local variables 
+	if not _turn_values_set:
+		_turn_progress = 0.0
+		_old_rotation = global_rotation
+		_goal_rotation = get_angle_to(point) + global_rotation
+		_turn_values_set = true
+	
+	# lerp rotation
+	global_rotation = lerp_angle(_old_rotation, _goal_rotation, _turn_progress)
+	_turn_progress += TURN_SPEED * delta
+	_turn_progress = clampf(_turn_progress, 0.0, 1.0)
+	
+	# reset values when completed
+	if is_equal_approx(fposmod(global_rotation, TAU), fposmod(_goal_rotation, TAU)):
+		_turn_values_set = false
+		return true
+	return false
+
+
 func _change_state(new_state):
 	_current_state = new_state
+	_turn_values_set = false
+	_look_values_set = false
 
 
 # called when patrol checkpoint reached
