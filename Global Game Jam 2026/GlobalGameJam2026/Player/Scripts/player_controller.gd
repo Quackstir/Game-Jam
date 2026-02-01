@@ -1,18 +1,18 @@
 class_name PlayerController
 extends CharacterBody2D
 
-@export var movement_speed:float = 200
-var _movement_input:Vector2
+@export var movement_speed : float = 200
+var _movement_input : Vector2
 
-var _current_interactable:Interactable
-var _current_mask:Mask
+var _current_interactable : Interactable
+var _current_mask : Mask
 
-var is_detectable:bool:
+var is_detectable : bool:
 	set(newValue):
 		is_detectable = newValue
 		sprite_2d.visible = is_detectable
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d : Sprite2D = $Sprite2D
 
 signal on_movement(is_moving)
 
@@ -37,7 +37,6 @@ func _handle_movement() -> void:
 	var _horizontal_movement:float = Input.get_action_raw_strength("move_right") - Input.get_action_raw_strength("move_left")
 	var _vertical_movement:float = Input.get_action_raw_strength("move_down") - Input.get_action_raw_strength("move_up")
 	_movement_input = Vector2(_horizontal_movement,_vertical_movement)
-	
 	
 	var _total_movement:float = _movement_input.x + _movement_input.y
 	var _is_moving:bool = _total_movement != 0
@@ -75,8 +74,15 @@ func _handle_wear_mask() -> void:
 
 
 func _on_detect_interactables_area_entered(area: Area2D) -> void:
-	if area is Interactable:
+	if area is not Interactable:
+		return
+		
+	var _interactable : Interactable = area as Interactable
+	
+	if _interactable.can_interact:
 		_current_interactable = area
+	else:
+		_interactable.activate()
 
 
 func _on_detect_interactables_area_exited(area: Area2D) -> void:

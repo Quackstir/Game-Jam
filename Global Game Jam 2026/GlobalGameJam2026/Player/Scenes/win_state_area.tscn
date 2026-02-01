@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bg162tgqy5ej2"]
+
+[ext_resource type="Script" uid="uid://bqiy2tv8llwf3" path="res://Player/Scripts/win_state_area.gd" id="1_wue1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2f1f"]
+size = Vector2(158, 137)
+
+[node name="WinStateArea" type="Area2D" unique_id=993888251]
+script = ExtResource("1_wue1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=615141977]
+shape = SubResource("RectangleShape2D_w2f1f")
+debug_color = Color(0.8851074, 0.00030861437, 0.81021637, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
