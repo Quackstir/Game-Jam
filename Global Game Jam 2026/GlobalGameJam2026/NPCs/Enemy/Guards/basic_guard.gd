@@ -239,6 +239,7 @@ func _lerp_rotation(end_rotation, delta):
 	_turn_progress = clampf(_turn_progress, 0.0, 1.0)
 
 
+# lerps to look at path point then heads there RESET_TURN -> RESET
 func _turn_to_path(delta):
 	if _turn_towards(_target_nav_goal, delta):
 		_head_back_to_patrol_path()
@@ -310,11 +311,19 @@ func _on_detection_area_body_entered(body):
 	if _current_state != State.KNOCKED_OUT:
 		# Player captured!
 		body.can_move = false
+		body.is_detectable = false
+		_change_state(State.IDLE)
 		Global.scene_manager.change_hud_scene("res://Levels/LoseScreen/lose_screen.tscn")
 
 
 # Knock out guard
 func _on_blind_spot_area_entered(_area):
+	_knock_out()
+
+
+# get shot
+func _on_hurt_box_area_entered(area):
+	area.queue_free()
 	_knock_out()
 
 
@@ -342,6 +351,7 @@ func _drop_mask_and_leave():
 	patrol_path.queue_free()
 
 
+# FOR DEBUG
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		#_knock_out()

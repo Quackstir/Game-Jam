@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://clu3m8ip8r4lq" path="res://NPCs/Enemy/Guards/basic_guard.gd" id="1_blie3"]
 [ext_resource type="PackedScene" uid="uid://c8rp8inbmjeiw" path="res://NPCs/Enemy/Guards/waypoint_area.tscn" id="2_44dus"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_r47l6"]
+[ext_resource type="Texture2D" uid="uid://b2cddoodt58qg" path="res://NPCs/Enemy/Guards/guard.png" id="2_th3xg"]
+[ext_resource type="Texture2D" uid="uid://cesqy747xst32" path="res://NPCs/Enemy/Guards/vision_cone.png" id="3_th3xg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blie3"]
 
@@ -12,6 +13,8 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_44dus"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_th3xg"]
+
 [node name="BasicGuard" type="CharacterBody2D" unique_id=1977318214]
 scale = Vector2(0.4, 0.4)
 collision_layer = 2
@@ -20,8 +23,10 @@ script = ExtResource("1_blie3")
 metadata/_custom_type_script = "uid://clu3m8ip8r4lq"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=910471963]
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_r47l6")
+z_index = 2
+rotation = 1.5707964
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_th3xg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1631770831]
 scale = Vector2(4.4, 4.4)
@@ -44,6 +49,12 @@ monitorable = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionCone" unique_id=87919354]
 scale = Vector2(10, 10)
 polygon = PackedVector2Array(0, 0, 40, -15, 40, 15)
+
+[node name="Sprite2D" type="Sprite2D" parent="VisionCone" unique_id=388137347]
+position = Vector2(200, 0)
+rotation = -1.5707964
+scale = Vector2(0.62, 0.82)
+texture = ExtResource("3_th3xg")
 
 [node name="WaypointFinder" type="Area2D" parent="." unique_id=79589218]
 collision_layer = 0
@@ -72,6 +83,16 @@ collision_mask = 16
 scale = Vector2(7, 5)
 shape = SubResource("CapsuleShape2D_44dus")
 
+[node name="HurtBox" type="Area2D" parent="." unique_id=1944593489]
+collision_layer = 0
+collision_mask = 64
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1408135688]
+scale = Vector2(4.855, 4.855)
+shape = SubResource("CircleShape2D_th3xg")
+debug_color = Color(0, 0.68235296, 0, 0.41960785)
+
 [connection signal="area_entered" from="CaptureArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="CaptureArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="area_entered" from="VisionCone" to="." method="_on_vision_cone_area_entered"]
@@ -80,3 +101,4 @@ shape = SubResource("CapsuleShape2D_44dus")
 [connection signal="area_entered" from="WaypointFinder" to="." method="_on_waypoint_finder_area_entered"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="area_entered" from="BlindSpot" to="." method="_on_blind_spot_area_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
