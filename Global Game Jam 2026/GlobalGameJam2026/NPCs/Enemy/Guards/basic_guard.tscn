@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b4d4lv65hqsr6" path="res://NPCs/Enemy/Guards/PlayerDetectedSFX.wav" id="4_ri5nq"]
 [ext_resource type="AudioStream" uid="uid://hs7xjb23bjyp" path="res://NPCs/Enemy/Guards/justwind.wav" id="5_ekl64"]
 [ext_resource type="AudioStream" uid="uid://cqn7g851e2652" path="res://NPCs/Enemy/Guards/lostsight2.wav" id="6_jjlh7"]
+[ext_resource type="AudioStream" uid="uid://depqhyrcbkvbc" path="res://NPCs/Enemy/Guards/knockedout.wav" id="8_jjlh7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blie3"]
 
@@ -105,6 +106,10 @@ stream = ExtResource("6_jjlh7")
 
 [node name="WaypointArea" parent="." unique_id=788527078 instance=ExtResource("2_44dus")]
 scale = Vector2(2.4999998, 2.4999998)
+
+[node name="Knockedout" type="AudioStreamPlayer" parent="." unique_id=2032719074]
+stream = ExtResource("8_jjlh7")
+volume_db = -10.0
 
 [connection signal="area_entered" from="CaptureArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="CaptureArea" to="." method="_on_detection_area_body_entered"]

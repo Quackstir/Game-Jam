@@ -49,6 +49,7 @@ var _done_looking_right: bool
 @onready var player_spotted_sfx: AudioStreamPlayer = $PlayerDetectedSfx
 @onready var just_wind_sfx: AudioStreamPlayer = $JustWindSfx
 @onready var lost_sight_sfx: AudioStreamPlayer = $LostSightSfx
+@onready var knocked_out_sfx: AudioStreamPlayer = $Knockedout
 
 
 func _ready():
@@ -369,6 +370,8 @@ func _on_hurt_box_area_entered(area):
 
 func _knock_out():
 	_change_state(State.KNOCKED_OUT)
+	if not knocked_out_sfx.playing:
+		knocked_out_sfx.play()
 
 
 func _flash_away_once():
