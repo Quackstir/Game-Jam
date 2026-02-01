@@ -5,6 +5,7 @@
 [node name="ChrisTestLevel" type="Node2D" unique_id=928547500]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1365134397]
+scale = Vector2(2, 1.9953626)
 tile_set = ExtResource("1_vplco")
 format = 2
 layer_0/tile_data = PackedInt32Array(524300, 393217, 3, 524301, 393217, 1, 589837, 131073, 1, 589836, 131073, 1, 589835, 262145, 2, 524299, 196609, 2, 458763, 262145, 1, 458764, 131073, 3, 458765, 131073, 3, 524302, 65537, 2, 589838, 327681, 2, 458766, 327681, 1)
