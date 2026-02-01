@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://j4c0f1dingol"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_htca1"]
 [ext_resource type="Script" uid="uid://bxfmb45seo4tx" path="res://Interactables/Masks/Script/mask_cop_projectile.gd" id="1_treho"]
+[ext_resource type="Texture2D" uid="uid://b5ejv8cyd4peh" path="res://Interactables/Masks/Art/arrow.png" id="2_treho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7ie4"]
 
@@ -16,6 +16,6 @@ shape = SubResource("RectangleShape2D_w7ie4")
 debug_color = Color(0.99756485, 0, 0.17317176, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1152311773]
-modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.13, 0.13)
-texture = ExtResource("1_htca1")
+rotation = 1.5707964
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_treho")

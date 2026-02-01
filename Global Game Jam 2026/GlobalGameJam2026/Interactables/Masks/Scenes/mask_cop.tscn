@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://441n8yflkbnt" path="res://Interactables/Masks/Script/mask_cop.gd" id="1_pos3m"]
 [ext_resource type="PackedScene" uid="uid://j4c0f1dingol" path="res://Interactables/Masks/Scenes/mask_cop_projectile.tscn" id="2_5klc6"]
 [ext_resource type="Texture2D" uid="uid://cumkjgyv3munq" path="res://Levels/MainMenu/Theif Mask Hollow.png" id="3_5klc6"]
+[ext_resource type="Texture2D" uid="uid://b5ejv8cyd4peh" path="res://Interactables/Masks/Art/arrow.png" id="3_676o7"]
 [ext_resource type="AudioStream" uid="uid://cqxo4gqsrrtug" path="res://Interactables/Masks/Audio/ShootMaskSFX.wav" id="4_5klc6"]
+[ext_resource type="Texture2D" uid="uid://du45qa0tvglf7" path="res://Interactables/Masks/Art/bullet.png" id="4_bsmop"]
+[ext_resource type="Texture2D" uid="uid://dc22bdcobe1k2" path="res://Interactables/Masks/Art/hurt ball.png" id="5_2nsta"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j0nx"]
 
@@ -13,6 +16,7 @@ collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_pos3m")
 cop_projectile = ExtResource("2_5klc6")
+projectile_art = Array[CompressedTexture2D]([ExtResource("3_676o7"), ExtResource("4_bsmop"), ExtResource("5_2nsta")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1442869235]
 rotation = -1.5707964
@@ -25,3 +29,5 @@ debug_color = Color(0.52825445, 0.5721198, 0, 0.41960785)
 
 [node name="ShootMaskSfx" type="AudioStreamPlayer" parent="." unique_id=466864533]
 stream = ExtResource("4_5klc6")
+
+[connection signal="finished" from="ShootMaskSfx" to="." method="_on_shoot_mask_sfx_finished"]
