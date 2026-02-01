@@ -66,6 +66,7 @@ tile_set = ExtResource("1_x6bx0")
 position = Vector2(367.6667, -16.666668)
 rotation = 1.5650909
 scale = Vector2(0.16031246, 0.3606885)
+end_game = false
 
 [node name="PlayerCharacter" parent="." unique_id=23574427 instance=ExtResource("2_73fk8")]
 position = Vector2(852, 607)
