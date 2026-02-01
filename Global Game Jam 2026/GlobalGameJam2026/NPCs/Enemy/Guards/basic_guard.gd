@@ -44,6 +44,7 @@ var _done_looking_right: bool
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var player_spotted_sfx: AudioStreamPlayer = $PlayerDetectedSfx
 
 func _ready():
 	_current_state = State.PATROL
@@ -274,8 +275,8 @@ func _change_state(new_state):
 
 # called when patrol checkpoint reached
 func _on_waypoint_finder_area_entered(area):
-	if (area != _waypoint):
-		pass
+	if _current_state != State.PATROL or area != _waypoint:
+		return
 	_move_waypoint()
 	_change_state(State.PATROL_TURN)
 
@@ -293,6 +294,8 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 
 func _on_player_spotted(player):
 	if player.is_detectable:
+		if not _spotted_player and not player_spotted_sfx.playing:
+			player_spotted_sfx.play()
 		_spotted_player = player
 		_target_nav_goal = _spotted_player.global_position
 		_change_state(State.CHASE)
@@ -310,8 +313,8 @@ func _on_vision_cone_body_exited(_body):
 func _on_detection_area_body_entered(body):
 	if _current_state != State.KNOCKED_OUT:
 		# Player captured!
-		body.can_move = false
 		body.is_detectable = false
+		body.can_move = false
 		_change_state(State.IDLE)
 		Global.scene_manager.change_hud_scene("res://Levels/LoseScreen/lose_screen.tscn")
 

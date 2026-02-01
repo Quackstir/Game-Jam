@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bs6vgu3fmuy2j"]
 
 [ext_resource type="Script" uid="uid://ctvkug8lq8hc" path="res://Levels/LoseScreen/lose_screen.gd" id="1_svhn7"]
+[ext_resource type="AudioStream" uid="uid://dyf7ce7ufty2d" path="res://Levels/LoseScreen/LoseSFX.wav" id="2_0ef7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqje4"]
 bg_color = Color(0, 0, 0, 0.39215687)
@@ -170,6 +171,9 @@ size_flags_stretch_ratio = 0.2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.8
+
+[node name="LoseSfx" type="AudioStreamPlayer" parent="." unique_id=786513588]
+stream = ExtResource("2_0ef7h")
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
