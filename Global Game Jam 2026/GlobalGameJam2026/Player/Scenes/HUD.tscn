@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://0nuy5it40d50" path="res://Player/Art/keyboard_q.png" id="1_woq2x"]
 [ext_resource type="Texture2D" uid="uid://ckyoi3s1jigq3" path="res://Player/Art/StickyNote.svg" id="2_yqvao"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqvao"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woq2x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ilg2"]
@@ -42,6 +44,51 @@ layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1025216980]
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=336937064]
+custom_minimum_size = Vector2(300, 25)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=6203603]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Panel" unique_id=1563753816]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Panel/MarginContainer" unique_id=1872454101]
+layout_mode = 2
+text = "Score: 0"
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=2045773138]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yqvao")
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=613364271]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yqvao")
+
+[node name="Panel4" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1495362258]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yqvao")
+
+[node name="Panel5" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=717135090]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yqvao")
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=950826416]
 layout_mode = 2

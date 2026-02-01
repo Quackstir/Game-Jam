@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://kfaq4sudprsu"]
 
+[ext_resource type="Script" uid="uid://dokx4qptlohnf" path="res://Levels/MarksTest/win_scene.gd" id="1_n13gn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c5u3"]
+
 [node name="WinScene" type="Control" unique_id=1465237980]
 layout_mode = 3
 anchors_preset = 15
@@ -7,19 +11,87 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_n13gn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1912213613]
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1453793295]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=2030910399]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 2.0
-offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "gamers"
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=473346268]
+layout_mode = 2
+
+[node name="Panel Empty" type="Panel" parent="CanvasLayer/MarginContainer/HBoxContainer" unique_id=252809177]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4c5u3")
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/MarginContainer/HBoxContainer" unique_id=825631241]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2" unique_id=1272683807]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer" unique_id=1453793295]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 80
+text = "You Win"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer" unique_id=445018094]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Score: 00000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer" unique_id=1959620269]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer/MarginContainer" unique_id=169814792]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/Panel2/VBoxContainer/MarginContainer/Button" unique_id=1449690638]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Back to Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel Empty2" type="Panel" parent="CanvasLayer/MarginContainer/HBoxContainer" unique_id=1918060460]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4c5u3")
