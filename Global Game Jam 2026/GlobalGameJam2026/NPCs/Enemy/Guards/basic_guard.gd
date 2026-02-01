@@ -313,8 +313,8 @@ func _on_vision_cone_body_exited(_body):
 func _on_detection_area_body_entered(body):
 	if _current_state != State.KNOCKED_OUT:
 		# Player captured!
-		body.can_move = false
 		body.is_detectable = false
+		body.can_move = false
 		_change_state(State.IDLE)
 		Global.scene_manager.change_hud_scene("res://Levels/LoseScreen/lose_screen.tscn")
 

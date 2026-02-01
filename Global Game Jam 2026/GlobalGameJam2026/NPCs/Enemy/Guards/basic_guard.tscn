@@ -93,6 +93,7 @@ debug_color = Color(0, 0.68235296, 0, 0.41960785)
 
 [node name="PlayerDetectedSfx" type="AudioStreamPlayer" parent="." unique_id=1304469820]
 stream = ExtResource("4_ri5nq")
+volume_db = -5.0
 
 [node name="WaypointArea" parent="." unique_id=788527078 instance=ExtResource("2_44dus")]
 scale = Vector2(2.4999998, 2.4999998)
