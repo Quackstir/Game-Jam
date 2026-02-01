@@ -21,8 +21,8 @@ func remove_mask(player:PlayerController) -> void:
 
 func _player_standing(is_moving:bool) -> void:
 	if !is_moving:
-		print("Yo")
 		_player.is_detectable = true
+		can_use = false
 		timer.start()
 	else:
 		timer.stop()
@@ -31,3 +31,4 @@ func _player_standing(is_moving:bool) -> void:
 func _on_timer_timeout() -> void:
 	print("Invisible")
 	_player.is_detectable = false
+	can_use = true

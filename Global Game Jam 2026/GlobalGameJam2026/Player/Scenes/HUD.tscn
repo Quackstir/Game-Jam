@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://dtb3w1lcwvwr1"]
+
+[ext_resource type="Texture2D" uid="uid://dycukt423o8j4" path="res://Player/Art/Circle.svg" id="1_2ilg2"]
+[ext_resource type="Script" uid="uid://crnsan2nnw2dw" path="res://Player/Scripts/hud.gd" id="1_gskb7"]
+[ext_resource type="Texture2D" uid="uid://0nuy5it40d50" path="res://Player/Art/keyboard_q.png" id="1_woq2x"]
+[ext_resource type="Texture2D" uid="uid://ckyoi3s1jigq3" path="res://Player/Art/StickyNote.svg" id="2_yqvao"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woq2x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ilg2"]
+
+[node name="Hud" type="Control" unique_id=1315047528 node_paths=PackedStringArray("circle_outline", "button_press")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gskb7")
+circle_outline = NodePath("CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Circle/CircleOutline")
+button_press = NodePath("CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/ButtonPress")
+default_text = "-Steal the diamond \\n-Escape"
+mcguffin_text = "-Escape"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=556070952]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=494956386]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=1722982425]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1025216980]
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=950826416]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_woq2x")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1901470666]
+layout_mode = 2
+texture = ExtResource("2_yqvao")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect" unique_id=121579187]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect/MarginContainer" unique_id=216934965]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "-Steal the diamond
+-Escape"
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1877282580]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_woq2x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=1525604229]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 1
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/MarginContainer/HBoxContainer" unique_id=1176005131]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_woq2x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer" unique_id=1891156429]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Circle" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=271630572]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("1_2ilg2")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="CircleOutline" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Circle" unique_id=600890181]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(35, 35)
+texture = ExtResource("1_2ilg2")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="ButtonPress" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=303526048]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture = ExtResource("1_woq2x")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/HBoxContainer" unique_id=536252856]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2ilg2")

@@ -4,19 +4,33 @@ extends CharacterBody2D
 @export var movement_speed : float = 200
 var _movement_input : Vector2
 
-var _current_interactable : Interactable
-var _current_mask : Mask
+var _current_interactable : Interactable:
+	set(newValue):
+		_current_interactable = newValue
+		keyboard_e.visible = _current_interactable != null
+var _current_mask : Mask :
+	set(newValue):
+		_current_mask = newValue
+		equip_mask.emit(_current_mask)
 
 var is_detectable : bool:
 	set(newValue):
 		is_detectable = newValue
 		sprite_2d.visible = is_detectable
 
+var can_move : bool = true
+
 @onready var sprite_2d : Sprite2D = $Sprite2D
+@onready var keyboard_e: Sprite2D = $Node/Node2D/KeyboardE
 
 signal on_movement(is_moving)
+signal equip_mask(mask:Mask)
+signal upequip_mask(mask:Mask)
 
 func _input(event: InputEvent) -> void:
+	if !can_move:
+		return
+	
 	#Yes I am aware that there are multiple solutions for this one of them being
 	# Finite State Machine which I could copy and paste code but lazy
 	if event.is_action("move_down") or \
@@ -68,6 +82,7 @@ func _handle_wear_mask() -> void:
 		return
 	
 	_current_mask.remove_mask(self)
+	upequip_mask.emit(_current_mask)
 	_current_mask = null
 	_current_interactable.on_interact(self)
 	_current_mask = _current_interactable
