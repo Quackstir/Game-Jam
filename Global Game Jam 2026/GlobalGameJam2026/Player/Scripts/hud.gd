@@ -32,6 +32,7 @@ func _equip_mask(_new_mask:Mask) -> void:
 	if _new_mask != null:
 		_new_mask.update_use.connect(_update_mask_icon)
 		_mask_can_activate = _new_mask.can_activate
+		_update_mask_icon(_new_mask.can_use)
 
 
 func _unequip_mask(_new_mask:Mask) -> void:
