@@ -102,6 +102,8 @@ func _physics_process(delta):
 
 func _init_path_follow():
 	path_follow.rotates = false
+	path_follow.position = Vector2.ZERO
+	self.position = Vector2.ZERO
 
 
 # End chase if target has been reached
@@ -174,6 +176,7 @@ func _init_waypoint():
 func _parent_waypoint_once():
 	if not _waypoint.get_parent():
 		Global.scene_manager.get_current_level().add_child(_waypoint)
+		self.look_at(_waypoint.global_position)
 
 
 func _patrol(delta):
