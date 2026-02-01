@@ -46,6 +46,7 @@ var _done_looking_right: bool
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var vision_cone = $VisionCone
 @onready var player_spotted_sfx: AudioStreamPlayer = $PlayerDetectedSfx
 @onready var just_wind_sfx: AudioStreamPlayer = $JustWindSfx
 @onready var lost_sight_sfx: AudioStreamPlayer = $LostSightSfx
@@ -370,6 +371,7 @@ func _on_hurt_box_area_entered(area):
 
 func _knock_out():
 	_change_state(State.KNOCKED_OUT)
+	vision_cone.visible = false
 	if not knocked_out_sfx.playing:
 		knocked_out_sfx.play()
 
