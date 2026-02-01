@@ -10,6 +10,7 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	get_tree().paused = false
 	GM.can_win = false
+	MusicManage.play_music()
 	Global.scene_manager.huds.remove_child(self)
 	Global.scene_manager.reload_level()
 
@@ -17,5 +18,6 @@ func _on_button_pressed() -> void:
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
 	GM.can_win = false
+	MusicManage.play_music()
 	Global.scene_manager.get_current_level().queue_free()
 	Global.scene_manager.change_hud_scene("res://Levels/MainMenu/main_menu.tscn")

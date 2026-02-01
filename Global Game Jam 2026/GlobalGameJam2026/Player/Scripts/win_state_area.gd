@@ -8,6 +8,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Massive W in the chat")
 		win_level_sfx.play()
 		if end_game:
+			MusicManage.pause_music()
 			Global.scene_manager.change_hud_scene("res://Levels/MarksTest/WinScene.tscn")
 		else:
 			Global.scene_manager.change_level_scene("res://Levels/ChrisTest/ChrisTestLevel.tscn")
