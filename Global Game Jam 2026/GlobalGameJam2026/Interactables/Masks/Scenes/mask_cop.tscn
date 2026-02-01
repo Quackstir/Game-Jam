@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://441n8yflkbnt" path="res://Interactables/Masks/Script/mask_cop.gd" id="1_pos3m"]
 [ext_resource type="PackedScene" uid="uid://j4c0f1dingol" path="res://Interactables/Masks/Scenes/mask_cop_projectile.tscn" id="2_5klc6"]
-[ext_resource type="Texture2D" uid="uid://cfaxdpidae033" path="res://Interactables/Masks/Art/Theif Mask.png" id="3_5klc6"]
+[ext_resource type="Texture2D" uid="uid://cumkjgyv3munq" path="res://Levels/MainMenu/Theif Mask Hollow.png" id="3_5klc6"]
 [ext_resource type="AudioStream" uid="uid://cqxo4gqsrrtug" path="res://Interactables/Masks/Audio/ShootMaskSFX.wav" id="4_5klc6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j0nx"]

@@ -65,7 +65,7 @@ func _handle_movement() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	velocity = _movement_input * movement_speed * delta
+	velocity = _movement_input * movement_speed
 	move_and_slide()
 
 
