@@ -10,6 +10,8 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44dus"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_44dus"]
+
 [node name="BasicGuard" type="CharacterBody2D" unique_id=1977318214]
 scale = Vector2(0.4, 0.4)
 collision_layer = 2
@@ -25,11 +27,12 @@ texture = ExtResource("2_r47l6")
 scale = Vector2(4.4, 4.4)
 shape = SubResource("RectangleShape2D_blie3")
 
-[node name="DetectionArea" type="Area2D" parent="." unique_id=1784049656]
+[node name="CaptureArea" type="Area2D" parent="." unique_id=1784049656]
+position = Vector2(16, 0)
 collision_layer = 0
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1821078982]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaptureArea" unique_id=1821078982]
 scale = Vector2(7.69, 7.69)
 shape = SubResource("CircleShape2D_r47l6")
 debug_color = Color(0.8463823, 0.0009889907, 0.9098306, 0.41960785)
@@ -60,9 +63,19 @@ debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
-[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[node name="BlindSpot" type="Area2D" parent="." unique_id=493459780]
+position = Vector2(-60, 0)
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlindSpot" unique_id=506102102]
+scale = Vector2(7, 5)
+shape = SubResource("CapsuleShape2D_44dus")
+
+[connection signal="area_entered" from="CaptureArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="body_entered" from="CaptureArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="area_entered" from="VisionCone" to="." method="_on_vision_cone_area_entered"]
 [connection signal="body_entered" from="VisionCone" to="." method="_on_vision_cone_body_entered"]
 [connection signal="area_entered" from="WaypointFinder" to="." method="_on_waypoint_finder_area_entered"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="area_entered" from="BlindSpot" to="." method="_on_blind_spot_area_entered"]

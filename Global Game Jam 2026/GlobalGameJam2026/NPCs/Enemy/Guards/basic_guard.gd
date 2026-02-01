@@ -9,23 +9,16 @@ enum State{
 	CHASE,
 	SEARCH,
 	RESET,
+	KNOCKED_OUT,
 }
 
-enum Dir{
-	NONE = -1,
-	UP,
-	LEFT,
-	RIGHT,
-	DOWN,
-}
-
-const PATROL_SPEED = 150
-const CHASE_SPEED = 180
+const PATROL_SPEED = 100
+const CHASE_SPEED = 150
 const TURN_SPEED = 5.0
 
-@export var current_dir: Dir = Dir.NONE
 @export var patrol_path: Path2D
 @export var path_follow: PathFollow2D
+@export var mask_to_drop: PackedScene
 
 var _current_state: State
 var _player_location: Vector2 # Last known player location
@@ -39,8 +32,10 @@ var _turn_progress: float
 var _old_rotation: float
 var _goal_rotation: float
 var _turn_values_set: bool
+var _dead: bool
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var sprite: Sprite2D = $Sprite2D
 
 func _ready():
 	_current_state = State.PATROL
@@ -49,6 +44,7 @@ func _ready():
 	_init_waypoint()
 	_current_speed = PATROL_SPEED
 	_turn_values_set = false
+	_dead = false
 	set_physics_process(true)
 
 
@@ -61,6 +57,8 @@ func _process(delta):
 			_turn_on_patrol(delta)
 		State.CHASE:
 			look_at(_player_location)
+		State.KNOCKED_OUT:
+			_flash_away_once()
 
 
 func _physics_process(_delta):
@@ -144,8 +142,44 @@ func _on_player_spotted(player):
 
 
 func _on_vision_cone_body_entered(body):
-	_on_player_spotted(body)
+	if _current_state != State.KNOCKED_OUT:
+		_on_player_spotted(body)
 
 
 func _on_detection_area_body_entered(body):
-	_on_player_spotted(body)
+	if _current_state != State.KNOCKED_OUT:
+		_on_player_spotted(body)
+
+
+# Knock out guard
+func _on_blind_spot_area_entered(_area):
+	_knock_out()
+
+
+func _knock_out():
+	_change_state(State.KNOCKED_OUT)
+
+
+func _flash_away_once():
+	if not _dead:
+		_dead = true
+		var i = 0
+		# flash for a bit
+		while i < 9:
+			await get_tree().create_timer(0.3).timeout
+			sprite.visible = not sprite.visible
+			i += 1
+		# destroy guard and leave behind mask
+		_drop_mask_and_leave()
+
+
+func _drop_mask_and_leave():
+	var mask = mask_to_drop.instantiate()
+	mask.global_position = self.global_position
+	Global.scene_manager.get_current_level().add_child(mask)
+	patrol_path.queue_free()
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		_knock_out()
