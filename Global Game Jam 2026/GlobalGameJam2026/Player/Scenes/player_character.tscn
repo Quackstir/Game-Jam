@@ -59,5 +59,7 @@ position = Vector2(0, 40.14)
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("4_cl8d8")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1269793609]
+
 [connection signal="area_entered" from="DetectInteractables" to="." method="_on_detect_interactables_area_entered"]
 [connection signal="area_exited" from="DetectInteractables" to="." method="_on_detect_interactables_area_exited"]
