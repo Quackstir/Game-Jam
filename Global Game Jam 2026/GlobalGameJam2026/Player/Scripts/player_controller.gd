@@ -68,7 +68,7 @@ func _handle_movement() -> void:
 	var _is_moving:bool = _movement_input.length() < 0
 	on_movement.emit(_is_moving)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	velocity = _movement_input * movement_speed
 	
 	move_and_slide()
@@ -130,12 +130,12 @@ func _handle_mask_activate() -> void:
 	_current_mask.activate_mask()
 
 
-func _on_detect_back_area_entered(area: Area2D) -> void:
+func _on_detect_back_area_entered(_area: Area2D) -> void:
 	print("Stab em in the back")
 	keyboard_e.visible = true
 
 
-func _on_detect_back_area_exited(area: Area2D) -> void:
+func _on_detect_back_area_exited(_area: Area2D) -> void:
 	keyboard_e.visible = false
 
 

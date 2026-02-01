@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsl2gq5vfhptp"]
 
 [ext_resource type="Script" uid="uid://ctbqjr1u1f0vi" path="res://Interactables/Loot/Script/loot_mcguffin.gd" id="1_iqbv7"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_becop"]
+[ext_resource type="Texture2D" uid="uid://dpnfsxrletc36" path="res://Interactables/Loot/Art/diamond.png" id="2_becop"]
 [ext_resource type="AudioStream" uid="uid://dy2ov4giqe488" path="res://Interactables/Loot/Audio/BigLootSFX.wav" id="3_becop"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j0nx"]
@@ -12,8 +12,7 @@ collision_mask = 5
 script = ExtResource("1_iqbv7")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1400827648]
-rotation = 2.3561945
-scale = Vector2(0.14, 0.14)
+scale = Vector2(0.035, 0.035)
 texture = ExtResource("2_becop")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1775486428]
