@@ -11,6 +11,15 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j0nx"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t6nnd"]
+load_path = "res://.godot/imported/arrow.png-c5143fe9e5156a9619c77694a8744acb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hsf1l"]
+load_path = "res://.godot/imported/bullet.png-28befec05fff61c1074892e68f09b95a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4332f"]
+load_path = "res://.godot/imported/hurt ball.png-c898f9d543866ed90d3117143d566f99.ctex"
+
 [node name="PlayerTestScene" type="Node2D" unique_id=886230346]
 
 [node name="PlayerCharacter" parent="." unique_id=23574427 instance=ExtResource("1_b3n0l")]
@@ -41,6 +50,7 @@ position = Vector2(-36, -51)
 
 [node name="MaskCop" parent="." unique_id=1571880158 instance=ExtResource("7_t6nnd")]
 position = Vector2(61, 3)
+projectile_art = Array[Texture2D]([SubResource("CompressedTexture2D_t6nnd"), SubResource("CompressedTexture2D_hsf1l"), SubResource("CompressedTexture2D_4332f")])
 
 [node name="WinStateArea" parent="." unique_id=993888251 instance=ExtResource("9_hsf1l")]
 position = Vector2(-166, 52)
