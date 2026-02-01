@@ -1,8 +1,14 @@
 class_name Mask
 extends Interactable
 
-var can_use:bool = true
-var _player:PlayerController
+@export var can_activate : bool = true
+var can_use : bool :
+	set(newValue):
+		can_use = newValue
+		update_use.emit(can_use)
+var _player : PlayerController
+
+signal update_use(can_use)
 
 func on_interact(player:PlayerController) -> void:
 	super(player)

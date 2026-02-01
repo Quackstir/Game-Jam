@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://snsgewv4mqj5" path="res://Player/Scripts/player_controller.gd" id="1_lvh24"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_wq8u3"]
+[ext_resource type="PackedScene" uid="uid://dtb3w1lcwvwr1" path="res://Player/Scenes/HUD.tscn" id="3_d826i"]
+[ext_resource type="Texture2D" uid="uid://bpo03tjd01bvd" path="res://Player/Art/keyboard_e.png" id="4_cl8d8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gsobf"]
 
@@ -9,6 +11,7 @@
 radius = 15.0
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=23574427]
+scale = Vector2(2, 2)
 script = ExtResource("1_lvh24")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1617247604]
@@ -30,6 +33,27 @@ collision_mask = 4
 [node name="DICollision" type="CollisionShape2D" parent="DetectInteractables" unique_id=328740843]
 shape = SubResource("CircleShape2D_7x04e")
 debug_color = Color(0.6440771, 0.5234795, 0.06038078, 0.41960785)
+
+[node name="Hud" parent="." unique_id=1315047528 node_paths=PackedStringArray("player") instance=ExtResource("3_d826i")]
+player = NodePath("..")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=1147039610]
+position = Vector2(0, 3.8146973e-06)
+scale = Vector2(0.24, 0.24)
+remote_path = NodePath("../Node/Node2D")
+update_rotation = false
+update_scale = false
+
+[node name="Node" type="Node" parent="." unique_id=445361145]
+
+[node name="Node2D" type="Node2D" parent="Node" unique_id=223887910]
+position = Vector2(0, 7.6293945e-06)
+
+[node name="KeyboardE" type="Sprite2D" parent="Node/Node2D" unique_id=666734674]
+visible = false
+position = Vector2(0, 40.14)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("4_cl8d8")
 
 [connection signal="area_entered" from="DetectInteractables" to="." method="_on_detect_interactables_area_entered"]
 [connection signal="area_exited" from="DetectInteractables" to="." method="_on_detect_interactables_area_exited"]
