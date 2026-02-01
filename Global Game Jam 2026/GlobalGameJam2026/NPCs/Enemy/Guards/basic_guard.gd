@@ -314,8 +314,10 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 
 func _on_player_spotted(player):
 	if player.is_detectable:
-		if not _spotted_player and not player_spotted_sfx.playing:
-			player_spotted_sfx.play()
+		if not _spotted_player:
+			MusicManage.play_battle_theme()
+			if not player_spotted_sfx.playing:
+				player_spotted_sfx.play()
 		_spotted_player = player
 		_target_nav_goal = _spotted_player.global_position
 		_change_state(State.CHASE)
@@ -328,6 +330,8 @@ func _on_vision_cone_body_entered(body):
 
 func _on_vision_cone_body_exited(_body):
 	_spotted_player = null
+	if MusicManage.battle_theme.playing:
+		MusicManage.stop_battle_theme()
 
 
 func _on_detection_area_body_entered(body):
