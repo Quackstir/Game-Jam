@@ -57,23 +57,80 @@ func _process(delta):
 			_turn_on_patrol(delta)
 		State.CHASE:
 			look_at(_player_location)
+		State.RESET:
+			look_at(_target_nav_goal)
 		State.KNOCKED_OUT:
 			_flash_away_once()
 
 
-func _physics_process(_delta):
-	if _current_state != State.CHASE:
-		return
+func _physics_process(delta):
+	match _current_state:
+		State.CHASE:
+			_nav_to_target(delta, CHASE_SPEED)
+		State.RESET:
+			_nav_to_target(delta, PATROL_SPEED)
+		_:
+			return
+	_check_target_reached()
+	move_and_slide()
+
+
+# End chase if target has been reached
+func _check_target_reached():
+	if navigation_agent.is_navigation_finished():
+		_on_navigation_agent_2d_velocity_computed(Vector2.ZERO)
+		# check if ended chasing or ending returning to patrol
+		match _current_state:
+			State.CHASE:
+				_head_back_to_patrol_path()
+			State.RESET:
+				_resume_patrol()
+
+
+func _head_back_to_patrol_path():
+	_change_state(State.RESET)
+	var local_path_position = patrol_path.to_local(global_position)
+	_target_nav_goal = patrol_path.curve.get_closest_point(local_path_position)
+	
+
+
+func _resume_patrol():
+	_change_state(State.PATROL)
+	# find and set new progress on path
+	var local_point = patrol_path.to_local(global_position)
+	var offset = patrol_path.curve.get_closest_offset(local_point)
+	path_follow.progress = offset
+	# return guard to parent's coordinates
+	self.position = Vector2.ZERO
+	# find and set next waypoint
+	_next_waypoint_index = _find_next_checkpoint()
+	_waypoint.position = patrol_path.curve.get_point_position(_next_waypoint_index)
+	look_at(_waypoint.global_position)
+
+
+func _find_next_checkpoint() -> int:
+	# iterate thru checkpoints on path
+	for i in range(patrol_path.curve.point_count):
+		var checkpoint = patrol_path.curve.get_point_position(i)
+		var progress = patrol_path.curve.get_closest_offset(checkpoint)
+		# return the first checkpoint beyond our current progress
+		if path_follow.progress < progress:
+			return i
+	# otherwise return first checkpoint
+	return 0
+
+
+# chase player
+func _nav_to_target(_delta, speed):
 	navigation_agent.target_position = _target_nav_goal
 	var next_nav_position = navigation_agent.get_next_path_position()
 	var new_velocity = (global_position.direction_to(next_nav_position)
-			* CHASE_SPEED)
+			* speed)
 	
 	#if navigation_agent.avoidance_enabled:
 		#navigation_agent.set_velocity_forced(new_velocity)
 	#else:
 	_on_navigation_agent_2d_velocity_computed(new_velocity)
-	move_and_slide()
 
 
 func _init_waypoint():
@@ -135,10 +192,10 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 
 
 func _on_player_spotted(player):
-	print("PLAYER SPOTTED!")
-	_player_location = player.global_position
-	_target_nav_goal = _player_location
-	_change_state(State.CHASE)
+	if player.is_detectable:
+		_player_location = player.global_position
+		_target_nav_goal = _player_location
+		_change_state(State.CHASE)
 
 
 func _on_vision_cone_body_entered(body):
@@ -184,4 +241,5 @@ func _drop_mask_and_leave():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		_knock_out()
+		#_knock_out()
+		pass

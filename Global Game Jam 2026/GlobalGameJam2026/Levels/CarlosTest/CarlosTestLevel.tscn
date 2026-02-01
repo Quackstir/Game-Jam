@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://gsyphhdvtm5y" path="res://NPCs/Enemy/Guards/basic_guard.tscn" id="1_s2tio"]
 [ext_resource type="PackedScene" uid="uid://c88oye8lcig6o" path="res://Interactables/Masks/Scenes/mask_cop.tscn" id="2_68ctx"]
 [ext_resource type="TileSet" uid="uid://d36k3ubo5ecjb" path="res://Levels/ChrisTest/tile_set_forest.tres" id="2_r7pay"]
+[ext_resource type="PackedScene" uid="uid://cfeltdrkt2o5t" path="res://Interactables/Masks/Scenes/mask.tscn" id="3_5bgu2"]
 [ext_resource type="PackedScene" uid="uid://b1ofadrugnxnw" path="res://Player/Scenes/player_character.tscn" id="3_68ctx"]
+[ext_resource type="PackedScene" uid="uid://cqyettnmgof3d" path="res://Interactables/Masks/Scenes/mask_statue.tscn" id="6_arqd1"]
 
 [sub_resource type="Curve2D" id="Curve2D_s2tio"]
 _data = {
@@ -61,3 +63,9 @@ tile_set = ExtResource("2_r7pay")
 [node name="PlayerCharacter" parent="." unique_id=23574427 instance=ExtResource("3_68ctx")]
 position = Vector2(407, 306)
 movement_speed = 7000.0
+
+[node name="Mask" parent="." unique_id=225643898 instance=ExtResource("3_5bgu2")]
+position = Vector2(472, 352)
+
+[node name="MaskStatue" parent="." unique_id=2094720340 instance=ExtResource("6_arqd1")]
+position = Vector2(676, 361)
