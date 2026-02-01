@@ -148,7 +148,9 @@ func _on_vision_cone_body_entered(body):
 
 func _on_detection_area_body_entered(body):
 	if _current_state != State.KNOCKED_OUT:
-		_on_player_spotted(body)
+		# Player captured!
+		body.can_move = false
+		Global.scene_manager.change_hud_scene("res://Levels/LoseScreen/lose_screen.tscn")
 
 
 # Knock out guard

@@ -4,12 +4,15 @@ extends Node
 @export var levels: Node2D
 @export var huds: Control
 
+var _cur_level_string: String
 var _current_level
 var _current_hud
+
 
 func _ready():
 	Global.scene_manager = self
 	_boot_up_splash_screen()
+
 
 func change_level_scene(new_level: String, delete: bool = true,
 		keep_running: bool = false):
@@ -24,9 +27,11 @@ func change_level_scene(new_level: String, delete: bool = true,
 			levels.remove_child(_current_level) # Only keeps level in memory
 	
 	# switch to the new level
+	_cur_level_string = new_level
 	var new = load(new_level).instantiate()
 	levels.add_child(new)
 	_current_level = new
+
 
 func change_hud_scene(new_hud: String, delete: bool = true,
 		keep_running: bool = false):
@@ -45,10 +50,16 @@ func change_hud_scene(new_hud: String, delete: bool = true,
 	huds.add_child(new)
 	_current_hud = new
 
+
 func get_current_level() -> Node2D:
 	return levels.get_child(0)
+
+
+func reload_level():
+	change_level_scene(_cur_level_string)
+
 
 func _boot_up_splash_screen():
 	var splash = load("res://Levels/MainMenu/main_menu.tscn").instantiate()
 	huds.add_child(splash)
-	_current_level = splash
+	_current_hud = splash

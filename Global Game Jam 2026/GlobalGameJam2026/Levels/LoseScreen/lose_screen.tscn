@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://bs6vgu3fmuy2j"]
+
+[ext_resource type="Script" uid="uid://ctvkug8lq8hc" path="res://Levels/LoseScreen/lose_screen.gd" id="1_svhn7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqje4"]
+bg_color = Color(0, 0, 0, 0.39215687)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svhn7"]
+bg_color = Color(0.12287947, 0.22192642, 0.22191781, 1)
+
+[sub_resource type="Theme" id="Theme_0ef7h"]
+default_font_size = 50
+
+[node name="LoseScreen" type="Control" unique_id=923162435]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_svhn7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=905556705]
+
+[node name="Background" type="Panel" parent="CanvasLayer" unique_id=1594330809]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_eqje4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=587738476]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Spacer" type="Control" parent="CanvasLayer/HBoxContainer" unique_id=2051083296]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=824060419]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=2028702435]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=914301624]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_svhn7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel" unique_id=1494871819]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer" unique_id=916779549]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer" unique_id=1701792058]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Spacer" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=466947063]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Title" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=497754935]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_0ef7h")
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=942375661]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer" unique_id=1140196963]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer" unique_id=705361612]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="Spacer" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=431208324]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=304166385]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Spacer" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1879976572]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="RetryButton" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=962353710]
+layout_mode = 2
+text = "Retry"
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=955060176]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=2081984427]
+layout_mode = 2
+text = "Quit"
+
+[node name="Spacer3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=853061865]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2" unique_id=1383109968]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Spacer3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer" unique_id=2016798787]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=833831946]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/HBoxContainer" unique_id=908308771]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
