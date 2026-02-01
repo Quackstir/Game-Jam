@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://dif6ladeu681i"]
 
-[ext_resource type="Script" uid="uid://leecs86224gh" path="res://Levels/Main Menu/main_menu.gd" id="1_e2pmq"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_rjeep"]
-[ext_resource type="FontFile" uid="uid://cbrddtp1701de" path="res://Levels/Main Menu/Medieval Scroll of Wisdom.ttf" id="3_3foys"]
+[ext_resource type="Script" uid="uid://leecs86224gh" path="res://Levels/MainMenu/main_menu.gd" id="1_e2pmq"]
+[ext_resource type="FontFile" uid="uid://cbrddtp1701de" path="res://Levels/MainMenu/Medieval Scroll of Wisdom.ttf" id="3_3foys"]
+[ext_resource type="Texture2D" uid="uid://dyupmq7df3kge" path="res://Levels/MainMenu/stone mask hollow.png" id="4_3u71f"]
+[ext_resource type="Texture2D" uid="uid://3y2kwm1gvqbd" path="res://Levels/MainMenu/GGJ 2026 Credits.png" id="4_q7u2s"]
+[ext_resource type="Texture2D" uid="uid://cumkjgyv3munq" path="res://Levels/MainMenu/Theif Mask Hollow.png" id="5_p4dqk"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wqh7t"]
-texture = ExtResource("2_rjeep")
-modulate_color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7g58x"]
+bg_color = Color(0.1428582, 0.14285827, 0.14285818, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2pmq"]
 bg_color = Color(1, 1, 1, 1)
@@ -56,7 +57,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_wqh7t")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7g58x")
+
+[node name="StoneMaskHollow" type="Sprite2D" parent="." unique_id=131431498]
+position = Vector2(210, 406)
+scale = Vector2(0.706, 0.706)
+texture = ExtResource("4_3u71f")
+
+[node name="TheifMaskHollow" type="Sprite2D" parent="." unique_id=459466491]
+position = Vector2(942.99994, 405)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_p4dqk")
 
 [node name="Main Buttons" type="VBoxContainer" parent="." unique_id=205699472]
 layout_mode = 1
@@ -127,35 +138,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.78039217)
 theme_override_fonts/font = ExtResource("3_3foys")
-theme_override_font_sizes/font_size = 72
-text = "Funny Name Yeehaw"
+theme_override_font_sizes/font_size = 66
+text = "The Masker Raid"
+horizontal_alignment = 1
 
 [node name="Credits" type="Panel" parent="." unique_id=1069826396]
+visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -285.0
-offset_top = -155.0
-offset_right = 284.5
-offset_bottom = 297.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wqh7t")
 
-[node name="Label" type="Label" parent="Credits" unique_id=2071506078]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
-text = "CREDITS"
+[node name="TextureRect" type="TextureRect" parent="Credits" unique_id=1738424023]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -1.0
+offset_right = 1122.0
+offset_bottom = 567.0
+texture = ExtResource("4_q7u2s")
+expand_mode = 1
 
 [node name="Back Button" type="Button" parent="Credits" unique_id=1922229915]
 layout_mode = 1
@@ -164,10 +168,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -95.75
-offset_top = 135.5
-offset_right = 96.5
-offset_bottom = 190.5
+offset_left = -96.0
+offset_top = 246.0
+offset_right = 96.25
+offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
