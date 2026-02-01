@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*uid://dihy53xvra87d"
 GM="*uid://drdpkqfbcs6e8"
+MusicManage="*uid://warfe2gkohkh"
 
 [input]
 

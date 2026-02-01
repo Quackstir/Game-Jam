@@ -24,6 +24,11 @@ var can_move : bool = true :
 		if !can_move:
 			velocity = Vector2(0,0)
 
+var move_once : bool = false
+
+@onready var pa_collider: CollisionShape2D = $PlayerAttack/PACollider
+@onready var timer: Timer = $Timer
+
 @onready var sprite_2d : Sprite2D = $Sprite2D
 @onready var keyboard_e: Sprite2D = $Node/Node2D/KeyboardE
 
@@ -33,6 +38,7 @@ var can_move : bool = true :
 signal on_movement(is_moving)
 signal equip_mask(mask:Mask)
 signal upequip_mask(mask:Mask)
+
 
 func _input(event: InputEvent) -> void:
 	if !can_move:
@@ -58,18 +64,19 @@ func _handle_movement() -> void:
 	var _horizontal_movement:float = Input.get_action_raw_strength("move_right") - Input.get_action_raw_strength("move_left")
 	var _vertical_movement:float = Input.get_action_raw_strength("move_down") - Input.get_action_raw_strength("move_up")
 	_movement_input = Vector2(_horizontal_movement,_vertical_movement).normalized()
-	
-	var _total_movement:float = _movement_input.x + _movement_input.y
-	var _is_moving:bool = _total_movement != 0
-	on_movement.emit(_is_moving)
 
+	var _is_moving:bool = _movement_input.length() < 0
+	on_movement.emit(_is_moving)
 
 func _physics_process(delta: float) -> void:
 	velocity = _movement_input * movement_speed
+	
 	move_and_slide()
 
 
 func _handle_interact() -> void:
+	pa_collider.disabled = false
+	timer.start()
 	if _current_interactable == null:
 		print("nothing")
 		return
@@ -121,3 +128,16 @@ func _handle_mask_activate() -> void:
 
 	print("activate mask")
 	_current_mask.activate_mask()
+
+
+func _on_detect_back_area_entered(area: Area2D) -> void:
+	print("Stab em in the back")
+	keyboard_e.visible = true
+
+
+func _on_detect_back_area_exited(area: Area2D) -> void:
+	keyboard_e.visible = false
+
+
+func _on_timer_timeout() -> void:
+	pa_collider.disabled = true

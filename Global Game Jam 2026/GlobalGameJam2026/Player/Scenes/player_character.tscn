@@ -12,6 +12,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7x04e"]
 radius = 15.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oc7e2"]
+size = Vector2(15, 20)
+
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=23574427]
 scale = Vector2(2, 2)
 script = ExtResource("1_lvh24")
@@ -61,5 +64,31 @@ texture = ExtResource("4_cl8d8")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1269793609]
 
+[node name="PlayerAttack" type="Area2D" parent="." unique_id=2075000374]
+collision_layer = 16
+collision_mask = 16
+
+[node name="PACollider" type="CollisionShape2D" parent="PlayerAttack" unique_id=553568309]
+position = Vector2(14, 0)
+shape = SubResource("RectangleShape2D_oc7e2")
+disabled = true
+debug_color = Color(0.9771305, 0, 0.41017038, 0.41960785)
+
+[node name="DetectBack" type="Area2D" parent="." unique_id=53756832]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectBack" unique_id=1294843022]
+position = Vector2(14, 0)
+shape = SubResource("RectangleShape2D_oc7e2")
+debug_color = Color(0, 0.6324429, 0.4516123, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=821930733]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="area_entered" from="DetectInteractables" to="." method="_on_detect_interactables_area_entered"]
 [connection signal="area_exited" from="DetectInteractables" to="." method="_on_detect_interactables_area_exited"]
+[connection signal="area_entered" from="DetectBack" to="." method="_on_detect_back_area_entered"]
+[connection signal="area_exited" from="DetectBack" to="." method="_on_detect_back_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
