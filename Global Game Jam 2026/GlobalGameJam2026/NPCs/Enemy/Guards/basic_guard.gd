@@ -193,10 +193,17 @@ func _turn_on_patrol(delta):
 		_change_state(State.PATROL)
 
 
+# returns true if guard still has the same state after doing nothing for a bit
+func _can_continue_after_idle(old_state: State) -> bool:
+	await get_tree().create_timer(IDLE_TIME).timeout
+	return _current_state == old_state
+
+
 # Plays after losing track of player
 func _look_around(delta):
 	# idle time
-	await get_tree().create_timer(IDLE_TIME).timeout
+	if not await _can_continue_after_idle(State.SEARCH):
+		return
 	
 	# set static local variables
 	if not _look_values_set and _current_state == State.SEARCH:
@@ -233,7 +240,8 @@ func _look_around(delta):
 			_turn_progress = 0.0
 		else:
 			# idle time
-			await get_tree().create_timer(IDLE_TIME).timeout
+			if not await _can_continue_after_idle(State.SEARCH):
+				return
 			var local_path_position = patrol_path.to_local(global_position)
 			_target_nav_goal = patrol_path.curve.get_closest_point(local_path_position)
 			_change_state(State.RESET_TURN)
